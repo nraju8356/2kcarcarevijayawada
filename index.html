@@ -484,10 +484,6 @@
             bottom: 20px;
             left: 20px;
             z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 12px;
         }
 
         .visitor-badge {
@@ -559,23 +555,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .flag-counter-wrapper {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 12px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            animation-delay: 2.5s;
-        }
-
-        .flag-counter-wrapper img {
-            border-radius: 8px;
-            display: block;
-        }
-
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -596,12 +575,10 @@
             .youtube-float { width: 50px; height: 50px; font-size: 1.3rem; bottom: 76px; right: 16px; }
             .instagram-float { width: 50px; height: 50px; font-size: 1.3rem; bottom: 136px; right: 16px; }
             .scroll-top { width: 42px; height: 42px; bottom: 80px; left: 16px; }
-            .visitor-counter { bottom: 16px; left: 16px; gap: 8px; }
+            .visitor-counter { bottom: 16px; left: 16px; }
             .visitor-badge { padding: 8px 14px; min-width: 170px; }
             .visitor-badge .counter-number { font-size: 1rem; }
             .visitor-badge .counter-icon { width: 30px; height: 30px; }
-            .flag-counter-wrapper { padding: 8px; }
-            .flag-counter-wrapper img { max-width: 160px; }
             .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; }
             .nav-glass { padding: 3px 0; }
             .cursor-glow { width: 180px; height: 180px; }
@@ -660,11 +637,6 @@
                 <div class="counter-label">Total Visitors</div>
                 <div class="counter-number"><span class="live-dot"></span><span id="visitCount">0</span></div>
             </div>
-        </div>
-        <div class="flag-counter-wrapper">
-            <a href="http://s01.flagcounter.com/more/SLmS" target="_blank" rel="noopener noreferrer">
-                <img src="https://s01.flagcounter.com/count2/SLmS/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-            </a>
         </div>
     </div>
 
@@ -816,7 +788,7 @@
                     <div class="service-icon"><i class="fas fa-hammer text-purple-400"></i></div>
                     <h3 class="text-base sm:text-lg font-bold text-white mb-2">Denting</h3>
                     <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Precision dent removal restoring your car's body panels.</p>
-                </div>https://github.com/nraju8356/2kcarcarevijayawada/blob/main/index.html
+                </div>
                 <div class="service-card reveal" style="transition-delay: 0.05s;">
                     <div class="service-icon"><i class="fas fa-paint-roller text-blue-400"></i></div>
                     <h3 class="text-base sm:text-lg font-bold text-white mb-2">Painting</h3>
@@ -1066,7 +1038,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-white text-sm">AI-Generated Summary</h4>
-                                <p class="text-white/30 text-xs">Based on 45 Google reviews</p>
+                                <p class="text-white/30 text-xs">Based on 44 Google reviews</p>
                             </div>
                         </div>
                         <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Customers consistently praise the excellent service, friendly and talented staff, and the satisfying overall experience. The work is described as highly skilled, with standout finishing, detailing, and paint matching.</p>
