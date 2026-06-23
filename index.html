@@ -29,7 +29,6 @@
             pointer-events: none;
         }
 
-        /* Custom Cursor Main Dot - Desktop only */
         .cursor-main {
             position: fixed;
             width: 20px;
@@ -50,7 +49,6 @@
             background: radial-gradient(circle, rgba(192,132,252,0.8) 0%, rgba(59,130,246,0.5) 40%, transparent 70%);
         }
 
-        /* Cursor Trail Dots */
         .cursor-trail {
             position: fixed;
             width: 12px;
@@ -62,7 +60,6 @@
             mix-blend-mode: screen;
         }
 
-        /* Cursor Glow Ring */
         .cursor-glow {
             position: fixed;
             width: 60px;
@@ -78,7 +75,6 @@
         }
         .cursor-glow.active { opacity: 1; }
 
-        /* Touch glow for mobile */
         .touch-glow {
             position: fixed;
             width: 80px;
@@ -91,11 +87,8 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        .touch-glow.active {
-            opacity: 1;
-        }
+        .touch-glow.active { opacity: 1; }
 
-        /* Rainbow particles */
         .cursor-particle {
             position: fixed;
             width: 6px;
@@ -106,7 +99,6 @@
             transform: translate(-50%, -50%);
         }
 
-        /* Desktop only: hide default cursor */
         @media (hover: hover) and (pointer: fine) {
             * { cursor: none !important; }
             .service-card, .review-card, .faq-item, .btn-primary, .btn-outline, .faq-question, input, select, textarea, a, button { cursor: none !important; }
@@ -509,7 +501,7 @@
 
     <canvas id="three-canvas"></canvas>
 
-    <!-- Custom Cursor Elements - Hidden by default, shown via JS -->
+    <!-- Custom Cursor Elements -->
     <div class="cursor-main" id="cursorMain"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="touch-glow" id="touchGlow"></div>
@@ -648,21 +640,21 @@
         <div class="flex whitespace-nowrap">
             <div class="marquee flex items-center space-x-12 text-white/20 font-bold text-lg">
                 <span>🎨 PAINTING</span><span>•</span>
+                <span>🧽 WASHING</span><span>•</span>
+                <span>✨ CERAMIC COATING</span><span>•</span>
+                <span>🛡️ GRAPHENE COATING</span><span>•</span>
+                <span>💎 NANO COATING</span><span>•</span>
+                <span>🔧 DENTING</span><span>•</span>
+                <span>💧 TEFLON COATING</span><span>•</span>
+                <span>🪟 GLASS FILM</span><span>•</span>
+                <span>🎨 PAINTING</span><span>•</span>
                 <span> WASHING</span><span>•</span>
                 <span>✨ CERAMIC COATING</span><span>•</span>
                 <span>🛡️ GRAPHENE COATING</span><span>•</span>
-                <span> NANO COATING</span><span>•</span>
-                <span> DENTING</span><span>•</span>
-                <span> TEFLON COATING</span><span>•</span>
+                <span>💎 NANO COATING</span><span>•</span>
+                <span>🔧 DENTING</span><span>•</span>
+                <span>💧 TEFLON COATING</span><span>•</span>
                 <span>🪟 GLASS FILM</span><span>•</span>
-                <span> PAINTING</span><span>•</span>
-                <span>🧽 WASHING</span><span>•</span>
-                <span>✨ CERAMIC COATING</span><span>•</span>
-                <span>️ GRAPHENE COATING</span><span>•</span>
-                <span> NANO COATING</span><span>•</span>
-                <span> DENTING</span><span>•</span>
-                <span> TEFLON COATING</span><span>•</span>
-                <span> GLASS FILM</span><span>•</span>
             </div>
         </div>
     </section>
@@ -1092,6 +1084,7 @@
         </div>
     </section>
 
+    <!-- About Section - UPDATED -->
     <section id="about" class="py-16 sm:py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -1099,12 +1092,16 @@
                     <div class="section-badge"><i class="fas fa-heart"></i> ABOUT US</div>
                     <h2 class="section-title font-black text-white mt-4 sm:mt-6">Passionate About Cars</h2>
                     <p class="text-white/50 mt-4 sm:mt-6 leading-relaxed text-sm sm:text-base">
-                        At 2K Car Care, Vijayawada, we are a team of car enthusiasts dedicated to delivering factory-quality results for every vehicle. We use only premium products and the latest techniques.
+                        At 2K Car Care, Vijayawada, we are a team of car enthusiasts dedicated to delivering factory-quality results for every vehicle. We use only premium products and the latest techniques. Established in 2015, 2K Car Care Vijayawada is the premier destination for multi-brand automotive care. Specializing in flawless finishes and meticulous restoration, the expert team offers a comprehensive range of services from denting and painting to advanced ceramic and graphene coatings. Their dedication to precision ensures every vehicle, from a Maruti Suzuki to a luxury BMW, receives a factory-perfect look. The shop also provides essential underbody anti-rust treatments, guaranteeing your car is protected inside and out. Trust 2K Car Care to rejuvenate your vehicle with exceptional quality and attention to detail.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
                         <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
                             <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
-                            <span class="text-white/60 text-xs sm:text-sm">Trained & certified specialists</span>
+                            <span class="text-white/60 text-xs sm:text-sm">Established in 2015</span>
+                        </div>
+                        <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
+                            <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
+                            <span class="text-white/60 text-xs sm:text-sm">Multi-brand automotive care</span>
                         </div>
                         <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
                             <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
@@ -1112,11 +1109,15 @@
                         </div>
                         <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
                             <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
-                            <span class="text-white/60 text-xs sm:text-sm">Transparent pricing</span>
+                            <span class="text-white/60 text-xs sm:text-sm">From Maruti Suzuki to BMW</span>
                         </div>
                         <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
                             <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
-                            <span class="text-white/60 text-xs sm:text-sm">All car types — hatchback to SUV</span>
+                            <span class="text-white/60 text-xs sm:text-sm">Advanced ceramic & graphene coatings</span>
+                        </div>
+                        <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
+                            <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
+                            <span class="text-white/60 text-xs sm:text-sm">Factory-perfect finish guaranteed</span>
                         </div>
                     </div>
                 </div>
@@ -1136,7 +1137,7 @@
                                 <div class="text-white/40 text-xs sm:text-sm mt-2">Average Rating</div>
                             </div>
                             <div class="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/10">
-                                <div class="text-3xl sm:text-4xl font-black text-yellow-400">5+</div>
+                                <div class="text-3xl sm:text-4xl font-black text-yellow-400">9+</div>
                                 <div class="text-white/40 text-xs sm:text-sm mt-2">Years Experience</div>
                             </div>
                         </div>
@@ -1230,7 +1231,6 @@
         var hue = 0;
         var trailAnimFrame;
 
-        // Rainbow colors for cursor trail
         function getRainbowColor(index, total) {
             var h = (hue + index * 25) % 360;
             return 'hsl(' + h + ', 100%, 60%)';
@@ -1252,7 +1252,6 @@
             });
         }
 
-        // Create burst particles
         function createBurst(x, y) {
             for (var i = 0; i < 10; i++) {
                 var particle = document.createElement('div');
@@ -1281,7 +1280,6 @@
             }
         }
 
-        // Create sparkle
         function createSparkle(x, y) {
             var sparkle = document.createElement('div');
             sparkle.className = 'cursor-particle';
@@ -1303,7 +1301,6 @@
             };
         }
 
-        // Update trail dots animation
         function updateTrail() {
             trailAnimFrame = requestAnimationFrame(updateTrail);
 
@@ -1327,34 +1324,29 @@
         }
         updateTrail();
 
-        // ===== DESKTOP CURSOR =====
+        // DESKTOP CURSOR
         document.addEventListener('mousemove', function(e) {
             mouseX = e.clientX;
             mouseY = e.clientY;
             hue = (hue + 3) % 360;
 
-            // Show cursor elements
             cursorMain.classList.add('active');
             cursorGlow.classList.add('active');
 
-            // Update main cursor
             cursorMain.style.left = mouseX + 'px';
             cursorMain.style.top = mouseY + 'px';
             cursorMain.style.background = 'radial-gradient(circle, hsl(' + hue + ', 100%, 80%) 0%, hsl(' + ((hue + 60) % 360) + ', 100%, 60%) 40%, transparent 70%)';
 
-            // Update glow ring
             cursorGlow.style.left = mouseX + 'px';
             cursorGlow.style.top = mouseY + 'px';
             cursorGlow.style.borderColor = 'hsla(' + hue + ', 100%, 60%, 0.4)';
             cursorGlow.style.boxShadow = '0 0 30px hsla(' + hue + ', 100%, 60%, 0.2), 0 0 60px hsla(' + ((hue + 120) % 360) + ', 100%, 60%, 0.1)';
 
-            // Create sparkles occasionally
             if (Math.random() > 0.85) {
                 createSparkle(mouseX, mouseY);
             }
         });
 
-        // Hover effects on interactive elements
         var hoverElements = document.querySelectorAll('a, button, .service-card, .review-card, .faq-question, input, select, textarea');
         hoverElements.forEach(function(el) {
             el.addEventListener('mouseenter', function() {
@@ -1370,26 +1362,23 @@
             });
         });
 
-        // Click burst effect on desktop
         document.addEventListener('click', function(e) {
             if (!isTouchDevice) {
                 createBurst(e.clientX, e.clientY);
             }
         });
 
-        // ===== MOBILE/TOUCH CURSOR =====
+        // MOBILE/TOUCH CURSOR
         document.addEventListener('touchmove', function(e) {
             var touch = e.touches[0];
             mouseX = touch.clientX;
             mouseY = touch.clientY;
             hue = (hue + 5) % 360;
 
-            // Show touch glow
             touchGlow.style.left = touch.clientX + 'px';
             touchGlow.style.top = touch.clientY + 'px';
             touchGlow.classList.add('active');
 
-            // Update trail for mobile too
             for (var i = 0; i < maxTrail; i++) {
                 var trail = cursorTrail[i];
                 var dx = mouseX - trail.x;
@@ -1403,7 +1392,6 @@
                 trail.el.style.boxShadow = '0 0 ' + (10 - i * 0.5) + 'px ' + getRainbowColor(i, maxTrail);
             }
 
-            // Create particles on touch move
             if (Math.random() > 0.6) {
                 var p = document.createElement('div');
                 p.className = 'cursor-particle';
@@ -1437,7 +1425,6 @@
             
             createBurst(touch.clientX, touch.clientY);
             
-            // Also show desktop cursor elements on touch
             cursorMain.classList.add('active');
             cursorGlow.classList.add('active');
             cursorMain.style.left = touch.clientX + 'px';
@@ -1450,9 +1437,7 @@
             touchGlow.classList.remove('active');
         });
 
-        // ============================================
         // Three.js 3D Background
-        // ============================================
         var canvas = document.getElementById('three-canvas');
         if (canvas && typeof THREE !== 'undefined') {
             try {
@@ -1545,7 +1530,6 @@
             canvas.style.display = 'none';
         }
 
-        // Navbar scroll
         var navbar = document.getElementById('navbar');
         var scrollTopBtn = document.getElementById('scrollTop');
         var isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
