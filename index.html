@@ -49,24 +49,13 @@
             background: radial-gradient(circle, rgba(192,132,252,0.8) 0%, rgba(59,130,246,0.5) 40%, transparent 70%);
         }
 
-        .cursor-trail {
-            position: fixed;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99998;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: screen;
-        }
-
         .cursor-glow {
             position: fixed;
             width: 60px;
             height: 60px;
             border-radius: 50%;
             pointer-events: none;
-            z-index: 99997;
+            z-index: 99998;
             transform: translate(-50%, -50%);
             border: 2px solid rgba(192, 132, 252, 0.3);
             transition: all 0.15s ease;
@@ -769,7 +758,7 @@
                 <span>💎 NANO COATING</span><span>•</span>
                 <span>🔧 DENTING</span><span>•</span>
                 <span>💧 TEFLON COATING</span><span>•</span>
-                <span>🪟 GLASS FILM</span><span>•</span>
+                <span> GLASS FILM</span><span>•</span>
                 <span> PAINTING</span><span>•</span>
                 <span>🧽 WASHING</span><span>•</span>
                 <span>✨ CERAMIC COATING</span><span>•</span>
@@ -1345,28 +1334,19 @@
         // VISITOR COUNTER - Real Tracking Implementation
         // ============================================
         (function() {
-            // Visit counter using localStorage + fetch for real tracking
             var visitCountEl = document.getElementById('visitCount');
             var visitorKey = '2kcarcare_visitor_tracked';
             var totalVisitsKey = '2kcarcare_total_visits';
             
-            // Get or initialize total visits from localStorage
             var totalVisits = parseInt(localStorage.getItem(totalVisitsKey)) || 0;
-            
-            // Check if this is a new visitor (first time or new session)
             var isNewVisitor = !sessionStorage.getItem(visitorKey);
             
             if (isNewVisitor) {
-                // Mark this session as tracked
                 sessionStorage.setItem(visitorKey, 'true');
-                
-                // Increment total visits
                 totalVisits++;
                 localStorage.setItem(totalVisitsKey, totalVisits.toString());
                 
-                // Send tracking ping to a simple endpoint (using fetch to track)
                 try {
-                    // Using a free visit tracking service
                     fetch('https://api.countapi.xyz/hit/2kcarcarevijayawada/visits', {
                         method: 'GET',
                         mode: 'cors'
@@ -1374,7 +1354,6 @@
                         return response.json();
                     }).then(function(data) {
                         if (data && data.value) {
-                            // Use the remote count if available
                             totalVisits = Math.max(totalVisits, data.value);
                             localStorage.setItem(totalVisitsKey, totalVisits.toString());
                             animateVisitCount(totalVisits);
@@ -1389,7 +1368,6 @@
                 animateVisitCount(totalVisits);
             }
 
-            // Animate the counter
             function animateVisitCount(target) {
                 var current = 0;
                 var duration = 2000;
@@ -1408,40 +1386,22 @@
         })();
 
         // ============================================
-        // CURSOR SYSTEM - Works on Desktop & Mobile
+        // CURSOR SYSTEM - No Trail Dots
         // ============================================
         var cursorMain = document.getElementById('cursorMain');
         var cursorGlow = document.getElementById('cursorGlow');
         var touchGlow = document.getElementById('touchGlow');
         var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-        var cursorTrail = [];
-        var maxTrail = 15;
         var mouseX = -100, mouseY = -100;
         var hue = 0;
-        var trailAnimFrame;
 
         function getRainbowColor(index, total) {
             var h = (hue + index * 25) % 360;
             return 'hsl(' + h + ', 100%, 60%)';
         }
 
-        // Create trail dots
-        for (var i = 0; i < maxTrail; i++) {
-            var dot = document.createElement('div');
-            dot.className = 'cursor-trail';
-            dot.style.opacity = '0';
-            dot.style.width = (12 - i * 0.5) + 'px';
-            dot.style.height = (12 - i * 0.5) + 'px';
-            document.body.appendChild(dot);
-            cursorTrail.push({
-                el: dot,
-                x: -100,
-                y: -100,
-                opacity: 0
-            });
-        }
-
+        // Create burst particles on click
         function createBurst(x, y) {
             for (var i = 0; i < 10; i++) {
                 var particle = document.createElement('div');
@@ -1470,6 +1430,7 @@
             }
         }
 
+        // Create sparkle particles
         function createSparkle(x, y) {
             var sparkle = document.createElement('div');
             sparkle.className = 'cursor-particle';
@@ -1490,29 +1451,6 @@
                 if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle);
             };
         }
-
-        function updateTrail() {
-            trailAnimFrame = requestAnimationFrame(updateTrail);
-
-            var prevX = mouseX, prevY = mouseY;
-            for (var i = 0; i < maxTrail; i++) {
-                var trail = cursorTrail[i];
-                var dx = prevX - trail.x;
-                var dy = prevY - trail.y;
-                trail.x += dx * (0.3 - i * 0.01);
-                trail.y += dy * (0.3 - i * 0.01);
-
-                trail.el.style.left = trail.x + 'px';
-                trail.el.style.top = trail.y + 'px';
-                trail.el.style.background = getRainbowColor(i, maxTrail);
-                trail.el.style.opacity = Math.max(0, 0.8 - i * 0.05);
-                trail.el.style.boxShadow = '0 0 ' + (10 - i * 0.5) + 'px ' + getRainbowColor(i, maxTrail);
-
-                prevX = trail.x;
-                prevY = trail.y;
-            }
-        }
-        updateTrail();
 
         // DESKTOP CURSOR
         document.addEventListener('mousemove', function(e) {
@@ -1568,19 +1506,6 @@
             touchGlow.style.left = touch.clientX + 'px';
             touchGlow.style.top = touch.clientY + 'px';
             touchGlow.classList.add('active');
-
-            for (var i = 0; i < maxTrail; i++) {
-                var trail = cursorTrail[i];
-                var dx = mouseX - trail.x;
-                var dy = mouseY - trail.y;
-                trail.x += dx * (0.3 - i * 0.01);
-                trail.y += dy * (0.3 - i * 0.01);
-                trail.el.style.left = trail.x + 'px';
-                trail.el.style.top = trail.y + 'px';
-                trail.el.style.background = getRainbowColor(i, maxTrail);
-                trail.el.style.opacity = Math.max(0, 0.8 - i * 0.05);
-                trail.el.style.boxShadow = '0 0 ' + (10 - i * 0.5) + 'px ' + getRainbowColor(i, maxTrail);
-            }
 
             if (Math.random() > 0.6) {
                 var p = document.createElement('div');
