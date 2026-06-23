@@ -29,65 +29,85 @@
             pointer-events: none;
         }
 
+        /* ============================================
+           UPDATED CURSOR STYLES - PC & MOBILE
+           ============================================ */
         .cursor-main {
             position: fixed;
-            width: 20px;
-            height: 20px;
+            left: 0; top: 0;
+            width: 16px; height: 16px;
             border-radius: 50%;
-            background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0.8) 30%, transparent 70%);
+            background: radial-gradient(circle, #ffffff 0%, rgba(255,255,255,0.9) 40%, transparent 70%);
             pointer-events: none;
             z-index: 99999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+            transform: translate3d(-100px, -100px, 0);
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), height 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
             mix-blend-mode: difference;
             opacity: 0;
+            will-change: transform, width, height;
         }
         .cursor-main.active { opacity: 1; }
         .cursor-main.hovering {
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle, rgba(192,132,252,0.8) 0%, rgba(59,130,246,0.5) 40%, transparent 70%);
+            width: 38px; height: 38px;
+            background: radial-gradient(circle, rgba(192,132,252,0.95) 0%, rgba(59,130,246,0.7) 50%, transparent 70%);
         }
 
         .cursor-glow {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            left: 0; top: 0;
+            width: 52px; height: 52px;
             border-radius: 50%;
             pointer-events: none;
             z-index: 99998;
-            transform: translate(-50%, -50%);
-            border: 2px solid rgba(192, 132, 252, 0.3);
-            transition: all 0.15s ease;
-            mix-blend-mode: screen;
+            transform: translate3d(-100px, -100px, 0);
+            border: 1.5px solid rgba(192, 132, 252, 0.35);
+            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
             opacity: 0;
+            will-change: transform, width, height, opacity;
         }
         .cursor-glow.active { opacity: 1; }
+        .cursor-glow.hovering {
+            width: 76px; height: 76px;
+            border-color: rgba(192, 132, 252, 0.7);
+            box-shadow: 0 0 35px rgba(192, 132, 252, 0.35), 0 0 70px rgba(59, 130, 246, 0.2);
+        }
 
         .touch-glow {
             position: fixed;
-            width: 80px;
-            height: 80px;
+            left: 0; top: 0;
+            width: 72px; height: 72px;
             border-radius: 50%;
             pointer-events: none;
             z-index: 99997;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(192,132,252,0.4) 0%, rgba(59,130,246,0.2) 40%, transparent 70%);
+            transform: translate3d(-100px, -100px, 0);
+            background: radial-gradient(circle, rgba(192,132,252,0.5) 0%, rgba(59,130,246,0.3) 40%, transparent 70%);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease, transform 0.15s ease;
+            will-change: transform, opacity;
         }
         .touch-glow.active { opacity: 1; }
+        .touch-glow::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid rgba(192, 132, 252, 0.5);
+            animation: touchRipple 1.5s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+        }
+        @keyframes touchRipple {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
 
         .cursor-particle {
             position: fixed;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
             pointer-events: none;
             z-index: 99996;
-            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            will-change: transform, opacity;
         }
 
+        /* Desktop: hide default cursor */
         @media (hover: hover) and (pointer: fine) {
             * { cursor: none !important; }
             .service-card, .review-card, .faq-item, .btn-primary, .btn-outline, .faq-question, input, select, textarea, a, button { cursor: none !important; }
@@ -754,7 +774,7 @@
                 <span>🎨 PAINTING</span><span>•</span>
                 <span> WASHING</span><span>•</span>
                 <span>✨ CERAMIC COATING</span><span>•</span>
-                <span>🛡️ GRAPHENE COATING</span><span>•</span>
+                <span>️ GRAPHENE COATING</span><span>•</span>
                 <span>💎 NANO COATING</span><span>•</span>
                 <span>🔧 DENTING</span><span>•</span>
                 <span>💧 TEFLON COATING</span><span>•</span>
@@ -1386,171 +1406,145 @@
         })();
 
         // ============================================
-        // CURSOR SYSTEM - No Trail Dots
+        // UPDATED CURSOR SYSTEM - PC & MOBILE
         // ============================================
-        var cursorMain = document.getElementById('cursorMain');
-        var cursorGlow = document.getElementById('cursorGlow');
-        var touchGlow = document.getElementById('touchGlow');
-        var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-        var mouseX = -100, mouseY = -100;
-        var hue = 0;
+        const cursorMain = document.getElementById('cursorMain');
+        const cursorGlow = document.getElementById('cursorGlow');
+        const touchGlow = document.getElementById('touchGlow');
+        
+        let mouseX = -100, mouseY = -100;
+        let glowX = -100, glowY = -100;
+        let hue = 0;
+        let isHovering = false;
+        let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        let isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
 
-        function getRainbowColor(index, total) {
-            var h = (hue + index * 25) % 360;
-            return 'hsl(' + h + ', 100%, 60%)';
+        // Smooth follow animation loop (GPU accelerated)
+        function animateCursor() {
+            // Main cursor follows instantly
+            cursorMain.style.transform = `translate3d(${mouseX - 8}px, ${mouseY - 8}px, 0)`;
+            
+            // Glow ring follows with smooth delay (lerp)
+            glowX += (mouseX - glowX) * 0.15;
+            glowY += (mouseY - glowY) * 0.15;
+            cursorGlow.style.transform = `translate3d(${glowX - 26}px, ${glowY - 26}px, 0)`;
+            
+            hue = (hue + 2) % 360;
+            
+            requestAnimationFrame(animateCursor);
         }
+        animateCursor();
 
-        // Create burst particles on click
-        function createBurst(x, y) {
-            for (var i = 0; i < 10; i++) {
-                var particle = document.createElement('div');
-                particle.className = 'cursor-particle';
-                particle.style.left = x + 'px';
-                particle.style.top = y + 'px';
-                particle.style.background = getRainbowColor(i, 10);
-                particle.style.width = (6 + Math.random() * 8) + 'px';
-                particle.style.height = particle.style.width;
-                document.body.appendChild(particle);
-
-                var angle = (Math.PI * 2 / 10) * i;
-                var velocity = 40 + Math.random() * 60;
-                var targetX = x + Math.cos(angle) * velocity;
-                var targetY = y + Math.sin(angle) * velocity;
-
-                particle.animate([
-                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-                    { transform: 'translate(-50%, -50%) scale(0) translate(' + (targetX - x) + 'px, ' + (targetY - y) + 'px)', opacity: 0 }
-                ], {
-                    duration: 600 + Math.random() * 400,
-                    easing: 'cubic-bezier(0, 0.5, 0.5, 1)'
-                }).onfinish = function() {
-                    if (particle.parentNode) particle.parentNode.removeChild(particle);
-                };
-            }
-        }
-
-        // Create sparkle particles
-        function createSparkle(x, y) {
-            var sparkle = document.createElement('div');
-            sparkle.className = 'cursor-particle';
-            sparkle.style.left = (x + (Math.random() - 0.5) * 40) + 'px';
-            sparkle.style.top = (y + (Math.random() - 0.5) * 40) + 'px';
-            sparkle.style.background = getRainbowColor(Math.floor(Math.random() * 8), 8);
-            sparkle.style.width = (4 + Math.random() * 6) + 'px';
-            sparkle.style.height = sparkle.style.width;
-            document.body.appendChild(sparkle);
-
-            sparkle.animate([
-                { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-                { transform: 'translate(-50%, -50%) scale(0) translateY(-30px)', opacity: 0 }
-            ], {
-                duration: 800,
-                easing: 'ease-out'
-            }).onfinish = function() {
-                if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle);
-            };
-        }
-
-        // DESKTOP CURSOR
+        // Desktop mouse events
         document.addEventListener('mousemove', function(e) {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            hue = (hue + 3) % 360;
-
+            
             cursorMain.classList.add('active');
             cursorGlow.classList.add('active');
-
-            cursorMain.style.left = mouseX + 'px';
-            cursorMain.style.top = mouseY + 'px';
-            cursorMain.style.background = 'radial-gradient(circle, hsl(' + hue + ', 100%, 80%) 0%, hsl(' + ((hue + 60) % 360) + ', 100%, 60%) 40%, transparent 70%)';
-
-            cursorGlow.style.left = mouseX + 'px';
-            cursorGlow.style.top = mouseY + 'px';
-            cursorGlow.style.borderColor = 'hsla(' + hue + ', 100%, 60%, 0.4)';
-            cursorGlow.style.boxShadow = '0 0 30px hsla(' + hue + ', 100%, 60%, 0.2), 0 0 60px hsla(' + ((hue + 120) % 360) + ', 100%, 60%, 0.1)';
-
-            if (Math.random() > 0.85) {
+            
+            // Occasional sparkles
+            if (Math.random() > 0.92) {
                 createSparkle(mouseX, mouseY);
             }
         });
 
-        var hoverElements = document.querySelectorAll('a, button, .service-card, .review-card, .faq-question, input, select, textarea');
-        hoverElements.forEach(function(el) {
+        // Hover effects
+        const hoverTargets = document.querySelectorAll('a, button, .service-card, .review-card, .faq-question, input, select, textarea');
+        hoverTargets.forEach(function(el) {
             el.addEventListener('mouseenter', function() {
+                isHovering = true;
                 cursorMain.classList.add('hovering');
-                cursorGlow.style.width = '80px';
-                cursorGlow.style.height = '80px';
-                cursorGlow.style.borderColor = 'hsla(' + hue + ', 100%, 60%, 0.5)';
+                cursorGlow.classList.add('hovering');
             });
             el.addEventListener('mouseleave', function() {
+                isHovering = false;
                 cursorMain.classList.remove('hovering');
-                cursorGlow.style.width = '60px';
-                cursorGlow.style.height = '60px';
+                cursorGlow.classList.remove('hovering');
             });
         });
 
+        // Click burst
         document.addEventListener('click', function(e) {
-            if (!isTouchDevice) {
-                createBurst(e.clientX, e.clientY);
-            }
+            if (!isTouchDevice) createBurst(e.clientX, e.clientY);
         });
 
-        // MOBILE/TOUCH CURSOR
-        document.addEventListener('touchmove', function(e) {
-            var touch = e.touches[0];
-            mouseX = touch.clientX;
-            mouseY = touch.clientY;
-            hue = (hue + 5) % 360;
-
-            touchGlow.style.left = touch.clientX + 'px';
-            touchGlow.style.top = touch.clientY + 'px';
-            touchGlow.classList.add('active');
-
-            if (Math.random() > 0.6) {
-                var p = document.createElement('div');
-                p.className = 'cursor-particle';
-                p.style.left = touch.clientX + 'px';
-                p.style.top = touch.clientY + 'px';
-                p.style.background = getRainbowColor(Math.floor(Math.random() * 12), 12);
-                p.style.width = (3 + Math.random() * 6) + 'px';
-                p.style.height = p.style.width;
-                document.body.appendChild(p);
-
-                p.animate([
-                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.8 },
-                    { transform: 'translate(-50%, -50%) scale(0) translateY(-20px)', opacity: 0 }
-                ], {
-                    duration: 600,
-                    easing: 'ease-out'
-                }).onfinish = function() {
-                    if (p.parentNode) p.parentNode.removeChild(p);
-                };
-            }
-        }, { passive: true });
-
+        // Mobile touch events
         document.addEventListener('touchstart', function(e) {
-            var touch = e.touches[0];
-            mouseX = touch.clientX;
-            mouseY = touch.clientY;
+            const touch = e.touches[0];
+            mouseX = glowX = touch.clientX;
+            mouseY = glowY = touch.clientY;
             
-            touchGlow.style.left = touch.clientX + 'px';
-            touchGlow.style.top = touch.clientY + 'px';
+            touchGlow.style.transform = `translate3d(${touch.clientX - 36}px, ${touch.clientY - 36}px, 0)`;
             touchGlow.classList.add('active');
             
             createBurst(touch.clientX, touch.clientY);
             
             cursorMain.classList.add('active');
             cursorGlow.classList.add('active');
-            cursorMain.style.left = touch.clientX + 'px';
-            cursorMain.style.top = touch.clientY + 'px';
-            cursorGlow.style.left = touch.clientX + 'px';
-            cursorGlow.style.top = touch.clientY + 'px';
+            cursorMain.style.transform = `translate3d(${touch.clientX - 8}px, ${touch.clientY - 8}px, 0)`;
+            cursorGlow.style.transform = `translate3d(${touch.clientX - 26}px, ${touch.clientY - 26}px, 0)`;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function(e) {
+            const touch = e.touches[0];
+            mouseX = touch.clientX;
+            mouseY = touch.clientY;
+            
+            touchGlow.style.transform = `translate3d(${touch.clientX - 36}px, ${touch.clientY - 36}px, 0)`;
+            
+            if (Math.random() > 0.7) {
+                createSparkle(touch.clientX, touch.clientY);
+            }
         }, { passive: true });
 
         document.addEventListener('touchend', function() {
             touchGlow.classList.remove('active');
         });
+
+        // Particle Effects
+        function createBurst(x, y) {
+            for (let i = 0; i < 8; i++) {
+                const p = document.createElement('div');
+                p.className = 'cursor-particle';
+                p.style.cssText = `
+                    left: ${x}px; top: ${y}px;
+                    background: hsl(${(hue + i * 30) % 360}, 100%, 60%);
+                    width: ${4 + Math.random() * 4}px; height: ${4 + Math.random() * 4}px;
+                    pointer-events: none; position: fixed; border-radius: 50%; z-index: 99996;
+                `;
+                document.body.appendChild(p);
+                
+                const angle = (Math.PI * 2 / 8) * i;
+                const dist = 30 + Math.random() * 30;
+                const tx = Math.cos(angle) * dist;
+                const ty = Math.sin(angle) * dist;
+                
+                p.animate([
+                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                    { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
+                ], { duration: 500 + Math.random() * 300, easing: 'cubic-bezier(0, 0.5, 0.5, 1)' })
+                .onfinish = () => p.remove();
+            }
+        }
+
+        function createSparkle(x, y) {
+            const p = document.createElement('div');
+            p.className = 'cursor-particle';
+            p.style.cssText = `
+                left: ${x + (Math.random() - 0.5) * 30}px; top: ${y + (Math.random() - 0.5) * 30}px;
+                background: hsl(${(hue + Math.random() * 60) % 360}, 100%, 70%);
+                width: ${3 + Math.random() * 3}px; height: ${3 + Math.random() * 3}px;
+                pointer-events: none; position: fixed; border-radius: 50%; z-index: 99996;
+            `;
+            document.body.appendChild(p);
+            
+            p.animate([
+                { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.8 },
+                { transform: 'translate(-50%, -50%) scale(0) translateY(-20px)', opacity: 0 }
+            ], { duration: 600, easing: 'ease-out' })
+            .onfinish = () => p.remove();
+        }
 
         // Three.js 3D Background
         var canvas = document.getElementById('three-canvas');
