@@ -30,8 +30,63 @@
         }
 
         /* ============================================
-           UPDATED CURSOR STYLES - PC & MOBILE
+           CURSOR GLOW - Vivid Rainbow Glow Effect
            ============================================ */
+        .cursor-glow-effect {
+            position: fixed;
+            left: 0; top: 0;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99997;
+            transform: translate3d(-1000px, -1000px, 0);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            will-change: transform, opacity;
+            background: radial-gradient(circle, 
+                rgba(192, 132, 252, 0.25) 0%, 
+                rgba(59, 130, 246, 0.18) 20%, 
+                rgba(6, 182, 212, 0.12) 40%, 
+                rgba(34, 211, 153, 0.08) 55%, 
+                rgba(251, 191, 36, 0.05) 70%, 
+                transparent 85%
+            );
+            filter: blur(8px);
+            mix-blend-mode: screen;
+        }
+        .cursor-glow-effect.active { opacity: 1; }
+
+        .cursor-glow-effect::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(236, 72, 153, 0.15) 0%, 
+                rgba(139, 92, 246, 0.1) 25%, 
+                transparent 60%
+            );
+            animation: glowRotate 4s linear infinite;
+        }
+        .cursor-glow-effect::after {
+            content: '';
+            position: absolute;
+            inset: -40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(56, 189, 248, 0.1) 0%, 
+                rgba(34, 211, 153, 0.08) 30%, 
+                transparent 65%
+            );
+            animation: glowRotate 6s linear infinite reverse;
+        }
+
+        @keyframes glowRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.15); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
         .cursor-main {
             position: fixed;
             left: 0; top: 0;
@@ -52,7 +107,7 @@
             background: radial-gradient(circle, rgba(192,132,252,0.95) 0%, rgba(59,130,246,0.7) 50%, transparent 70%);
         }
 
-        .cursor-glow {
+        .cursor-ring {
             position: fixed;
             left: 0; top: 0;
             width: 52px; height: 52px;
@@ -65,8 +120,8 @@
             opacity: 0;
             will-change: transform, width, height, opacity;
         }
-        .cursor-glow.active { opacity: 1; }
-        .cursor-glow.hovering {
+        .cursor-ring.active { opacity: 1; }
+        .cursor-ring.hovering {
             width: 76px; height: 76px;
             border-color: rgba(192, 132, 252, 0.7);
             box-shadow: 0 0 35px rgba(192, 132, 252, 0.35), 0 0 70px rgba(59, 130, 246, 0.2);
@@ -594,6 +649,7 @@
             .flag-counter-wrapper img { max-width: 160px; }
             .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; }
             .nav-glass { padding: 3px 0; }
+            .cursor-glow-effect { width: 200px; height: 200px; }
         }
 
         @media (max-width: 400px) {
@@ -601,6 +657,7 @@
             .service-icon { width: 40px; height: 40px; }
             .service-card { padding: 1rem; }
             .visitor-badge { min-width: 150px; }
+            .cursor-glow-effect { width: 160px; height: 160px; }
         }
 
         @supports (padding-top: env(safe-area-inset-top)) {
@@ -616,8 +673,9 @@
     <canvas id="three-canvas"></canvas>
 
     <!-- Custom Cursor Elements -->
+    <div class="cursor-glow-effect" id="cursorGlowEffect"></div>
     <div class="cursor-main" id="cursorMain"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
     <div class="touch-glow" id="touchGlow"></div>
 
     <div class="loader" id="loader">
@@ -771,12 +829,12 @@
     <section class="py-6 border-y border-white/5 relative z-10 overflow-hidden">
         <div class="flex whitespace-nowrap">
             <div class="marquee flex items-center space-x-12 text-white/20 font-bold text-lg">
-                <span>🎨 PAINTING</span><span>•</span>
+                <span> PAINTING</span><span>•</span>
                 <span> WASHING</span><span>•</span>
                 <span>✨ CERAMIC COATING</span><span>•</span>
                 <span>️ GRAPHENE COATING</span><span>•</span>
                 <span>💎 NANO COATING</span><span>•</span>
-                <span>🔧 DENTING</span><span>•</span>
+                <span> DENTING</span><span>•</span>
                 <span>💧 TEFLON COATING</span><span>•</span>
                 <span> GLASS FILM</span><span>•</span>
                 <span> PAINTING</span><span>•</span>
@@ -784,7 +842,7 @@
                 <span>✨ CERAMIC COATING</span><span>•</span>
                 <span>️ GRAPHENE COATING</span><span>•</span>
                 <span>💎 NANO COATING</span><span>•</span>
-                <span>🔧 DENTING</span><span>•</span>
+                <span> DENTING</span><span>•</span>
                 <span>💧 TEFLON COATING</span><span>•</span>
                 <span>🪟 GLASS FILM</span><span>•</span>
             </div>
@@ -1351,7 +1409,7 @@
         });
 
         // ============================================
-        // VISITOR COUNTER - Real Tracking Implementation
+        // VISITOR COUNTER
         // ============================================
         (function() {
             var visitCountEl = document.getElementById('visitCount');
@@ -1406,30 +1464,40 @@
         })();
 
         // ============================================
-        // UPDATED CURSOR SYSTEM - PC & MOBILE
+        // CURSOR GLOW EFFECT - Vivid Rainbow Glow
         // ============================================
+        const cursorGlowEffect = document.getElementById('cursorGlowEffect');
         const cursorMain = document.getElementById('cursorMain');
-        const cursorGlow = document.getElementById('cursorGlow');
+        const cursorRing = document.getElementById('cursorRing');
         const touchGlow = document.getElementById('touchGlow');
         
-        let mouseX = -100, mouseY = -100;
-        let glowX = -100, glowY = -100;
+        let mouseX = -1000, mouseY = -1000;
+        let glowX = -1000, glowY = -1000;
         let hue = 0;
         let isHovering = false;
         let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         let isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
 
-        // Smooth follow animation loop (GPU accelerated)
+        // Smooth animation loop
         function animateCursor() {
             // Main cursor follows instantly
             cursorMain.style.transform = `translate3d(${mouseX - 8}px, ${mouseY - 8}px, 0)`;
             
-            // Glow ring follows with smooth delay (lerp)
-            glowX += (mouseX - glowX) * 0.15;
-            glowY += (mouseY - glowY) * 0.15;
-            cursorGlow.style.transform = `translate3d(${glowX - 26}px, ${glowY - 26}px, 0)`;
+            // Glow ring follows with smooth delay
+            glowX += (mouseX - glowX) * 0.12;
+            glowY += (mouseY - glowY) * 0.12;
+            cursorRing.style.transform = `translate3d(${glowX - 26}px, ${glowY - 26}px, 0)`;
             
-            hue = (hue + 2) % 360;
+            // Cursor glow effect follows with even smoother delay (creates trailing glow)
+            let effectX = parseFloat(cursorGlowEffect.dataset.x || mouseX) || mouseX;
+            let effectY = parseFloat(cursorGlowEffect.dataset.y || mouseY) || mouseY;
+            effectX += (mouseX - effectX) * 0.08;
+            effectY += (mouseY - effectY) * 0.08;
+            cursorGlowEffect.dataset.x = effectX;
+            cursorGlowEffect.dataset.y = effectY;
+            cursorGlowEffect.style.transform = `translate3d(${effectX - 150}px, ${effectY - 150}px, 0)`;
+            
+            hue = (hue + 1.5) % 360;
             
             requestAnimationFrame(animateCursor);
         }
@@ -1441,10 +1509,11 @@
             mouseY = e.clientY;
             
             cursorMain.classList.add('active');
-            cursorGlow.classList.add('active');
+            cursorRing.classList.add('active');
+            cursorGlowEffect.classList.add('active');
             
             // Occasional sparkles
-            if (Math.random() > 0.92) {
+            if (Math.random() > 0.93) {
                 createSparkle(mouseX, mouseY);
             }
         });
@@ -1455,12 +1524,28 @@
             el.addEventListener('mouseenter', function() {
                 isHovering = true;
                 cursorMain.classList.add('hovering');
-                cursorGlow.classList.add('hovering');
+                cursorRing.classList.add('hovering');
+                cursorGlowEffect.style.background = `radial-gradient(circle, 
+                    rgba(236, 72, 153, 0.35) 0%, 
+                    rgba(192, 132, 252, 0.28) 20%, 
+                    rgba(59, 130, 246, 0.2) 40%, 
+                    rgba(6, 182, 212, 0.15) 55%, 
+                    rgba(34, 211, 153, 0.1) 70%, 
+                    transparent 85%
+                )`;
             });
             el.addEventListener('mouseleave', function() {
                 isHovering = false;
                 cursorMain.classList.remove('hovering');
-                cursorGlow.classList.remove('hovering');
+                cursorRing.classList.remove('hovering');
+                cursorGlowEffect.style.background = `radial-gradient(circle, 
+                    rgba(192, 132, 252, 0.25) 0%, 
+                    rgba(59, 130, 246, 0.18) 20%, 
+                    rgba(6, 182, 212, 0.12) 40%, 
+                    rgba(34, 211, 153, 0.08) 55%, 
+                    rgba(251, 191, 36, 0.05) 70%, 
+                    transparent 85%
+                )`;
             });
         });
 
@@ -1478,12 +1563,16 @@
             touchGlow.style.transform = `translate3d(${touch.clientX - 36}px, ${touch.clientY - 36}px, 0)`;
             touchGlow.classList.add('active');
             
-            createBurst(touch.clientX, touch.clientY);
-            
             cursorMain.classList.add('active');
-            cursorGlow.classList.add('active');
+            cursorRing.classList.add('active');
+            cursorGlowEffect.classList.add('active');
             cursorMain.style.transform = `translate3d(${touch.clientX - 8}px, ${touch.clientY - 8}px, 0)`;
-            cursorGlow.style.transform = `translate3d(${touch.clientX - 26}px, ${touch.clientY - 26}px, 0)`;
+            cursorRing.style.transform = `translate3d(${touch.clientX - 26}px, ${touch.clientY - 26}px, 0)`;
+            cursorGlowEffect.style.transform = `translate3d(${touch.clientX - 150}px, ${touch.clientY - 150}px, 0)`;
+            cursorGlowEffect.dataset.x = touch.clientX;
+            cursorGlowEffect.dataset.y = touch.clientY;
+            
+            createBurst(touch.clientX, touch.clientY);
         }, { passive: true });
 
         document.addEventListener('touchmove', function(e) {
@@ -1504,19 +1593,19 @@
 
         // Particle Effects
         function createBurst(x, y) {
-            for (let i = 0; i < 8; i++) {
+            for (let i = 0; i < 10; i++) {
                 const p = document.createElement('div');
                 p.className = 'cursor-particle';
                 p.style.cssText = `
                     left: ${x}px; top: ${y}px;
                     background: hsl(${(hue + i * 30) % 360}, 100%, 60%);
-                    width: ${4 + Math.random() * 4}px; height: ${4 + Math.random() * 4}px;
+                    width: ${4 + Math.random() * 5}px; height: ${4 + Math.random() * 5}px;
                     pointer-events: none; position: fixed; border-radius: 50%; z-index: 99996;
                 `;
                 document.body.appendChild(p);
                 
-                const angle = (Math.PI * 2 / 8) * i;
-                const dist = 30 + Math.random() * 30;
+                const angle = (Math.PI * 2 / 10) * i;
+                const dist = 35 + Math.random() * 40;
                 const tx = Math.cos(angle) * dist;
                 const ty = Math.sin(angle) * dist;
                 
