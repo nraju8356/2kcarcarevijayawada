@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; cursor: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
         body { font-family: 'Montserrat', sans-serif; background: #05050a; color: #fff; overflow-x: hidden; min-height: 100vh; min-height: -webkit-fill-available; }
         
@@ -29,7 +29,7 @@
             pointer-events: none;
         }
 
-        /* Custom Cursor Main Dot */
+        /* Custom Cursor Main Dot - Desktop only */
         .cursor-main {
             position: fixed;
             width: 20px;
@@ -41,7 +41,9 @@
             transform: translate(-50%, -50%);
             transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
             mix-blend-mode: difference;
+            opacity: 0;
         }
+        .cursor-main.active { opacity: 1; }
         .cursor-main.hovering {
             width: 40px;
             height: 40px;
@@ -72,9 +74,11 @@
             border: 2px solid rgba(192, 132, 252, 0.3);
             transition: all 0.15s ease;
             mix-blend-mode: screen;
+            opacity: 0;
         }
+        .cursor-glow.active { opacity: 1; }
 
-        /* Touch cursor for mobile */
+        /* Touch glow for mobile */
         .touch-glow {
             position: fixed;
             width: 80px;
@@ -91,7 +95,7 @@
             opacity: 1;
         }
 
-        /* Rainbow particles on cursor */
+        /* Rainbow particles */
         .cursor-particle {
             position: fixed;
             width: 6px;
@@ -100,6 +104,12 @@
             pointer-events: none;
             z-index: 99996;
             transform: translate(-50%, -50%);
+        }
+
+        /* Desktop only: hide default cursor */
+        @media (hover: hover) and (pointer: fine) {
+            * { cursor: none !important; }
+            .service-card, .review-card, .faq-item, .btn-primary, .btn-outline, .faq-question, input, select, textarea, a, button { cursor: none !important; }
         }
 
         .glass {
@@ -217,7 +227,6 @@
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            cursor: none;
         }
         .service-card::before {
             content: '';
@@ -259,7 +268,6 @@
             border-radius: 20px;
             padding: 1.5rem;
             transition: all 0.4s ease;
-            cursor: none;
         }
         @media (hover: hover) {
             .review-card:hover {
@@ -276,12 +284,11 @@
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s ease;
-            cursor: none;
         }
         .faq-item:hover { border-color: rgba(139, 92, 246, 0.15); }
         .faq-question {
             padding: 1.25rem 1.5rem;
-            cursor: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -308,7 +315,6 @@
             padding: 14px 28px;
             border-radius: 50px;
             border: none;
-            cursor: none;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -344,7 +350,6 @@
             padding: 14px 28px;
             border-radius: 50px;
             border: 2px solid rgba(139, 92, 246, 0.4);
-            cursor: none;
             transition: all 0.4s ease;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
@@ -473,8 +478,6 @@
         .section-title { font-size: clamp(1.8rem, 5vw, 3.5rem); }
 
         @media (max-width: 640px) {
-            * { cursor: auto; }
-            .service-card, .review-card, .faq-item, .btn-primary, .btn-outline, .faq-question { cursor: auto; }
             .glass { border-radius: 16px; }
             .glass-sm { border-radius: 12px; }
             .service-card { padding: 1.25rem; border-radius: 16px; }
@@ -486,7 +489,6 @@
             .scroll-top { width: 42px; height: 42px; bottom: 16px; left: 16px; }
             .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; }
             .nav-glass { padding: 3px 0; }
-            .cursor-main, .cursor-trail, .cursor-glow, .cursor-particle { display: none !important; }
         }
 
         @media (max-width: 400px) {
@@ -507,7 +509,7 @@
 
     <canvas id="three-canvas"></canvas>
 
-    <!-- Custom Cursor Elements -->
+    <!-- Custom Cursor Elements - Hidden by default, shown via JS -->
     <div class="cursor-main" id="cursorMain"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="touch-glow" id="touchGlow"></div>
@@ -646,7 +648,7 @@
         <div class="flex whitespace-nowrap">
             <div class="marquee flex items-center space-x-12 text-white/20 font-bold text-lg">
                 <span>🎨 PAINTING</span><span>•</span>
-                <span>🧽 WASHING</span><span>•</span>
+                <span> WASHING</span><span>•</span>
                 <span>✨ CERAMIC COATING</span><span>•</span>
                 <span>🛡️ GRAPHENE COATING</span><span>•</span>
                 <span> NANO COATING</span><span>•</span>
@@ -1215,17 +1217,18 @@
         });
 
         // ============================================
-        // STUNNING CUSTOM CURSOR WITH RAINBOW COLORS
+        // CURSOR SYSTEM - Works on Desktop & Mobile
         // ============================================
         var cursorMain = document.getElementById('cursorMain');
         var cursorGlow = document.getElementById('cursorGlow');
         var touchGlow = document.getElementById('touchGlow');
+        var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
         var cursorTrail = [];
         var maxTrail = 15;
         var mouseX = -100, mouseY = -100;
         var hue = 0;
-        var cursorVisible = false;
+        var trailAnimFrame;
 
         // Rainbow colors for cursor trail
         function getRainbowColor(index, total) {
@@ -1251,18 +1254,18 @@
 
         // Create burst particles
         function createBurst(x, y) {
-            for (var i = 0; i < 8; i++) {
+            for (var i = 0; i < 10; i++) {
                 var particle = document.createElement('div');
                 particle.className = 'cursor-particle';
                 particle.style.left = x + 'px';
                 particle.style.top = y + 'px';
-                particle.style.background = getRainbowColor(i, 8);
-                particle.style.width = '8px';
-                particle.style.height = '8px';
+                particle.style.background = getRainbowColor(i, 10);
+                particle.style.width = (6 + Math.random() * 8) + 'px';
+                particle.style.height = particle.style.width;
                 document.body.appendChild(particle);
 
-                var angle = (Math.PI * 2 / 8) * i;
-                var velocity = 50 + Math.random() * 40;
+                var angle = (Math.PI * 2 / 10) * i;
+                var velocity = 40 + Math.random() * 60;
                 var targetX = x + Math.cos(angle) * velocity;
                 var targetY = y + Math.sin(angle) * velocity;
 
@@ -1278,54 +1281,31 @@
             }
         }
 
-        // Mouse move handler
-        document.addEventListener('mousemove', function(e) {
-            if (!cursorVisible) {
-                cursorVisible = true;
-                cursorMain.style.opacity = '1';
-                cursorGlow.style.opacity = '1';
-            }
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            hue = (hue + 3) % 360;
+        // Create sparkle
+        function createSparkle(x, y) {
+            var sparkle = document.createElement('div');
+            sparkle.className = 'cursor-particle';
+            sparkle.style.left = (x + (Math.random() - 0.5) * 40) + 'px';
+            sparkle.style.top = (y + (Math.random() - 0.5) * 40) + 'px';
+            sparkle.style.background = getRainbowColor(Math.floor(Math.random() * 8), 8);
+            sparkle.style.width = (4 + Math.random() * 6) + 'px';
+            sparkle.style.height = sparkle.style.width;
+            document.body.appendChild(sparkle);
 
-            // Update main cursor
-            cursorMain.style.left = mouseX + 'px';
-            cursorMain.style.top = mouseY + 'px';
-            cursorMain.style.background = 'radial-gradient(circle, hsl(' + hue + ', 100%, 80%) 0%, hsl(' + ((hue + 60) % 360) + ', 100%, 60%) 40%, transparent 70%)';
+            sparkle.animate([
+                { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                { transform: 'translate(-50%, -50%) scale(0) translateY(-30px)', opacity: 0 }
+            ], {
+                duration: 800,
+                easing: 'ease-out'
+            }).onfinish = function() {
+                if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle);
+            };
+        }
 
-            // Update glow ring
-            cursorGlow.style.left = mouseX + 'px';
-            cursorGlow.style.top = mouseY + 'px';
-            cursorGlow.style.borderColor = 'hsla(' + hue + ', 100%, 60%, 0.4)';
-            cursorGlow.style.boxShadow = '0 0 30px hsla(' + hue + ', 100%, 60%, 0.2), 0 0 60px hsla(' + ((hue + 120) % 360) + ', 100%, 60%, 0.1)';
-
-            // Create sparkles occasionally
-            if (Math.random() > 0.85) {
-                var sparkle = document.createElement('div');
-                sparkle.className = 'cursor-particle';
-                sparkle.style.left = (mouseX + (Math.random() - 0.5) * 40) + 'px';
-                sparkle.style.top = (mouseY + (Math.random() - 0.5) * 40) + 'px';
-                sparkle.style.background = getRainbowColor(Math.floor(Math.random() * 8), 8);
-                sparkle.style.width = (4 + Math.random() * 6) + 'px';
-                sparkle.style.height = sparkle.style.width;
-                document.body.appendChild(sparkle);
-
-                sparkle.animate([
-                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-                    { transform: 'translate(-50%, -50%) scale(0) translateY(-30px)', opacity: 0 }
-                ], {
-                    duration: 800,
-                    easing: 'ease-out'
-                }).onfinish = function() {
-                    if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle);
-                };
-            }
-        });
-
-        // Update trail dots
+        // Update trail dots animation
         function updateTrail() {
-            requestAnimationFrame(updateTrail);
+            trailAnimFrame = requestAnimationFrame(updateTrail);
 
             var prevX = mouseX, prevY = mouseY;
             for (var i = 0; i < maxTrail; i++) {
@@ -1347,47 +1327,31 @@
         }
         updateTrail();
 
-        // Touch handler for mobile
-        document.addEventListener('touchmove', function(e) {
-            var touch = e.touches[0];
-            touchGlow.style.left = touch.clientX + 'px';
-            touchGlow.style.top = touch.clientY + 'px';
-            touchGlow.classList.add('active');
-            hue = (hue + 5) % 360;
+        // ===== DESKTOP CURSOR =====
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            hue = (hue + 3) % 360;
 
-            // Create particles on touch move
-            if (Math.random() > 0.7) {
-                var p = document.createElement('div');
-                p.className = 'cursor-particle';
-                p.style.left = touch.clientX + 'px';
-                p.style.top = touch.clientY + 'px';
-                p.style.background = getRainbowColor(Math.floor(Math.random() * 12), 12);
-                p.style.width = (3 + Math.random() * 5) + 'px';
-                p.style.height = p.style.width;
-                document.body.appendChild(p);
+            // Show cursor elements
+            cursorMain.classList.add('active');
+            cursorGlow.classList.add('active');
 
-                p.animate([
-                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.8 },
-                    { transform: 'translate(-50%, -50%) scale(0) translateY(-20px)', opacity: 0 }
-                ], {
-                    duration: 600,
-                    easing: 'ease-out'
-                }).onfinish = function() {
-                    if (p.parentNode) p.parentNode.removeChild(p);
-                };
+            // Update main cursor
+            cursorMain.style.left = mouseX + 'px';
+            cursorMain.style.top = mouseY + 'px';
+            cursorMain.style.background = 'radial-gradient(circle, hsl(' + hue + ', 100%, 80%) 0%, hsl(' + ((hue + 60) % 360) + ', 100%, 60%) 40%, transparent 70%)';
+
+            // Update glow ring
+            cursorGlow.style.left = mouseX + 'px';
+            cursorGlow.style.top = mouseY + 'px';
+            cursorGlow.style.borderColor = 'hsla(' + hue + ', 100%, 60%, 0.4)';
+            cursorGlow.style.boxShadow = '0 0 30px hsla(' + hue + ', 100%, 60%, 0.2), 0 0 60px hsla(' + ((hue + 120) % 360) + ', 100%, 60%, 0.1)';
+
+            // Create sparkles occasionally
+            if (Math.random() > 0.85) {
+                createSparkle(mouseX, mouseY);
             }
-        }, { passive: true });
-
-        document.addEventListener('touchstart', function(e) {
-            var touch = e.touches[0];
-            touchGlow.style.left = touch.clientX + 'px';
-            touchGlow.style.top = touch.clientY + 'px';
-            touchGlow.classList.add('active');
-            createBurst(touch.clientX, touch.clientY);
-        }, { passive: true });
-
-        document.addEventListener('touchend', function() {
-            touchGlow.classList.remove('active');
         });
 
         // Hover effects on interactive elements
@@ -1406,11 +1370,84 @@
             });
         });
 
-        // Click burst effect
+        // Click burst effect on desktop
         document.addEventListener('click', function(e) {
-            if (!isMobile) {
+            if (!isTouchDevice) {
                 createBurst(e.clientX, e.clientY);
             }
+        });
+
+        // ===== MOBILE/TOUCH CURSOR =====
+        document.addEventListener('touchmove', function(e) {
+            var touch = e.touches[0];
+            mouseX = touch.clientX;
+            mouseY = touch.clientY;
+            hue = (hue + 5) % 360;
+
+            // Show touch glow
+            touchGlow.style.left = touch.clientX + 'px';
+            touchGlow.style.top = touch.clientY + 'px';
+            touchGlow.classList.add('active');
+
+            // Update trail for mobile too
+            for (var i = 0; i < maxTrail; i++) {
+                var trail = cursorTrail[i];
+                var dx = mouseX - trail.x;
+                var dy = mouseY - trail.y;
+                trail.x += dx * (0.3 - i * 0.01);
+                trail.y += dy * (0.3 - i * 0.01);
+                trail.el.style.left = trail.x + 'px';
+                trail.el.style.top = trail.y + 'px';
+                trail.el.style.background = getRainbowColor(i, maxTrail);
+                trail.el.style.opacity = Math.max(0, 0.8 - i * 0.05);
+                trail.el.style.boxShadow = '0 0 ' + (10 - i * 0.5) + 'px ' + getRainbowColor(i, maxTrail);
+            }
+
+            // Create particles on touch move
+            if (Math.random() > 0.6) {
+                var p = document.createElement('div');
+                p.className = 'cursor-particle';
+                p.style.left = touch.clientX + 'px';
+                p.style.top = touch.clientY + 'px';
+                p.style.background = getRainbowColor(Math.floor(Math.random() * 12), 12);
+                p.style.width = (3 + Math.random() * 6) + 'px';
+                p.style.height = p.style.width;
+                document.body.appendChild(p);
+
+                p.animate([
+                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.8 },
+                    { transform: 'translate(-50%, -50%) scale(0) translateY(-20px)', opacity: 0 }
+                ], {
+                    duration: 600,
+                    easing: 'ease-out'
+                }).onfinish = function() {
+                    if (p.parentNode) p.parentNode.removeChild(p);
+                };
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchstart', function(e) {
+            var touch = e.touches[0];
+            mouseX = touch.clientX;
+            mouseY = touch.clientY;
+            
+            touchGlow.style.left = touch.clientX + 'px';
+            touchGlow.style.top = touch.clientY + 'px';
+            touchGlow.classList.add('active');
+            
+            createBurst(touch.clientX, touch.clientY);
+            
+            // Also show desktop cursor elements on touch
+            cursorMain.classList.add('active');
+            cursorGlow.classList.add('active');
+            cursorMain.style.left = touch.clientX + 'px';
+            cursorMain.style.top = touch.clientY + 'px';
+            cursorGlow.style.left = touch.clientX + 'px';
+            cursorGlow.style.top = touch.clientY + 'px';
+        }, { passive: true });
+
+        document.addEventListener('touchend', function() {
+            touchGlow.classList.remove('active');
         });
 
         // ============================================
