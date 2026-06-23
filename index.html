@@ -29,133 +29,90 @@
             pointer-events: none;
         }
 
-        
-        .cursor-glow-effect {
+        /* ============================================
+           CURSOR EFFECTS - PC & MOBILE
+           ============================================ */
+        .cursor-dot {
             position: fixed;
             left: 0; top: 0;
-            width: 300px; height: 300px;
+            width: 14px; height: 14px;
             border-radius: 50%;
-            pointer-events: none;
-            z-index: 99997;
-            transform: translate3d(-1000px, -1000px, 0);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            will-change: transform, opacity;
-            background: radial-gradient(circle, 
-                rgba(192, 132, 252, 0.25) 0%, 
-                rgba(59, 130, 246, 0.18) 20%, 
-                rgba(6, 182, 212, 0.12) 40%, 
-                rgba(34, 211, 153, 0.08) 55%, 
-                rgba(251, 191, 36, 0.05) 70%, 
-                transparent 85%
-            );
-            filter: blur(8px);
-            mix-blend-mode: screen;
-        }
-        .cursor-glow-effect.active { opacity: 1; }
-
-        .cursor-glow-effect::before {
-            content: '';
-            position: absolute;
-            inset: -20px;
-            border-radius: 50%;
-            background: radial-gradient(circle, 
-                rgba(236, 72, 153, 0.15) 0%, 
-                rgba(139, 92, 246, 0.1) 25%, 
-                transparent 60%
-            );
-            animation: glowRotate 4s linear infinite;
-        }
-        .cursor-glow-effect::after {
-            content: '';
-            position: absolute;
-            inset: -40px;
-            border-radius: 50%;
-            background: radial-gradient(circle, 
-                rgba(56, 189, 248, 0.1) 0%, 
-                rgba(34, 211, 153, 0.08) 30%, 
-                transparent 65%
-            );
-            animation: glowRotate 6s linear infinite reverse;
-        }
-
-        @keyframes glowRotate {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.15); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        .cursor-main {
-            position: fixed;
-            left: 0; top: 0;
-            width: 16px; height: 16px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ffffff 0%, rgba(255,255,255,0.9) 40%, transparent 70%);
+            background: #fff;
             pointer-events: none;
             z-index: 99999;
-            transform: translate3d(-100px, -100px, 0);
-            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), height 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+            transform: translate3d(-50px, -50px, 0);
+            transition: width 0.25s ease, height 0.25s ease, background 0.25s ease;
             mix-blend-mode: difference;
             opacity: 0;
-            will-change: transform, width, height;
+            will-change: transform;
         }
-        .cursor-main.active { opacity: 1; }
-        .cursor-main.hovering {
-            width: 38px; height: 38px;
-            background: radial-gradient(circle, rgba(192,132,252,0.95) 0%, rgba(59,130,246,0.7) 50%, transparent 70%);
+        .cursor-dot.active { opacity: 1; }
+        .cursor-dot.hovering {
+            width: 44px; height: 44px;
+            background: radial-gradient(circle, rgba(192,132,252,0.9) 0%, rgba(59,130,246,0.7) 60%, transparent 100%);
         }
 
         .cursor-ring {
             position: fixed;
             left: 0; top: 0;
-            width: 52px; height: 52px;
+            width: 48px; height: 48px;
             border-radius: 50%;
+            border: 2px solid rgba(192, 132, 252, 0.4);
             pointer-events: none;
             z-index: 99998;
-            transform: translate3d(-100px, -100px, 0);
-            border: 1.5px solid rgba(192, 132, 252, 0.35);
-            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            transform: translate3d(-50px, -50px, 0);
+            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
             opacity: 0;
-            will-change: transform, width, height, opacity;
+            will-change: transform;
         }
         .cursor-ring.active { opacity: 1; }
         .cursor-ring.hovering {
-            width: 76px; height: 76px;
-            border-color: rgba(192, 132, 252, 0.7);
-            box-shadow: 0 0 35px rgba(192, 132, 252, 0.35), 0 0 70px rgba(59, 130, 246, 0.2);
+            width: 72px; height: 72px;
+            border-color: rgba(192, 132, 252, 0.8);
         }
+
+        .cursor-glow {
+            position: fixed;
+            left: 0; top: 0;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99997;
+            transform: translate3d(-1000px, -1000px, 0);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            will-change: transform, opacity;
+            background: radial-gradient(circle, 
+                rgba(139, 92, 246, 0.18) 0%, 
+                rgba(59, 130, 246, 0.12) 20%, 
+                rgba(6, 182, 212, 0.08) 40%, 
+                rgba(34, 211, 153, 0.05) 60%, 
+                rgba(251, 191, 36, 0.03) 75%, 
+                transparent 100%
+            );
+            filter: blur(4px);
+        }
+        .cursor-glow.active { opacity: 1; }
 
         .touch-glow {
             position: fixed;
             left: 0; top: 0;
-            width: 72px; height: 72px;
+            width: 80px; height: 80px;
             border-radius: 50%;
             pointer-events: none;
-            z-index: 99997;
+            z-index: 99996;
             transform: translate3d(-100px, -100px, 0);
-            background: radial-gradient(circle, rgba(192,132,252,0.5) 0%, rgba(59,130,246,0.3) 40%, transparent 70%);
             opacity: 0;
-            transition: opacity 0.2s ease, transform 0.15s ease;
+            transition: opacity 0.15s ease;
             will-change: transform, opacity;
+            background: radial-gradient(circle, rgba(192,132,252,0.5) 0%, rgba(59,130,246,0.3) 40%, transparent 70%);
         }
         .touch-glow.active { opacity: 1; }
-        .touch-glow::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            border: 2px solid rgba(192, 132, 252, 0.5);
-            animation: touchRipple 1.5s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-        }
-        @keyframes touchRipple {
-            0% { transform: scale(0.8); opacity: 0.8; }
-            100% { transform: scale(1.6); opacity: 0; }
-        }
 
         .cursor-particle {
             position: fixed;
             pointer-events: none;
-            z-index: 99996;
+            z-index: 99995;
             border-radius: 50%;
             will-change: transform, opacity;
         }
@@ -163,7 +120,7 @@
         /* Desktop: hide default cursor */
         @media (hover: hover) and (pointer: fine) {
             * { cursor: none !important; }
-            .service-card, .review-card, .faq-item, .btn-primary, .btn-outline, .faq-question, input, select, textarea, a, button { cursor: none !important; }
+            a, button, input, select, textarea, .service-card, .review-card, .faq-question { cursor: none !important; }
         }
 
         .glass {
@@ -647,7 +604,7 @@
             .flag-counter-wrapper img { max-width: 160px; }
             .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; }
             .nav-glass { padding: 3px 0; }
-            .cursor-glow-effect { width: 200px; height: 200px; }
+            .cursor-glow { width: 180px; height: 180px; }
         }
 
         @media (max-width: 400px) {
@@ -655,7 +612,7 @@
             .service-icon { width: 40px; height: 40px; }
             .service-card { padding: 1rem; }
             .visitor-badge { min-width: 150px; }
-            .cursor-glow-effect { width: 160px; height: 160px; }
+            .cursor-glow { width: 140px; height: 140px; }
         }
 
         @supports (padding-top: env(safe-area-inset-top)) {
@@ -671,8 +628,8 @@
     <canvas id="three-canvas"></canvas>
 
     <!-- Custom Cursor Elements -->
-    <div class="cursor-glow-effect" id="cursorGlowEffect"></div>
-    <div class="cursor-main" id="cursorMain"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
     <div class="touch-glow" id="touchGlow"></div>
 
@@ -1462,38 +1419,35 @@
         })();
 
         // ============================================
-        // CURSOR GLOW EFFECT - Vivid Rainbow Glow
+        // CURSOR EFFECT - PC & MOBILE
         // ============================================
-        const cursorGlowEffect = document.getElementById('cursorGlowEffect');
-        const cursorMain = document.getElementById('cursorMain');
+        const cursorDot = document.getElementById('cursorDot');
         const cursorRing = document.getElementById('cursorRing');
+        const cursorGlow = document.getElementById('cursorGlow');
         const touchGlow = document.getElementById('touchGlow');
         
-        let mouseX = -1000, mouseY = -1000;
-        let glowX = -1000, glowY = -1000;
+        let mouseX = -200, mouseY = -200;
+        let ringX = -200, ringY = -200;
+        let glowX = -200, glowY = -200;
         let hue = 0;
         let isHovering = false;
-        let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         let isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+        let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
         // Smooth animation loop
         function animateCursor() {
-            // Main cursor follows instantly
-            cursorMain.style.transform = `translate3d(${mouseX - 8}px, ${mouseY - 8}px, 0)`;
+            // Dot follows instantly
+            cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
             
-            // Glow ring follows with smooth delay
-            glowX += (mouseX - glowX) * 0.12;
-            glowY += (mouseY - glowY) * 0.12;
-            cursorRing.style.transform = `translate3d(${glowX - 26}px, ${glowY - 26}px, 0)`;
+            // Ring follows with smooth delay
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
             
-            // Cursor glow effect follows with even smoother delay (creates trailing glow)
-            let effectX = parseFloat(cursorGlowEffect.dataset.x || mouseX) || mouseX;
-            let effectY = parseFloat(cursorGlowEffect.dataset.y || mouseY) || mouseY;
-            effectX += (mouseX - effectX) * 0.08;
-            effectY += (mouseY - effectY) * 0.08;
-            cursorGlowEffect.dataset.x = effectX;
-            cursorGlowEffect.dataset.y = effectY;
-            cursorGlowEffect.style.transform = `translate3d(${effectX - 150}px, ${effectY - 150}px, 0)`;
+            // Glow follows with even smoother delay
+            glowX += (mouseX - glowX) * 0.08;
+            glowY += (mouseY - glowY) * 0.08;
+            cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
             
             hue = (hue + 1.5) % 360;
             
@@ -1506,9 +1460,9 @@
             mouseX = e.clientX;
             mouseY = e.clientY;
             
-            cursorMain.classList.add('active');
+            cursorDot.classList.add('active');
             cursorRing.classList.add('active');
-            cursorGlowEffect.classList.add('active');
+            cursorGlow.classList.add('active');
             
             // Occasional sparkles
             if (Math.random() > 0.93) {
@@ -1516,38 +1470,22 @@
             }
         });
 
-        // Hover effects
+        // Hover effects on interactive elements
         const hoverTargets = document.querySelectorAll('a, button, .service-card, .review-card, .faq-question, input, select, textarea');
         hoverTargets.forEach(function(el) {
             el.addEventListener('mouseenter', function() {
                 isHovering = true;
-                cursorMain.classList.add('hovering');
+                cursorDot.classList.add('hovering');
                 cursorRing.classList.add('hovering');
-                cursorGlowEffect.style.background = `radial-gradient(circle, 
-                    rgba(236, 72, 153, 0.35) 0%, 
-                    rgba(192, 132, 252, 0.28) 20%, 
-                    rgba(59, 130, 246, 0.2) 40%, 
-                    rgba(6, 182, 212, 0.15) 55%, 
-                    rgba(34, 211, 153, 0.1) 70%, 
-                    transparent 85%
-                )`;
             });
             el.addEventListener('mouseleave', function() {
                 isHovering = false;
-                cursorMain.classList.remove('hovering');
+                cursorDot.classList.remove('hovering');
                 cursorRing.classList.remove('hovering');
-                cursorGlowEffect.style.background = `radial-gradient(circle, 
-                    rgba(192, 132, 252, 0.25) 0%, 
-                    rgba(59, 130, 246, 0.18) 20%, 
-                    rgba(6, 182, 212, 0.12) 40%, 
-                    rgba(34, 211, 153, 0.08) 55%, 
-                    rgba(251, 191, 36, 0.05) 70%, 
-                    transparent 85%
-                )`;
             });
         });
 
-        // Click burst
+        // Click burst effect
         document.addEventListener('click', function(e) {
             if (!isTouchDevice) createBurst(e.clientX, e.clientY);
         });
@@ -1555,20 +1493,15 @@
         // Mobile touch events
         document.addEventListener('touchstart', function(e) {
             const touch = e.touches[0];
-            mouseX = glowX = touch.clientX;
-            mouseY = glowY = touch.clientY;
+            mouseX = ringX = glowX = touch.clientX;
+            mouseY = ringY = glowY = touch.clientY;
             
-            touchGlow.style.transform = `translate3d(${touch.clientX - 36}px, ${touch.clientY - 36}px, 0)`;
+            touchGlow.style.transform = `translate3d(${touch.clientX - 40}px, ${touch.clientY - 40}px, 0)`;
             touchGlow.classList.add('active');
             
-            cursorMain.classList.add('active');
+            cursorDot.classList.add('active');
             cursorRing.classList.add('active');
-            cursorGlowEffect.classList.add('active');
-            cursorMain.style.transform = `translate3d(${touch.clientX - 8}px, ${touch.clientY - 8}px, 0)`;
-            cursorRing.style.transform = `translate3d(${touch.clientX - 26}px, ${touch.clientY - 26}px, 0)`;
-            cursorGlowEffect.style.transform = `translate3d(${touch.clientX - 150}px, ${touch.clientY - 150}px, 0)`;
-            cursorGlowEffect.dataset.x = touch.clientX;
-            cursorGlowEffect.dataset.y = touch.clientY;
+            cursorGlow.classList.add('active');
             
             createBurst(touch.clientX, touch.clientY);
         }, { passive: true });
@@ -1578,7 +1511,7 @@
             mouseX = touch.clientX;
             mouseY = touch.clientY;
             
-            touchGlow.style.transform = `translate3d(${touch.clientX - 36}px, ${touch.clientY - 36}px, 0)`;
+            touchGlow.style.transform = `translate3d(${touch.clientX - 40}px, ${touch.clientY - 40}px, 0)`;
             
             if (Math.random() > 0.7) {
                 createSparkle(touch.clientX, touch.clientY);
@@ -1589,21 +1522,17 @@
             touchGlow.classList.remove('active');
         });
 
-        // Particle Effects
+        // Particle burst on click/tap
         function createBurst(x, y) {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 12; i++) {
                 const p = document.createElement('div');
                 p.className = 'cursor-particle';
-                p.style.cssText = `
-                    left: ${x}px; top: ${y}px;
-                    background: hsl(${(hue + i * 30) % 360}, 100%, 60%);
-                    width: ${4 + Math.random() * 5}px; height: ${4 + Math.random() * 5}px;
-                    pointer-events: none; position: fixed; border-radius: 50%; z-index: 99996;
-                `;
+                const size = 4 + Math.random() * 6;
+                p.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:hsl(${(hue + i * 25) % 360}, 100%, 65%);position:fixed;border-radius:50%;pointer-events:none;z-index:99995;`;
                 document.body.appendChild(p);
                 
-                const angle = (Math.PI * 2 / 10) * i;
-                const dist = 35 + Math.random() * 40;
+                const angle = (Math.PI * 2 / 12) * i;
+                const dist = 30 + Math.random() * 50;
                 const tx = Math.cos(angle) * dist;
                 const ty = Math.sin(angle) * dist;
                 
@@ -1615,20 +1544,17 @@
             }
         }
 
+        // Sparkle particles
         function createSparkle(x, y) {
             const p = document.createElement('div');
             p.className = 'cursor-particle';
-            p.style.cssText = `
-                left: ${x + (Math.random() - 0.5) * 30}px; top: ${y + (Math.random() - 0.5) * 30}px;
-                background: hsl(${(hue + Math.random() * 60) % 360}, 100%, 70%);
-                width: ${3 + Math.random() * 3}px; height: ${3 + Math.random() * 3}px;
-                pointer-events: none; position: fixed; border-radius: 50%; z-index: 99996;
-            `;
+            const size = 3 + Math.random() * 3;
+            p.style.cssText = `left:${x + (Math.random() - 0.5) * 30}px;top:${y + (Math.random() - 0.5) * 30}px;width:${size}px;height:${size}px;background:hsl(${(hue + Math.random() * 60) % 360}, 100%, 70%);position:fixed;border-radius:50%;pointer-events:none;z-index:99995;`;
             document.body.appendChild(p);
             
             p.animate([
                 { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.8 },
-                { transform: 'translate(-50%, -50%) scale(0) translateY(-20px)', opacity: 0 }
+                { transform: 'translate(-50%, -50%) scale(0) translateY(-15px)', opacity: 0 }
             ], { duration: 600, easing: 'ease-out' })
             .onfinish = () => p.remove();
         }
