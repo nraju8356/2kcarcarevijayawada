@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#05050a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>2K Car Care Vijayawada | Premium Auto Care</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.0.0/index.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: #05050a; color: #fff; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        body { font-family: 'Montserrat', sans-serif; background: #05050a; color: #fff; overflow-x: hidden; min-height: 100vh; min-height: -webkit-fill-available; }
         
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #0a0a1a; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8b5cf6, #3b82f6); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8b5cf6, #3b82f6); border-radius: 2px; }
 
-        /* 3D Canvas */
         #three-canvas {
             position: fixed;
             top: 0; left: 0;
@@ -26,7 +29,6 @@
             pointer-events: none;
         }
 
-        /* Glass Morphism */
         .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px) saturate(180%);
@@ -49,35 +51,27 @@
         .glass-sm {
             background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
         }
 
-        /* 3D Card Effect */
         .card-3d {
             transform-style: preserve-3d;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease;
         }
-        .card-3d:hover {
-            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateZ(20px);
-            box-shadow: 20px 20px 60px rgba(139, 92, 246, 0.2), -5px -5px 20px rgba(59, 130, 246, 0.1);
+        @media (hover: hover) {
+            .card-3d:hover {
+                transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateZ(20px);
+                box-shadow: 20px 20px 60px rgba(139, 92, 246, 0.2), -5px -5px 20px rgba(59, 130, 246, 0.1);
+            }
         }
 
-        /* Neon Glow */
-        .neon-glow {
-            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3), 0 0 80px rgba(139, 92, 246, 0.1);
-        }
-        .neon-text {
-            background: linear-gradient(135deg, #fff 0%, #c084fc 50%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Animated Gradient */
         .gradient-text {
             background: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4, #8b5cf6);
             background-size: 300% 300%;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientShift 4s ease infinite;
         }
@@ -87,37 +81,16 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Floating Animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotateY(0deg); }
-            50% { transform: translateY(-15px) rotateY(3deg); }
-        }
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-        .animate-float-slow { animation: floatSlow 4s ease-in-out infinite; }
-
-        /* Pulse Ring */
-        @keyframes pulseRing {
-            0% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 0.5; }
-        }
-
-        /* Scroll Reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(60px) rotateX(10deg);
+            transform: translateY(60px);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .reveal.active {
             opacity: 1;
-            transform: translateY(0) rotateX(0);
+            transform: translateY(0);
         }
 
-        /* Section Titles */
         .section-badge {
             display: inline-flex;
             align-items: center;
@@ -133,10 +106,10 @@
             color: #c084fc;
         }
 
-        /* Navigation */
         .nav-glass {
             background: rgba(5, 5, 10, 0.7);
             backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s ease;
         }
@@ -163,12 +136,11 @@
         }
         .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-        /* Service Cards */
         .service-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -183,36 +155,31 @@
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            opacity: 0;
+        @media (hover: hover) {
+            .service-card:hover::before { opacity: 1; }
+            .service-card:hover {
+                transform: translateY(-8px) scale(1.02);
+                border-color: rgba(139, 92, 246, 0.2);
+                box-shadow: 0 20px 60px rgba(139, 92, 246, 0.1);
+            }
         }
-        .service-card:hover::before { opacity: 1; }
-        .service-card:hover::after { opacity: 1; }
-        .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
+        .service-card:active {
+            transform: scale(0.98);
             border-color: rgba(139, 92, 246, 0.2);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.1);
         }
         .service-icon {
-            width: 56px; height: 56px;
-            border-radius: 16px;
+            width: 50px; height: 50px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.1));
             border: 1px solid rgba(139, 92, 246, 0.2);
+            flex-shrink: 0;
         }
 
-        /* Review Cards */
         .review-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -220,14 +187,15 @@
             padding: 1.5rem;
             transition: all 0.4s ease;
         }
-        .review-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(251, 191, 36, 0.2);
-            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.08);
+        @media (hover: hover) {
+            .review-card:hover {
+                transform: translateY(-5px);
+                border-color: rgba(251, 191, 36, 0.2);
+                box-shadow: 0 15px 40px rgba(251, 191, 36, 0.08);
+            }
         }
         .stars { color: #fbbf24; }
 
-        /* FAQ Accordion */
         .faq-item {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -244,8 +212,10 @@
             justify-content: space-between;
             font-weight: 600;
             transition: color 0.3s ease;
+            -webkit-touch-callout: none;
+            user-select: none;
         }
-        .faq-question:hover { color: #c084fc; }
+        .faq-question:hover, .faq-question:active { color: #c084fc; }
         .faq-answer {
             max-height: 0;
             overflow: hidden;
@@ -254,14 +224,13 @@
         .faq-item.open .faq-answer { max-height: 300px; }
         .faq-item.open { border-color: rgba(139, 92, 246, 0.2); }
         .faq-item.open .faq-icon { transform: rotate(180deg); }
-        .faq-icon { transition: transform 0.3s ease; }
+        .faq-icon { transition: transform 0.3s ease; flex-shrink: 0; }
 
-        /* Buttons */
         .btn-primary {
             background: linear-gradient(135deg, #8b5cf6, #6d28d9);
             color: #fff;
             font-weight: 700;
-            padding: 14px 32px;
+            padding: 14px 28px;
             border-radius: 50px;
             border: none;
             cursor: pointer;
@@ -274,6 +243,7 @@
             align-items: center;
             gap: 8px;
             text-decoration: none;
+            -webkit-appearance: none;
         }
         .btn-primary::before {
             content: '';
@@ -284,16 +254,19 @@
             transition: left 0.5s ease;
         }
         .btn-primary:hover::before { left: 100%; }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        @media (hover: hover) {
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            }
         }
+        .btn-primary:active { transform: scale(0.97); }
 
         .btn-outline {
             background: transparent;
             color: #c084fc;
             font-weight: 700;
-            padding: 14px 32px;
+            padding: 14px 28px;
             border-radius: 50px;
             border: 2px solid rgba(139, 92, 246, 0.4);
             cursor: pointer;
@@ -304,22 +277,20 @@
             align-items: center;
             gap: 8px;
             text-decoration: none;
+            -webkit-appearance: none;
         }
         .btn-outline:hover {
             background: rgba(139, 92, 246, 0.15);
             border-color: #8b5cf6;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
         }
+        .btn-outline:active { transform: scale(0.97); }
 
-        /* Mobile Menu */
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .mobile-menu.open { transform: translateX(0); }
 
-        /* Loading Screen */
         .loader {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -333,7 +304,7 @@
         }
         .loader.hidden { opacity: 0; pointer-events: none; }
         .loader-ring {
-            width: 60px; height: 60px;
+            width: 50px; height: 50px;
             border: 3px solid rgba(139, 92, 246, 0.2);
             border-top-color: #8b5cf6;
             border-radius: 50%;
@@ -341,37 +312,35 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px; right: 30px;
-            width: 60px; height: 60px;
+            bottom: 20px; right: 20px;
+            width: 56px; height: 56px;
             background: linear-gradient(135deg, #25d366, #128c7e);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #fff;
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float:active { transform: scale(0.9); }
 
-        /* Scroll to top */
         .scroll-top {
             position: fixed;
-            bottom: 30px; left: 30px;
-            width: 50px; height: 50px;
+            bottom: 20px; left: 20px;
+            width: 46px; height: 46px;
             background: linear-gradient(135deg, #8b5cf6, #6d28d9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
             z-index: 1000;
             opacity: 0;
@@ -381,95 +350,70 @@
             text-decoration: none;
         }
         .scroll-top.visible { opacity: 1; transform: translateY(0); }
-        .scroll-top:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4); }
+        .scroll-top:active { transform: scale(0.9); }
 
-        /* Tab System */
-        .tab-btn {
-            padding: 12px 24px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-        }
-        .tab-btn.active, .tab-btn:hover {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.2));
-            border-color: rgba(139, 92, 246, 0.4);
-            color: #fff;
-        }
-
-        /* Night Toggle */
-        .night-toggle {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        .night-toggle span {
-            font-size: 0.6rem;
-            color: rgba(255,255,255,0.4);
-            letter-spacing: 1px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .card-3d:hover { transform: none; }
-        }
-
-        /* Marquee */
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
         .marquee { animation: marquee 30s linear infinite; }
+
+        .hero-title { font-size: clamp(2rem, 8vw, 4.5rem); }
+        .hero-subtitle { font-size: clamp(0.95rem, 3vw, 1.2rem); }
+        .section-title { font-size: clamp(1.8rem, 5vw, 3.5rem); }
+
+        @media (max-width: 640px) {
+            .glass { border-radius: 16px; }
+            .glass-sm { border-radius: 12px; }
+            .service-card { padding: 1.25rem; border-radius: 16px; }
+            .service-icon { width: 44px; height: 44px; font-size: 1rem; }
+            .section-badge { font-size: 0.65rem; padding: 6px 16px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 1.4rem; bottom: 16px; right: 16px; }
+            .scroll-top { width: 42px; height: 42px; bottom: 16px; left: 16px; }
+            .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; }
+            .nav-glass { padding: 3px 0; }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title { font-size: 1.8rem; }
+            .service-icon { width: 40px; height: 40px; }
+            .service-card { padding: 1rem; }
+        }
+
+        @supports (padding-top: env(safe-area-inset-top)) {
+            .nav-glass { padding-top: calc(16px + env(safe-area-inset-top)); }
+            body { padding-bottom: env(safe-area-inset-bottom); }
+        }
+
+        input, select, textarea { font-size: 16px !important; }
     </style>
 </head>
 <body>
 
-    <!-- 3D Background Canvas -->
     <canvas id="three-canvas"></canvas>
 
-    <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="loader-ring"></div>
         <div class="mt-4 text-purple-400 font-bold tracking-widest text-sm">2K CAR CARE</div>
     </div>
 
-    <!-- Night Toggle -->
-    <div class="night-toggle hidden lg:flex">
-        <div class="glass-sm w-10 h-10 rounded-full flex items-center justify-center cursor-pointer" onclick="toggleNight()">
-            <span id="nightIcon">🌙</span>
-        </div>
-        <span>NIGHT</span>
-    </div>
-
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/918519957776" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    <a href="https://wa.me/918519957776" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scroll to Top -->
-    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Navigation -->
     <nav class="nav-glass fixed top-0 left-0 right-0 z-50" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-3">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
-                    <span class="text-white font-black text-lg">2K</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 sm:space-x-3">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20 flex-shrink-0">
+                    <span class="text-white font-black text-base sm:text-lg">2K</span>
                 </div>
-                <div>
-                    <span class="text-white font-bold text-lg tracking-wider">2K Car Care</span>
-                    <span class="block text-purple-400 text-xs font-semibold tracking-widest">VIJAYAWADA</span>
+                <div class="min-w-0">
+                    <span class="text-white font-bold text-sm sm:text-lg tracking-wider block truncate">2K Car Care</span>
+                    <span class="block text-purple-400 text-[10px] sm:text-xs font-semibold tracking-widest">VIJAYAWADA</span>
                 </div>
             </a>
             <div class="hidden lg:flex items-center space-x-8">
@@ -485,49 +429,47 @@
                     <i class="fas fa-phone"></i> Call Now
                 </a>
             </div>
-            <button class="lg:hidden text-purple-400 text-2xl" onclick="toggleMobile()">
+            <button class="lg:hidden text-purple-400 text-xl" onclick="toggleMobile()" aria-label="Toggle menu">
                 <i class="fas fa-bars" id="menuIcon"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu fixed top-0 right-0 w-80 h-full z-50 p-8" id="mobileMenu" style="background: rgba(5,5,10,0.95); backdrop-filter: blur(30px);">
-        <button class="absolute top-6 right-6 text-purple-400 text-2xl" onclick="toggleMobile()">
+    <div class="mobile-menu fixed top-0 right-0 w-[85vw] max-w-sm h-full z-50 p-6" id="mobileMenu" style="background: rgba(5,5,10,0.97); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);">
+        <button class="absolute top-5 right-5 text-purple-400 text-2xl" onclick="toggleMobile()" aria-label="Close menu">
             <i class="fas fa-times"></i>
         </button>
-        <div class="mt-20 flex flex-col space-y-6">
-            <a href="#home" class="text-white/80 hover:text-purple-400 text-xl font-semibold transition-colors" onclick="toggleMobile()">Home</a>
-            <a href="#services" class="text-white/80 hover:text-purple-400 text-xl font-semibold transition-colors" onclick="toggleMobile()">Services</a>
-            <a href="#painting" class="text-white/80 hover:text-purple-400 text-xl font-semibold transition-colors" onclick="toggleMobile()">Painting</a>
-            <a href="#washing" class="text-white/80 hover:text-purple-400 text-xl font-semibold transition-colors" onclick="toggleMobile()">Washing</a>
-            <a href="#reviews" class="text-white/80 hover:text-purple-400 text-xl font-semibold transition-colors" onclick="toggleMobile()">Reviews</a>
-            <a href="#faq" class="text-white/80 hover:text-purple-400 text-xl font-semibold transition-colors" onclick="toggleMobile()">FAQ</a>
-            <a href="#about" class="text-white/80 hover:text-purple-400 text-xl font-semibold transition-colors" onclick="toggleMobile()">About</a>
-            <a href="#contact" class="text-white/80 hover:text-purple-400 text-xl font-semibold transition-colors" onclick="toggleMobile()">Contact</a>
+        <div class="mt-16 flex flex-col space-y-5">
+            <a href="#home" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Home</a>
+            <a href="#services" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Services</a>
+            <a href="#painting" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Painting</a>
+            <a href="#washing" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Washing</a>
+            <a href="#reviews" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Reviews</a>
+            <a href="#faq" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">FAQ</a>
+            <a href="#about" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">About</a>
+            <a href="#contact" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Contact</a>
             <a href="tel:+918519957776" class="btn-primary text-center mt-4" onclick="toggleMobile()">
                 <i class="fas fa-phone"></i> Call Now
             </a>
         </div>
     </div>
 
-    <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center relative z-10 pt-20">
-        <div class="max-w-7xl mx-auto px-6 w-full">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="inline-flex items-center space-x-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-5 py-2 mb-8">
-                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                        <span class="text-purple-400 text-sm font-semibold tracking-wider">📍 VIJAYAWADA'S PREMIER AUTO CARE</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 sm:px-5 py-2 mb-6 sm:mb-8">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0"></span>
+                        <span class="text-purple-400 text-xs sm:text-sm font-semibold tracking-wider"> VIJAYAWADA'S PREMIER AUTO CARE</span>
                     </div>
-                    <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-6">
-                        <span class="gradient-text">We Make Your Car</span><br>
-                        <span class="text-white">Shine Like New</span>
+                    <h1 class="hero-title font-black leading-tight mb-4 sm:mb-6">
+                        <span class="gradient-text block">We Make Your Car</span>
+                        <span class="text-white block">Shine Like New</span>
                     </h1>
-                    <p class="text-white/50 text-lg mb-10 max-w-lg leading-relaxed">
+                    <p class="hero-subtitle text-white/50 mb-8 sm:mb-10 max-w-lg leading-relaxed mx-auto lg:mx-0">
                         Professional car detailing, ceramic coating, paint protection & more — crafted with precision for every vehicle.
                     </p>
-                    <div class="flex flex-wrap gap-4 mb-16">
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-10 sm:mb-16">
                         <a href="tel:+918519957776" class="btn-primary">
                             <i class="fas fa-phone"></i> Book Now
                         </a>
@@ -535,29 +477,29 @@
                             <i class="fas fa-sparkles"></i> Our Services
                         </a>
                     </div>
-                    <div class="flex items-center space-x-10">
+                    <div class="flex items-center justify-center lg:justify-start space-x-6 sm:space-x-10">
                         <div>
-                            <div class="text-4xl font-black text-purple-400" id="counter1">0</div>
-                            <div class="text-white/40 text-sm mt-1">Cars Serviced</div>
+                            <div class="text-3xl sm:text-4xl font-black text-purple-400" id="counter1">0</div>
+                            <div class="text-white/40 text-xs sm:text-sm mt-1">Cars Serviced</div>
                         </div>
-                        <div class="w-px h-16 bg-white/10"></div>
+                        <div class="w-px h-12 sm:h-16 bg-white/10"></div>
                         <div>
-                            <div class="text-4xl font-black text-yellow-400">5★</div>
-                            <div class="text-white/40 text-sm mt-1">Rated Service</div>
+                            <div class="text-3xl sm:text-4xl font-black text-yellow-400">5★</div>
+                            <div class="text-white/40 text-xs sm:text-sm mt-1">Rated Service</div>
                         </div>
-                        <div class="w-px h-16 bg-white/10"></div>
+                        <div class="w-px h-12 sm:h-16 bg-white/10"></div>
                         <div>
-                            <div class="text-4xl font-black text-green-400">100%</div>
-                            <div class="text-white/40 text-sm mt-1">Satisfaction</div>
+                            <div class="text-3xl sm:text-4xl font-black text-green-400">100%</div>
+                            <div class="text-white/40 text-xs sm:text-sm mt-1">Satisfaction</div>
                         </div>
                     </div>
                 </div>
                 <div class="hidden lg:flex justify-center">
-                    <div class="relative animate-float">
+                    <div class="relative" style="animation: float 6s ease-in-out infinite;">
                         <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl blur-3xl"></div>
                         <div class="glass relative p-8 rounded-3xl">
-                            <div class="w-80 h-80 rounded-2xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
-                                <i class="fas fa-car text-8xl text-purple-400/60"></i>
+                            <div class="w-72 h-72 rounded-2xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
+                                <i class="fas fa-car text-7xl text-purple-400/60"></i>
                             </div>
                             <div class="absolute -bottom-4 -right-4 glass-sm p-4 rounded-xl">
                                 <div class="flex items-center space-x-2">
@@ -572,7 +514,6 @@
         </div>
     </section>
 
-    <!-- Marquee Strip -->
     <section class="py-6 border-y border-white/5 relative z-10 overflow-hidden">
         <div class="flex whitespace-nowrap">
             <div class="marquee flex items-center space-x-12 text-white/20 font-bold text-lg">
@@ -580,215 +521,173 @@
                 <span>🧽 WASHING</span><span>•</span>
                 <span>✨ CERAMIC COATING</span><span>•</span>
                 <span>🛡️ GRAPHENE COATING</span><span>•</span>
-                <span> NANO COATING</span><span>•</span>
-                <span> DENTING</span><span>•</span>
-                <span> TEFLON COATING</span><span>•</span>
+                <span>💎 NANO COATING</span><span>•</span>
+                <span>🔧 DENTING</span><span>•</span>
+                <span>💧 TEFLON COATING</span><span>•</span>
                 <span>🪟 GLASS FILM</span><span>•</span>
                 <span>🎨 PAINTING</span><span>•</span>
                 <span>🧽 WASHING</span><span>•</span>
                 <span>✨ CERAMIC COATING</span><span>•</span>
                 <span>🛡️ GRAPHENE COATING</span><span>•</span>
                 <span>💎 NANO COATING</span><span>•</span>
-                <span>🔧 DENTING</span><span>•</span>
+                <span> DENTING</span><span>•</span>
                 <span>💧 TEFLON COATING</span><span>•</span>
-                <span> GLASS FILM</span><span>•</span>
+                <span>🪟 GLASS FILM</span><span>•</span>
             </div>
         </div>
     </section>
 
-    <!-- Main Services Section -->
-    <section id="services" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <div class="section-badge">
-                    <i class="fas fa-sparkles"></i>
-                    WHAT WE DO
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-black text-white mt-6">Our Services</h2>
-                <p class="text-white/40 max-w-2xl mx-auto mt-4">From a basic wash to full ceramic coating, we treat every car with the care it deserves.</p>
+    <section id="services" class="py-16 sm:py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <div class="section-badge"><i class="fas fa-sparkles"></i> WHAT WE DO</div>
+                <h2 class="section-title font-black text-white mt-4 sm:mt-6">Our Services</h2>
+                <p class="text-white/40 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base">From a basic wash to full ceramic coating, we treat every car with the care it deserves.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Service Cards -->
-                <div class="service-card reveal" style="--mouse-x: 50%; --mouse-y: 50%;">
-                    <div class="service-icon">
-                        <i class="fas fa-hammer text-purple-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Denting</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Precision dent removal restoring your car's body panels to their original smooth shape.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-hammer text-purple-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Denting</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Precision dent removal restoring your car's body panels.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.05s;">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-roller text-blue-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Painting</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">High-quality automotive painting with perfect colour matching and a flawless finish.</p>
+                    <div class="service-icon"><i class="fas fa-paint-roller text-blue-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Painting</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">High-quality automotive painting with perfect colour matching.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.1s;">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-virus text-cyan-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Nano Coat</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Advanced nano-technology coating that creates an ultra-thin protective layer over your paint.</p>
+                    <div class="service-icon"><i class="fas fa-shield-virus text-cyan-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Nano Coat</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Advanced nano-technology coating for ultra-thin protection.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.15s;">
-                    <div class="service-icon">
-                        <i class="fas fa-gem text-yellow-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Ceramic Coat</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Long-lasting ceramic protection that repels water, dirt, and UV rays for years.</p>
+                    <div class="service-icon"><i class="fas fa-gem text-yellow-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Ceramic Coat</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Long-lasting ceramic protection repelling water, dirt & UV rays.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.2s;">
-                    <div class="service-icon">
-                        <i class="fas fa-atom text-green-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Graphene Coat</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Next-gen graphene coating offering superior hardness, heat resistance, and mirror gloss.</p>
+                    <div class="service-icon"><i class="fas fa-atom text-green-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Graphene Coat</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Next-gen graphene coating with superior hardness & mirror gloss.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.25s;">
-                    <div class="service-icon">
-                        <i class="fas fa-magic text-pink-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Rubbing & Polish</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Machine polishing to eliminate swirl marks, scratches, and oxidation for a showroom shine.</p>
+                    <div class="service-icon"><i class="fas fa-magic text-pink-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Rubbing & Polish</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Machine polishing eliminating swirl marks for showroom shine.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.3s;">
-                    <div class="service-icon">
-                        <i class="fas fa-tint text-teal-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Teflon Coating</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Teflon treatment that protects your car's paint from minor abrasions, dust, and environmental damage.</p>
+                    <div class="service-icon"><i class="fas fa-tint text-teal-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Teflon Coating</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Teflon treatment protecting against abrasions and dust.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.35s;">
-                    <div class="service-icon">
-                        <i class="fas fa-couch text-orange-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Interior</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Deep cleaning, steam treatment, and leather conditioning for a fresh, spotless cabin interior.</p>
+                    <div class="service-icon"><i class="fas fa-couch text-orange-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Interior</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Deep cleaning, steam treatment & leather conditioning.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.4s;">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt text-red-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Underbody Anti-Rust</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Heavy-duty coating that shields your chassis from rust, corrosion, and moisture.</p>
+                    <div class="service-icon"><i class="fas fa-shield-alt text-red-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Underbody Anti-Rust</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Heavy-duty coating shielding chassis from rust & corrosion.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.45s;">
-                    <div class="service-icon">
-                        <i class="fas fa-sun text-amber-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Glass Cooling Film</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Premium window films that block heat and UV rays, keeping your cabin cool and comfortable.</p>
+                    <div class="service-icon"><i class="fas fa-sun text-amber-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Glass Cooling Film</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Premium window films blocking heat & UV rays.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.5s;">
-                    <div class="service-icon">
-                        <i class="fas fa-puzzle-piece text-indigo-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Basic Accessories</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Quality car accessories — seat covers, mats, organizers, and more to enhance your ride.</p>
+                    <div class="service-icon"><i class="fas fa-puzzle-piece text-indigo-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Basic Accessories</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Quality car accessories to enhance your ride.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.55s;">
-                    <div class="service-icon">
-                        <i class="fas fa-water text-sky-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Water Wash</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Thorough exterior water wash removing dust, grime, and dirt for a clean, refreshed look.</p>
+                    <div class="service-icon"><i class="fas fa-water text-sky-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Water Wash</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Thorough exterior water wash for a clean, refreshed look.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.6s;">
-                    <div class="service-icon">
-                        <i class="fas fa-circle-notch text-gray-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Dechrome</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Professional dechrome service replacing shiny chrome trims with a sleek blacked-out finish.</p>
-                </div>
-                <div class="service-card reveal" style="transition-delay: 0.65s;">
-                    <div class="service-icon">
-                        <i class="fas fa-palette text-violet-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Colour Customization</h3>
-                    <p class="text-white/40 text-sm leading-relaxed">Full-body custom colour wraps and paint jobs for a completely unique, personalized look.</p>
+                    <div class="service-icon"><i class="fas fa-palette text-violet-400"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Colour Customization</h3>
+                    <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Full-body custom colour wraps for a unique personalized look.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Painting Services Section -->
-    <section id="painting" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <div class="section-badge">
-                    <i class="fas fa-paint-roller"></i>
-                    PAINT & FINISH
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-black text-white mt-6">Painting Services</h2>
-                <p class="text-white/40 max-w-2xl mx-auto mt-4">From full body repaints to custom dual-tone finishes — flawless, long-lasting paintwork for every car.</p>
+    <section id="painting" class="py-16 sm:py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <div class="section-badge"><i class="fas fa-paint-roller"></i> PAINT & FINISH</div>
+                <h2 class="section-title font-black text-white mt-4 sm:mt-6">Painting Services</h2>
+                <p class="text-white/40 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base">Flawless, long-lasting paintwork for every car.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-car text-purple-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Full Body Paint</h3>
-                    <p class="text-white/40 text-sm">Complete exterior repaint with premium automotive paint for a brand-new showroom finish.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Full Body Paint</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Complete exterior repaint with premium automotive paint.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.05s;">
                     <div class="service-icon"><i class="fas fa-sync text-blue-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Body Round Paint</h3>
-                    <p class="text-white/40 text-sm">All-around body panel painting ensuring consistent colour and finish across the entire vehicle.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Body Round Paint</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">All-around body panel painting with consistent finish.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.1s;">
                     <div class="service-icon"><i class="fas fa-tools text-cyan-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Full Dismantle & Paint</h3>
-                    <p class="text-white/40 text-sm">Complete dismantling of body panels for a deep, factory-level paint job with zero overspray.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Full Dismantle & Paint</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Complete dismantling for factory-level paint job.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.15s;">
                     <div class="service-icon"><i class="fas fa-exchange-alt text-yellow-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Colour Change</h3>
-                    <p class="text-white/40 text-sm">Transform your car's look entirely with a full colour change using high-quality automotive paints.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Colour Change</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Transform your car's look with a full colour change.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.2s;">
                     <div class="service-icon"><i class="fas fa-columns text-green-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Dual Tone Colour</h3>
-                    <p class="text-white/40 text-sm">Stylish two-tone paint combinations that give your car a unique, head-turning custom appearance.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Dual Tone Colour</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Stylish two-tone paint for a head-turning look.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.25s;">
                     <div class="service-icon"><i class="fas fa-eye-slash text-pink-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Dechrome</h3>
-                    <p class="text-white/40 text-sm">Replace shiny chrome trims with a sleek blacked-out or body-coloured finish for a modern look.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Dechrome</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Sleek blacked-out finish replacing chrome trims.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.3s;">
                     <div class="service-icon"><i class="fas fa-compact-disc text-orange-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Alloy Wheels Paint</h3>
-                    <p class="text-white/40 text-sm">Precision alloy wheel painting in any colour or finish — gloss, matte, or two-tone for a bold stance.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Alloy Wheels Paint</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Precision alloy wheel painting in any colour or finish.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.35s;">
                     <div class="service-icon"><i class="fas fa-drum text-red-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Calipers Paint</h3>
-                    <p class="text-white/40 text-sm">High-heat brake caliper painting in vibrant colours to add a sporty, premium touch to your wheels.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Calipers Paint</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">High-heat brake caliper painting in vibrant colours.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.4s;">
                     <div class="service-icon"><i class="fas fa-couch text-teal-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Interior Custom Paint</h3>
-                    <p class="text-white/40 text-sm">Custom paint on interior trims, dashboards, and panels to match your personal style.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Interior Custom Paint</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Custom paint on interior trims and panels.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.45s;">
                     <div class="service-icon"><i class="fas fa-border-none text-indigo-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Matt Finish Paint</h3>
-                    <p class="text-white/40 text-sm">Sophisticated matte paint finish that gives your car a stealthy, premium non-reflective look.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Matt Finish Paint</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Sophisticated matte paint for a stealthy premium look.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.5s;">
                     <div class="service-icon"><i class="fas fa-layer-group text-violet-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Outer Cladding Paint</h3>
-                    <p class="text-white/40 text-sm">Paint or restore exterior plastic claddings to match or contrast your car's body colour.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Outer Cladding Paint</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Paint or restore exterior plastic claddings.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.55s;">
                     <div class="service-icon"><i class="fas fa-shield-alt text-amber-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Footboard Stone Guard</h3>
-                    <p class="text-white/40 text-sm">Protective stone guard coating on footboards and lower panels to resist chips and road debris.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Footboard Stone Guard</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Protective coating to resist chips and road debris.</p>
                 </div>
-                <div class="service-card reveal lg:col-span-2" style="transition-delay: 0.6s;">
-                    <div class="flex items-start space-x-4">
+                <div class="service-card reveal sm:col-span-2 lg:col-span-3" style="transition-delay: 0.6s;">
+                    <div class="flex items-start space-x-3 sm:space-x-4">
                         <div class="service-icon flex-shrink-0"><i class="fas fa-bolt text-yellow-400"></i></div>
                         <div>
-                            <h3 class="text-lg font-bold text-white mb-2">QRS – Quick Repair Service</h3>
-                            <p class="text-white/40 text-sm">Fast spot repairs for minor scratches, dents, and paint chips — back on the road in no time.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">QRS – Quick Repair Service</h3>
+                            <p class="text-white/40 text-xs sm:text-sm">Fast spot repairs for minor scratches, dents, and paint chips — back on the road in no time.</p>
                         </div>
                     </div>
                 </div>
@@ -796,115 +695,106 @@
         </div>
     </section>
 
-    <!-- Washing Services Section -->
-    <section id="washing" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <div class="section-badge">
-                    <i class="fas fa-water"></i>
-                    WASH & REFRESH
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-black text-white mt-6">Washing Services</h2>
-                <p class="text-white/40 max-w-2xl mx-auto mt-4">From a quick foam wash to premium interior cleaning — the right wash package for every car.</p>
+    <section id="washing" class="py-16 sm:py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <div class="section-badge"><i class="fas fa-water"></i> WASH & REFRESH</div>
+                <h2 class="section-title font-black text-white mt-4 sm:mt-6">Washing Services</h2>
+                <p class="text-white/40 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base">From quick foam wash to premium interior cleaning.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-spray-can text-purple-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">General Wash (Foam Wash)</h3>
-                    <p class="text-white/40 text-sm">A thorough foam wash that lifts dirt and grime off your car's exterior for a clean, fresh look.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">General Wash (Foam)</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Thorough foam wash lifting dirt for a fresh look.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.05s;">
                     <div class="service-icon"><i class="fas fa-shower text-blue-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Full Wash (with Under Wash)</h3>
-                    <p class="text-white/40 text-sm">Complete exterior wash including underbody rinse to flush out mud, salt, and debris from beneath.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Full Wash (Under Wash)</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Complete wash including underbody rinse.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.1s;">
                     <div class="service-icon"><i class="fas fa-broom text-cyan-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Wash with Interior Cleaning</h3>
-                    <p class="text-white/40 text-sm">Full exterior wash combined with interior vacuum and wipe-down for a totally refreshed car.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Wash + Interior Clean</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Exterior wash with interior vacuum and wipe-down.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.15s;">
                     <div class="service-icon"><i class="fas fa-magic text-yellow-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Wash with Single Step Restoration</h3>
-                    <p class="text-white/40 text-sm">Exterior wash paired with single-step machine polish to remove light swirls and restore gloss.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Wash + Single Step Restore</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Exterior wash with machine polish to restore gloss.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.2s;">
                     <div class="service-icon"><i class="fas fa-vial text-green-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Nano Maintenance Wash</h3>
-                    <p class="text-white/40 text-sm">Specially formulated maintenance wash that boosts and maintains your existing nano coating.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Nano Maintenance Wash</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Specialized wash boosting existing nano coating.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.25s;">
                     <div class="service-icon"><i class="fas fa-gem text-pink-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Ceramic Maintenance Wash</h3>
-                    <p class="text-white/40 text-sm">Dedicated wash using ceramic-safe products to preserve your ceramic coating's performance.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Ceramic Maintenance Wash</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Ceramic-safe products preserving coating performance.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.3s;">
                     <div class="service-icon"><i class="fas fa-shield-alt text-orange-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">PPF Maintenance Wash</h3>
-                    <p class="text-white/40 text-sm">Gentle yet effective wash designed to clean and maintain paint protection film without damage.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">PPF Maintenance Wash</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Gentle wash for paint protection film maintenance.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.35s;">
                     <div class="service-icon"><i class="fas fa-fire text-red-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Steam Engine Bay Cleaning</h3>
-                    <p class="text-white/40 text-sm">High-pressure steam cleaning of the engine bay removing grease, oil, and buildup safely.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Steam Engine Bay Clean</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">High-pressure steam cleaning engine bay safely.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.4s;">
                     <div class="service-icon"><i class="fas fa-lightbulb text-amber-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Headlight Buffing</h3>
-                    <p class="text-white/40 text-sm">Machine buffing to remove yellowing and haziness from headlights, restoring clarity and brightness.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Headlight Buffing</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Machine buffing restoring headlight clarity.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.45s;">
                     <div class="service-icon"><i class="fas fa-temperature-high text-teal-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Glass Hot Water Scaling Remover</h3>
-                    <p class="text-white/40 text-sm">Specialized treatment to dissolve stubborn water spots and mineral deposits from all glass surfaces.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Glass Scaling Remover</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Dissolving stubborn water spots from all glass.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.5s;">
                     <div class="service-icon"><i class="fas fa-paint-brush text-indigo-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Claddings Restore</h3>
-                    <p class="text-white/40 text-sm">Restores faded plastic claddings and trims back to a deep, rich black finish for a like-new appearance.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Claddings Restore</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Restores faded plastic claddings to like-new black.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.55s;">
                     <div class="service-icon"><i class="fas fa-crown text-violet-400"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Interior Cleaning Premium</h3>
-                    <p class="text-white/40 text-sm">Full premium interior detail — deep seat cleaning, dashboard treatment, carpet shampoo, and odour removal.</p>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Interior Cleaning Premium</h3>
+                    <p class="text-white/40 text-xs sm:text-sm">Full premium interior detail with carpet shampoo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <div class="section-badge">
-                    <i class="fas fa-star"></i>
-                    CUSTOMER LOVE
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-black text-white mt-6">Google Reviews</h2>
-                <p class="text-white/40 max-w-2xl mx-auto mt-4">What our customers say about 2K Car Care Vijayawada.</p>
+    <section id="reviews" class="py-16 sm:py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <div class="section-badge"><i class="fas fa-star"></i> CUSTOMER LOVE</div>
+                <h2 class="section-title font-black text-white mt-4 sm:mt-6">Google Reviews</h2>
+                <p class="text-white/40 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base">What our customers say about 2K Car Care Vijayawada.</p>
             </div>
 
-            <!-- Rating Summary -->
-            <div class="glass p-8 mb-12 reveal">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="text-center md:text-left">
-                        <div class="text-6xl font-black text-white">4.6</div>
-                        <div class="flex items-center justify-center md:justify-start space-x-1 mt-2">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star-half-alt text-yellow-400"></i>
+            <div class="glass p-6 sm:p-8 mb-8 sm:mb-12 reveal">
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+                    <div class="text-center">
+                        <div class="text-5xl sm:text-6xl font-black text-white">4.6</div>
+                        <div class="flex items-center justify-center space-x-1 mt-2">
+                            <i class="fas fa-star text-yellow-400 text-sm sm:text-base"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm sm:text-base"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm sm:text-base"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm sm:text-base"></i>
+                            <i class="fas fa-star-half-alt text-yellow-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="text-white/40 mt-2">44 reviews on Google</div>
-                        <a href="https://www.google.com/maps/place/2k+car+care/@16.5067,80.6482,17z/data=!4m6!3m5!1s0x3a35f0b8b8b8b8b8:0x1962b8a8a8a8a8a8!8m2!3d16.5067!4d80.6482!16s%2Fg%2F11h3y8z9y0" target="_blank" class="inline-flex items-center space-x-2 mt-4 text-purple-400 font-semibold text-sm hover:text-purple-300 transition-colors">
+                        <div class="text-white/40 mt-2 text-sm">44 reviews on Google</div>
+                        <a href="https://www.google.com/maps?cid=18288564258799507178" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 mt-4 text-purple-400 font-semibold text-sm hover:text-purple-300 transition-colors">
                             <span>Review us on Google</span>
                             <i class="fas fa-external-link-alt text-xs"></i>
                         </a>
                     </div>
-                    <div class="glass-sm p-6">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                    <div class="glass-sm p-4 sm:p-6">
+                        <div class="flex items-center space-x-3 mb-3 sm:mb-4">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-robot text-purple-400"></i>
                             </div>
                             <div>
@@ -912,221 +802,212 @@
                                 <p class="text-white/30 text-xs">Based on 44 Google reviews</p>
                             </div>
                         </div>
-                        <p class="text-white/50 text-sm leading-relaxed">Customers consistently praise the excellent service, friendly and talented staff, and the satisfying overall experience. The work is described as highly skilled, with standout finishing, detailing, and paint matching that leaves people extremely happy.</p>
+                        <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Customers consistently praise the excellent service, friendly and talented staff, and the satisfying overall experience. The work is described as highly skilled, with standout finishing, detailing, and paint matching.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Review Cards -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <div class="review-card reveal">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold">NK</div>
-                        <div>
-                            <h4 class="font-bold text-white">Nirmal Kumar</h4>
+                    <div class="flex items-center space-x-3 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">NK</div>
+                        <div class="min-w-0">
+                            <h4 class="font-bold text-white text-sm sm:text-base truncate">Nirmal Kumar</h4>
                             <p class="text-white/30 text-xs">5 months ago</p>
                         </div>
                     </div>
-                    <div class="stars mb-3">
+                    <div class="stars mb-2 sm:mb-3 text-sm">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-white/50 text-sm">Perfect finishing and detailing</p>
+                    <p class="text-white/50 text-xs sm:text-sm">Perfect finishing and detailing</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.1s;">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white font-bold">PK</div>
-                        <div>
-                            <h4 class="font-bold text-white">Phani Kumar Settipalli</h4>
+                    <div class="flex items-center space-x-3 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">PK</div>
+                        <div class="min-w-0">
+                            <h4 class="font-bold text-white text-sm sm:text-base truncate">Phani Kumar S.</h4>
                             <p class="text-white/30 text-xs">8 months ago</p>
                         </div>
                     </div>
-                    <div class="stars mb-3">
+                    <div class="stars mb-2 sm:mb-3 text-sm">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-white/50 text-sm">Excellent and most satisfying service. Mechanics are very friendly and well talented.</p>
+                    <p class="text-white/50 text-xs sm:text-sm">Excellent and most satisfying service. Mechanics are very friendly and well talented.</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.2s;">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold">TC</div>
-                        <div>
-                            <h4 class="font-bold text-white">TrilokChand B</h4>
+                    <div class="flex items-center space-x-3 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">TC</div>
+                        <div class="min-w-0">
+                            <h4 class="font-bold text-white text-sm sm:text-base truncate">TrilokChand B</h4>
                             <p class="text-white/30 text-xs">10 months ago</p>
                         </div>
                     </div>
-                    <div class="stars mb-3">
+                    <div class="stars mb-2 sm:mb-3 text-sm">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-white/50 text-sm leading-relaxed">They did an excellent job — the paint match is perfect, the staff is very friendly, and they quickly understood my requirements. I'm extremely satisfied with their work and would highly recommend them.</p>
+                    <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Paint match is perfect, staff is very friendly. Extremely satisfied and highly recommend them.</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.3s;">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center text-white font-bold">GP</div>
-                        <div>
-                            <h4 class="font-bold text-white">Golden Prasad</h4>
+                    <div class="flex items-center space-x-3 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">GP</div>
+                        <div class="min-w-0">
+                            <h4 class="font-bold text-white text-sm sm:text-base truncate">Golden Prasad</h4>
                             <p class="text-white/30 text-xs">11 months ago</p>
                         </div>
                     </div>
-                    <div class="stars mb-3">
+                    <div class="stars mb-2 sm:mb-3 text-sm">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-white/50 text-sm">Service was excellent.....</p>
+                    <p class="text-white/50 text-xs sm:text-sm">Service was excellent.....</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.4s;">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white font-bold">BN</div>
-                        <div>
-                            <h4 class="font-bold text-white">B A Naidu</h4>
+                    <div class="flex items-center space-x-3 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">BN</div>
+                        <div class="min-w-0">
+                            <h4 class="font-bold text-white text-sm sm:text-base truncate">B A Naidu</h4>
                             <p class="text-white/30 text-xs">1 year ago</p>
                         </div>
                     </div>
-                    <div class="stars mb-3">
+                    <div class="stars mb-2 sm:mb-3 text-sm">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-white/50 text-sm">One of d best paint works in Vijayawada..,</p>
+                    <p class="text-white/50 text-xs sm:text-sm">One of d best paint works in Vijayawada..,</p>
                 </div>
                 <div class="review-card reveal" style="transition-delay: 0.5s;">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold">RN</div>
-                        <div>
-                            <h4 class="font-bold text-white">Raghu Naidu</h4>
+                    <div class="flex items-center space-x-3 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">RN</div>
+                        <div class="min-w-0">
+                            <h4 class="font-bold text-white text-sm sm:text-base truncate">Raghu Naidu</h4>
                             <p class="text-white/30 text-xs">1 year ago</p>
                         </div>
                     </div>
-                    <div class="stars mb-3">
+                    <div class="stars mb-2 sm:mb-3 text-sm">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-white/50 text-sm">No comments Just EXPERIENCE & ROAR the roads💨 # simple cute work Done</p>
+                    <p class="text-white/50 text-xs sm:text-sm">No comments Just EXPERIENCE & ROAR the roads💨</p>
                 </div>
             </div>
 
-            <div class="text-center mt-12 reveal">
-                <a href="https://www.google.com/maps/place/2k+car+care/@16.5067,80.6482,17z/data=!4m6!3m5!1s0x3a35f0b8b8b8b8b8:0x1962b8a8a8a8a8a8!8m2!3d16.5067!4d80.6482!16s%2Fg%2F11h3y8z9y0" target="_blank" class="btn-primary">
+            <div class="text-center mt-8 sm:mt-12 reveal">
+                <a href="https://www.google.com/maps?cid=18288564258799507178" target="_blank" rel="noopener noreferrer" class="btn-primary">
                     <i class="fas fa-external-link-alt"></i> See All Reviews on Google
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-24 relative z-10">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <div class="section-badge">
-                    <i class="fas fa-question-circle"></i>
-                    GOT QUESTIONS?
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-black text-white mt-6">Frequently Asked Questions</h2>
-                <p class="text-white/40 max-w-2xl mx-auto mt-4">Everything you need to know about our services at 2K Car Care Vijayawada.</p>
+    <section id="faq" class="py-16 sm:py-24 relative z-10">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <div class="section-badge"><i class="fas fa-question-circle"></i> GOT QUESTIONS?</div>
+                <h2 class="section-title font-black text-white mt-4 sm:mt-6">Frequently Asked Questions</h2>
+                <p class="text-white/40 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base">Everything you need to know about our services.</p>
             </div>
-            <div class="space-y-4">
+            <div class="space-y-3 sm:space-y-4">
                 <div class="faq-item reveal">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>What types of cars do you service?</span>
-                        <i class="fas fa-chevron-down faq-icon text-purple-400"></i>
+                    <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <span class="text-sm sm:text-base">What types of cars do you service?</span>
+                        <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
                     </div>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 text-white/50 text-sm leading-relaxed">We service all types of vehicles — hatchbacks, sedans, SUVs, and luxury cars. No matter the make or model, we deliver factory-quality results.</div>
+                        <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/50 text-xs sm:text-sm leading-relaxed">We service all types of vehicles — hatchbacks, sedans, SUVs, and luxury cars. No matter the make or model, we deliver factory-quality results.</div>
                     </div>
                 </div>
                 <div class="faq-item reveal" style="transition-delay: 0.05s;">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>How long does ceramic coating take?</span>
-                        <i class="fas fa-chevron-down faq-icon text-purple-400"></i>
+                    <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <span class="text-sm sm:text-base">How long does ceramic coating take?</span>
+                        <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
                     </div>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 text-white/50 text-sm leading-relaxed">Ceramic coating typically takes 2-3 days depending on your car's condition and the level of paint correction needed. The coating itself cures within 24-48 hours.</div>
+                        <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/50 text-xs sm:text-sm leading-relaxed">Ceramic coating typically takes 2-3 days depending on your car's condition and the level of paint correction needed. The coating itself cures within 24-48 hours.</div>
                     </div>
                 </div>
                 <div class="faq-item reveal" style="transition-delay: 0.1s;">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Do you offer warranty on your services?</span>
-                        <i class="fas fa-chevron-down faq-icon text-purple-400"></i>
+                    <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <span class="text-sm sm:text-base">Do you offer warranty on your services?</span>
+                        <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
                     </div>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 text-white/50 text-sm leading-relaxed">Yes! All our coating services come with a warranty. Ceramic coatings are covered for 3-5 years, graphene coatings for 5-7 years, and paint protection films for 7-10 years.</div>
+                        <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/50 text-xs sm:text-sm leading-relaxed">Yes! All our coating services come with a warranty. Ceramic coatings are covered for 3-5 years, graphene coatings for 5-7 years, and paint protection films for 7-10 years.</div>
                     </div>
                 </div>
                 <div class="faq-item reveal" style="transition-delay: 0.15s;">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>What is the difference between Nano and Ceramic coating?</span>
-                        <i class="fas fa-chevron-down faq-icon text-purple-400"></i>
+                    <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <span class="text-sm sm:text-base">What is the difference between Nano and Ceramic coating?</span>
+                        <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
                     </div>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 text-white/50 text-sm leading-relaxed">Nano coating uses nano-particles to create a thin protective layer (lasts 6-12 months), while ceramic coating uses silicon dioxide for a much harder, longer-lasting protection (3-5 years) with superior hydrophobic properties.</div>
+                        <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/50 text-xs sm:text-sm leading-relaxed">Nano coating uses nano-particles to create a thin protective layer (lasts 6-12 months), while ceramic coating uses silicon dioxide for much harder, longer-lasting protection (3-5 years) with superior hydrophobic properties.</div>
                     </div>
                 </div>
                 <div class="faq-item reveal" style="transition-delay: 0.2s;">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Can I book an appointment online?</span>
-                        <i class="fas fa-chevron-down faq-icon text-purple-400"></i>
+                    <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <span class="text-sm sm:text-base">Can I book an appointment online?</span>
+                        <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
                     </div>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 text-white/50 text-sm leading-relaxed">Absolutely! You can call us directly at +91 85199 57776 or WhatsApp us to book your appointment. We also accept walk-ins during our working hours.</div>
+                        <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/50 text-xs sm:text-sm leading-relaxed">Absolutely! You can call us directly at +91 85199 57776 or WhatsApp us to book your appointment. We also accept walk-ins during our working hours.</div>
                     </div>
                 </div>
                 <div class="faq-item reveal" style="transition-delay: 0.25s;">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>What are your working hours?</span>
-                        <i class="fas fa-chevron-down faq-icon text-purple-400"></i>
+                    <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <span class="text-sm sm:text-base">What are your working hours?</span>
+                        <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
                     </div>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 text-white/50 text-sm leading-relaxed">We're open Monday through Saturday from 9:00 AM to 10:00 PM. Sunday hours are 09:00 AM to 5:00 PM. We recommend booking in advance for peak times.</div>
+                        <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/50 text-xs sm:text-sm leading-relaxed">We're open Monday through Saturday from 9:00 AM to 10:00 PM. Sunday hours are 9:00 AM to 5:00 PM. We recommend booking in advance for peak times.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" class="py-16 sm:py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div class="reveal">
-                    <div class="section-badge">
-                        <i class="fas fa-heart"></i>
-                        ABOUT US
-                    </div>
-                    <h2 class="text-4xl lg:text-5xl font-black text-white mt-6">Passionate About Cars</h2>
-                    <p class="text-white/50 mt-6 leading-relaxed">
-                        At 2K Car Care, Vijayawada, we are a team of car enthusiasts dedicated to delivering factory-quality results for every vehicle. We use only premium products and the latest techniques to ensure your car gets the best treatment possible.
+                    <div class="section-badge"><i class="fas fa-heart"></i> ABOUT US</div>
+                    <h2 class="section-title font-black text-white mt-4 sm:mt-6">Passionate About Cars</h2>
+                    <p class="text-white/50 mt-4 sm:mt-6 leading-relaxed text-sm sm:text-base">
+                        At 2K Car Care, Vijayawada, we are a team of car enthusiasts dedicated to delivering factory-quality results for every vehicle. We use only premium products and the latest techniques.
                     </p>
-                    <div class="grid grid-cols-2 gap-4 mt-8">
-                        <div class="flex items-center space-x-3 glass-sm p-4">
-                            <i class="fas fa-check-circle text-green-400"></i>
-                            <span class="text-white/60 text-sm">Trained & certified detailing specialists</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
+                        <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
+                            <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
+                            <span class="text-white/60 text-xs sm:text-sm">Trained & certified specialists</span>
                         </div>
-                        <div class="flex items-center space-x-3 glass-sm p-4">
-                            <i class="fas fa-check-circle text-green-400"></i>
-                            <span class="text-white/60 text-sm">Premium-grade products only</span>
+                        <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
+                            <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
+                            <span class="text-white/60 text-xs sm:text-sm">Premium-grade products only</span>
                         </div>
-                        <div class="flex items-center space-x-3 glass-sm p-4">
-                            <i class="fas fa-check-circle text-green-400"></i>
-                            <span class="text-white/60 text-sm">Transparent pricing, no hidden charges</span>
+                        <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
+                            <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
+                            <span class="text-white/60 text-xs sm:text-sm">Transparent pricing</span>
                         </div>
-                        <div class="flex items-center space-x-3 glass-sm p-4">
-                            <i class="fas fa-check-circle text-green-400"></i>
-                            <span class="text-white/60 text-sm">All car types — hatchback to SUV</span>
+                        <div class="flex items-center space-x-3 glass-sm p-3 sm:p-4">
+                            <i class="fas fa-check-circle text-green-400 flex-shrink-0"></i>
+                            <span class="text-white/60 text-xs sm:text-sm">All car types — hatchback to SUV</span>
                         </div>
                     </div>
                 </div>
                 <div class="reveal" style="transition-delay: 0.2s;">
-                    <div class="glass p-8 rounded-3xl">
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/10">
-                                <div class="text-4xl font-black text-purple-400">5000+</div>
-                                <div class="text-white/40 text-sm mt-2">Cars Serviced</div>
+                    <div class="glass p-6 sm:p-8 rounded-3xl">
+                        <div class="grid grid-cols-2 gap-4 sm:gap-6">
+                            <div class="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/10">
+                                <div class="text-3xl sm:text-4xl font-black text-purple-400">5000+</div>
+                                <div class="text-white/40 text-xs sm:text-sm mt-2">Cars Serviced</div>
                             </div>
-                            <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-500/10">
-                                <div class="text-4xl font-black text-blue-400">44+</div>
-                                <div class="text-white/40 text-sm mt-2">Google Reviews</div>
+                            <div class="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-500/10">
+                                <div class="text-3xl sm:text-4xl font-black text-blue-400">44+</div>
+                                <div class="text-white/40 text-xs sm:text-sm mt-2">Google Reviews</div>
                             </div>
-                            <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/10">
-                                <div class="text-4xl font-black text-green-400">4.6★</div>
-                                <div class="text-white/40 text-sm mt-2">Average Rating</div>
+                            <div class="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/10">
+                                <div class="text-3xl sm:text-4xl font-black text-green-400">4.6★</div>
+                                <div class="text-white/40 text-xs sm:text-sm mt-2">Average Rating</div>
                             </div>
-                            <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/10">
-                                <div class="text-4xl font-black text-yellow-400">5+</div>
-                                <div class="text-white/40 text-sm mt-2">Years Experience</div>
+                            <div class="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/10">
+                                <div class="text-3xl sm:text-4xl font-black text-yellow-400">5+</div>
+                                <div class="text-white/40 text-xs sm:text-sm mt-2">Years Experience</div>
                             </div>
                         </div>
                     </div>
@@ -1135,199 +1016,174 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <div class="section-badge">
-                    <i class="fas fa-phone"></i>
-                    GET IN TOUCH
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-black text-white mt-6">Reach Us</h2>
-                <p class="text-white/40 max-w-2xl mx-auto mt-4">Ready to give your car the care it deserves? Call us or WhatsApp and we'll get back to you right away.</p>
+    <section id="contact" class="py-16 sm:py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <div class="section-badge"><i class="fas fa-phone"></i> GET IN TOUCH</div>
+                <h2 class="section-title font-black text-white mt-4 sm:mt-6">Reach Us</h2>
+                <p class="text-white/40 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base">Call us or WhatsApp and we'll get back to you right away.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="glass p-8 text-center card-3d reveal">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-phone-alt text-purple-400 text-2xl"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+                <div class="glass p-6 sm:p-8 text-center card-3d reveal">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                        <i class="fas fa-phone-alt text-purple-400 text-xl sm:text-2xl"></i>
                     </div>
-                    <h3 class="text-white font-bold text-lg mb-2">Phone / WhatsApp</h3>
-                    <a href="tel:+918519957776" class="text-purple-400 font-semibold hover:text-purple-300 transition-colors">+91 85199 57776</a>
+                    <h3 class="text-white font-bold text-base sm:text-lg mb-2">Phone / WhatsApp</h3>
+                    <a href="tel:+918519957776" class="text-purple-400 font-semibold hover:text-purple-300 transition-colors text-sm sm:text-base">+91 85199 57776</a>
                 </div>
-                <div class="glass p-8 text-center card-3d reveal" style="transition-delay: 0.1s;">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500/20 to-teal-500/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-map-marker-alt text-green-400 text-2xl"></i>
+                <div class="glass p-6 sm:p-8 text-center card-3d reveal" style="transition-delay: 0.1s;">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-green-500/20 to-teal-500/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                        <i class="fas fa-map-marker-alt text-green-400 text-xl sm:text-2xl"></i>
                     </div>
-                    <h3 class="text-white font-bold text-lg mb-2">Location</h3>
-                    <a href="https://www.google.com/maps?cid=18288564258799507178" target="_blank" class="text-green-400 font-semibold hover:text-green-300 transition-colors">
+                    <h3 class="text-white font-bold text-base sm:text-lg mb-2">Location</h3>
+                    <a href="https://www.google.com/maps?cid=18288564258799507178" target="_blank" rel="noopener noreferrer" class="text-green-400 font-semibold hover:text-green-300 transition-colors text-sm sm:text-base">
                         GP54+728, Enikepadu<br>Vijayawada, AP 520007
                     </a>
                 </div>
-                <div class="glass p-8 text-center card-3d reveal" style="transition-delay: 0.2s;">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-clock text-amber-400 text-2xl"></i>
+                <div class="glass p-6 sm:p-8 text-center card-3d reveal sm:col-span-2 lg:col-span-1" style="transition-delay: 0.2s;">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                        <i class="fas fa-clock text-amber-400 text-xl sm:text-2xl"></i>
                     </div>
-                    <h3 class="text-white font-bold text-lg mb-2">Working Hours</h3>
-                    <p class="text-amber-400 font-semibold">Mon – Sat: 9 AM – 10 PM</p>
-                    <p class="text-white/40 text-sm mt-1">Sunday: 09 AM – 5 PM</p>
+                    <h3 class="text-white font-bold text-base sm:text-lg mb-2">Working Hours</h3>
+                    <p class="text-amber-400 font-semibold text-sm sm:text-base">Mon – Sat: 9 AM – 10 PM</p>
+                    <p class="text-white/40 text-xs sm:text-sm mt-1">Sunday: 9 AM – 5 PM</p>
                 </div>
             </div>
 
-            <!-- Social Links -->
-            <div class="flex justify-center space-x-6 mt-12 reveal">
-                <a href="https://www.instagram.com/2kcarcarevijayawada" target="_blank" class="glass w-14 h-14 rounded-2xl flex items-center justify-center text-pink-400 hover:bg-pink-500/20 transition-all hover:scale-110">
-                    <i class="fab fa-instagram text-xl"></i>
+            <div class="flex justify-center space-x-4 sm:space-x-6 mt-8 sm:mt-12 reveal">
+                <a href="https://www.instagram.com/2kcarcarevijayawada" target="_blank" rel="noopener noreferrer" class="glass w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-pink-400 hover:bg-pink-500/20 transition-all active:scale-90">
+                    <i class="fab fa-instagram text-lg sm:text-xl"></i>
                 </a>
-                <a href="https://www.youtube.com/@2kcarcarevijayawada271/shorts" target="_blank" class="glass w-14 h-14 rounded-2xl flex items-center justify-center text-red-400 hover:bg-red-500/20 transition-all hover:scale-110">
-                    <i class="fab fa-youtube text-xl"></i>
+                <a href="https://www.youtube.com/@2kcarcarevijayawada271/shorts" target="_blank" rel="noopener noreferrer" class="glass w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-red-400 hover:bg-red-500/20 transition-all active:scale-90">
+                    <i class="fab fa-youtube text-lg sm:text-xl"></i>
                 </a>
-                <a href="https://www.google.com/maps?cid=18288564258799507178" target="_blank" class="glass w-14 h-14 rounded-2xl flex items-center justify-center text-blue-400 hover:bg-blue-500/20 transition-all hover:scale-110">
-                    <i class="fas fa-map text-xl"></i>
+                <a href="https://www.google.com/maps?cid=18288564258799507178" target="_blank" rel="noopener noreferrer" class="glass w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-blue-400 hover:bg-blue-500/20 transition-all active:scale-90">
+                    <i class="fas fa-map text-lg sm:text-xl"></i>
                 </a>
-                <a href="https://wa.me/918519957776" target="_blank" class="glass w-14 h-14 rounded-2xl flex items-center justify-center text-green-400 hover:bg-green-500/20 transition-all hover:scale-110">
-                    <i class="fab fa-whatsapp text-xl"></i>
+                <a href="https://wa.me/918519957776" target="_blank" rel="noopener noreferrer" class="glass w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-green-400 hover:bg-green-500/20 transition-all active:scale-90">
+                    <i class="fab fa-whatsapp text-lg sm:text-xl"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-white/5 relative z-10">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="flex items-center justify-center space-x-3 mb-6">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-                    <span class="text-white font-black text-sm">2K</span>
+    <footer class="py-10 sm:py-12 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4 sm:mb-6">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                    <span class="text-white font-black text-xs sm:text-sm">2K</span>
                 </div>
-                <span class="text-white font-bold">2K Car Care Vijayawada</span>
+                <span class="text-white font-bold text-sm sm:text-base">2K Car Care Vijayawada</span>
             </div>
-            <p class="text-white/30 text-sm">© 2026 2K Car Care Vijayawada. All rights reserved. | Made with ❤️ for car lovers.</p>
+            <p class="text-white/30 text-xs sm:text-sm">© 2026 2K Car Care Vijayawada. All rights reserved. | Made with ❤️ for car lovers.</p>
         </div>
     </footer>
 
     <script>
-        // Loading Screen
-        window.addEventListener('load', () => {
-            setTimeout(() => {
+        window.addEventListener('load', function() {
+            setTimeout(function() {
                 document.getElementById('loader').classList.add('hidden');
-            }, 1200);
+            }, 1000);
         });
 
-        // Three.js 3D Background
-        const canvas = document.getElementById('three-canvas');
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        var canvas = document.getElementById('three-canvas');
+        if (canvas && typeof THREE !== 'undefined') {
+            try {
+                var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 30;
+                var scene = new THREE.Scene();
+                var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 30;
 
-        // Create particles
-        const particleCount = 800;
-        const geometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
-        const colors = new Float32Array(particleCount * 3);
+                var particleCount = 500;
+                var geo = new THREE.BufferGeometry();
+                var pos = new Float32Array(particleCount * 3);
+                var cols = new Float32Array(particleCount * 3);
 
-        for (let i = 0; i < particleCount; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 60;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 60;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 40;
-            
-            const colorChoice = Math.random();
-            if (colorChoice < 0.33) {
-                colors[i * 3] = 0.55; colors[i * 3 + 1] = 0.36; colors[i * 3 + 2] = 0.96;
-            } else if (colorChoice < 0.66) {
-                colors[i * 3] = 0.23; colors[i * 3 + 1] = 0.51; colors[i * 3 + 2] = 0.96;
-            } else {
-                colors[i * 3] = 0.02; colors[i * 3 + 1] = 0.71; colors[i * 3 + 2] = 0.83;
+                for (var i = 0; i < particleCount; i++) {
+                    pos[i * 3] = (Math.random() - 0.5) * 60;
+                    pos[i * 3 + 1] = (Math.random() - 0.5) * 60;
+                    pos[i * 3 + 2] = (Math.random() - 0.5) * 40;
+                    var c = Math.random();
+                    if (c < 0.33) { cols[i*3]=0.55; cols[i*3+1]=0.36; cols[i*3+2]=0.96; }
+                    else if (c < 0.66) { cols[i*3]=0.23; cols[i*3+1]=0.51; cols[i*3+2]=0.96; }
+                    else { cols[i*3]=0.02; cols[i*3+1]=0.71; cols[i*3+2]=0.83; }
+                }
+
+                geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+                geo.setAttribute('color', new THREE.BufferAttribute(cols, 3));
+
+                var mat = new THREE.PointsMaterial({ size: 0.15, vertexColors: true, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending });
+                var particles = new THREE.Points(geo, mat);
+                scene.add(particles);
+
+                var shapes = [];
+                var shapeGeos = [
+                    new THREE.IcosahedronGeometry(1, 0),
+                    new THREE.OctahedronGeometry(0.8, 0),
+                    new THREE.TetrahedronGeometry(0.7, 0)
+                ];
+
+                for (var j = 0; j < 10; j++) {
+                    var g = shapeGeos[Math.floor(Math.random() * shapeGeos.length)];
+                    var m = new THREE.MeshBasicMaterial({
+                        color: new THREE.Color().setHSL(Math.random() * 0.3 + 0.6, 0.8, 0.5),
+                        wireframe: true, transparent: true, opacity: 0.12
+                    });
+                    var mesh = new THREE.Mesh(g, m);
+                    mesh.position.set((Math.random()-0.5)*40, (Math.random()-0.5)*40, (Math.random()-0.5)*20);
+                    mesh.userData = { rs: (Math.random()-0.5)*0.02, fs: Math.random()*0.5+0.2, fo: Math.random()*Math.PI*2 };
+                    shapes.push(mesh);
+                    scene.add(mesh);
+                }
+
+                var mouseX = 0, mouseY = 0;
+                var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+
+                if (!isMobile) {
+                    document.addEventListener('mousemove', function(e) {
+                        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+                    });
+                }
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    particles.rotation.y += 0.0005;
+                    particles.rotation.x += 0.0002;
+                    if (!isMobile) {
+                        camera.position.x += (mouseX * 3 - camera.position.x) * 0.02;
+                        camera.position.y += (-mouseY * 3 - camera.position.y) * 0.02;
+                    }
+                    camera.lookAt(scene.position);
+                    for (var k = 0; k < shapes.length; k++) {
+                        shapes[k].rotation.x += shapes[k].userData.rs;
+                        shapes[k].rotation.y += shapes[k].userData.rs * 0.7;
+                        shapes[k].position.y += Math.sin(Date.now() * 0.001 * shapes[k].userData.fs + shapes[k].userData.fo) * 0.01;
+                    }
+                    renderer.render(scene, camera);
+                }
+                animate();
+
+                window.addEventListener('resize', function() {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            } catch(e) {
+                canvas.style.display = 'none';
             }
+        } else {
+            canvas.style.display = 'none';
         }
 
-        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        var navbar = document.getElementById('navbar');
+        var scrollTopBtn = document.getElementById('scrollTop');
+        var isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-        const material = new THREE.PointsMaterial({
-            size: 0.15,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.6,
-            blending: THREE.AdditiveBlending
-        });
-
-        const particles = new THREE.Points(geometry, material);
-        scene.add(particles);
-
-        // Create floating geometric shapes
-        const shapes = [];
-        const shapeGeometries = [
-            new THREE.IcosahedronGeometry(1, 0),
-            new THREE.OctahedronGeometry(0.8, 0),
-            new THREE.TetrahedronGeometry(0.7, 0)
-        ];
-
-        for (let i = 0; i < 15; i++) {
-            const geom = shapeGeometries[Math.floor(Math.random() * shapeGeometries.length)];
-            const mat = new THREE.MeshBasicMaterial({
-                color: new THREE.Color().setHSL(Math.random() * 0.3 + 0.6, 0.8, 0.5),
-                wireframe: true,
-                transparent: true,
-                opacity: 0.15
-            });
-            const mesh = new THREE.Mesh(geom, mat);
-            mesh.position.set(
-                (Math.random() - 0.5) * 40,
-                (Math.random() - 0.5) * 40,
-                (Math.random() - 0.5) * 20
-            );
-            mesh.userData = {
-                rotSpeed: (Math.random() - 0.5) * 0.02,
-                floatSpeed: Math.random() * 0.5 + 0.2,
-                floatOffset: Math.random() * Math.PI * 2
-            };
-            shapes.push(mesh);
-            scene.add(mesh);
-        }
-
-        // Mouse interaction
-        let mouseX = 0, mouseY = 0;
-        document.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-            mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-        });
-
-        // Animation
-        function animate() {
-            requestAnimationFrame(animate);
-            
-            particles.rotation.y += 0.0005;
-            particles.rotation.x += 0.0002;
-            
-            // Mouse parallax
-            camera.position.x += (mouseX * 3 - camera.position.x) * 0.02;
-            camera.position.y += (-mouseY * 3 - camera.position.y) * 0.02;
-            camera.lookAt(scene.position);
-
-            shapes.forEach((shape, i) => {
-                shape.rotation.x += shape.userData.rotSpeed;
-                shape.rotation.y += shape.userData.rotSpeed * 0.7;
-                shape.position.y += Math.sin(Date.now() * 0.001 * shape.userData.floatSpeed + shape.userData.floatOffset) * 0.01;
-            });
-
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        // Navbar scroll
-        const navbar = document.getElementById('navbar');
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
             } else {
@@ -1338,17 +1194,16 @@
             } else {
                 scrollTopBtn.classList.remove('visible');
             }
-            // Active nav link
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 200;
+            var sections = document.querySelectorAll('section[id]');
+            var navLinks = document.querySelectorAll('.nav-link');
+            var current = '';
+            sections.forEach(function(section) {
+                var sectionTop = section.offsetTop - 200;
                 if (window.scrollY >= sectionTop) {
                     current = section.getAttribute('id');
                 }
             });
-            navLinks.forEach(link => {
+            navLinks.forEach(function(link) {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
@@ -1356,53 +1211,58 @@
             });
         });
 
-        // Mobile Menu
         function toggleMobile() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('menuIcon');
+            var menu = document.getElementById('mobileMenu');
+            var icon = document.getElementById('menuIcon');
             menu.classList.toggle('open');
             if (menu.classList.contains('open')) {
                 icon.className = 'fas fa-times';
+                document.body.style.overflow = 'hidden';
             } else {
                 icon.className = 'fas fa-bars';
+                document.body.style.overflow = '';
             }
         }
 
-        // Scroll Reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            observer.observe(el);
+        });
 
-        // FAQ Toggle
         function toggleFaq(element) {
-            const item = element.parentElement;
-            const isOpen = item.classList.contains('open');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-            if (!isOpen) item.classList.add('open');
+            var item = element.parentElement;
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+            if (!isOpen) {
+                item.classList.add('open');
+                element.setAttribute('aria-expanded', 'true');
+            } else {
+                element.setAttribute('aria-expanded', 'false');
+            }
         }
 
-        // Counter Animation
         function animateCounter(element, target, duration) {
-            let start = 0;
-            const startTime = performance.now();
+            var start = 0;
+            var startTime = performance.now();
             function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
+                var elapsed = currentTime - startTime;
+                var progress = Math.min(elapsed / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
                 element.textContent = Math.floor(target * eased) + '+';
                 if (progress < 1) requestAnimationFrame(update);
             }
             requestAnimationFrame(update);
         }
 
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     animateCounter(document.getElementById('counter1'), 5000, 2000);
                     counterObserver.unobserve(entry.target);
@@ -1411,39 +1271,36 @@
         }, { threshold: 0.5 });
         counterObserver.observe(document.getElementById('counter1'));
 
-        // Service card mouse tracking
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                card.style.setProperty('--mouse-x', x + '%');
-                card.style.setProperty('--mouse-y', y + '%');
+        if (!isMobileDevice) {
+            document.querySelectorAll('.service-card').forEach(function(card) {
+                card.addEventListener('mousemove', function(e) {
+                    var rect = card.getBoundingClientRect();
+                    var x = ((e.clientX - rect.left) / rect.width) * 100;
+                    var y = ((e.clientY - rect.top) / rect.height) * 100;
+                    card.style.setProperty('--mouse-x', x + '%');
+                    card.style.setProperty('--mouse-y', y + '%');
+                });
             });
-        });
-
-        // Night Toggle (visual only - already dark theme)
-        function toggleNight() {
-            const icon = document.getElementById('nightIcon');
-            if (icon.textContent === '🌙') {
-                icon.textContent = '☀️';
-                document.body.style.filter = 'brightness(1.2)';
-            } else {
-                icon.textContent = '';
-                document.body.style.filter = 'none';
-            }
         }
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                var target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
+
+        var lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            var now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
