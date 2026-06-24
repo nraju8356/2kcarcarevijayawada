@@ -10,8 +10,8 @@
     
     <!-- SEO Meta Tags -->
     <title>2K Car Care Vijayawada | Best Car Detailing, Ceramic Coating & Painting Service Since 2015</title>
-    <meta name="description" content="Looking for the best car care in Vijayawada? 2K Car Care in Enikepadu offers expert ceramic coating, graphene coating, car painting, PPF, denting & detailing. 9+ years experience, 5000+ cars serviced. Call +91 85199 57776.">
-    <meta name="keywords" content="car care Vijayawada, car detailing Vijayawada, ceramic coating Vijayawada, car painting Vijayawada, graphene coating, PPF installation, denting painting, car wash Enikepadu, 2K car care, best car service Kanuru">
+    <meta name="description" content="Looking for the best car care in Vijayawada? 2K Car Care in Enikepadu offers expert ceramic coating, graphene coating, car painting, PPF, denting & detailing. Trusted by 5000+ customers across Andhra Pradesh, Telangana & Karnataka. Call +91 85199 57776.">
+    <meta name="keywords" content="car care Vijayawada, car detailing Vijayawada, ceramic coating Vijayawada, car painting Vijayawada, graphene coating, PPF installation, denting painting, car wash Enikepadu, 2K car care, best car service Kanuru, car detailing Andhra Pradesh, car care Telangana, car detailing Karnataka">
     <meta name="author" content="2K Car Care Vijayawada">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="geo.region" content="IN-AP">
@@ -21,7 +21,7 @@
     
     <!-- Open Graph -->
     <meta property="og:title" content="2K Car Care Vijayawada | Trusted Car Detailing Since 2015">
-    <meta property="og:description" content="Premium car detailing, ceramic coating, painting & PPF services in Vijayawada. 5000+ happy customers. Book now!">
+    <meta property="og:description" content="Premium car detailing, ceramic coating, painting & PPF services in Vijayawada. Trusted by 5000+ customers across 3 states. Book now!">
     <meta property="og:type" content="business.business">
     <meta property="og:locale" content="en_IN">
     <meta property="business:contact_data:street_address" content="GP54+728 Plot No. 267, New Autonagar, Kanuru">
@@ -38,7 +38,7 @@
         "@type": "AutoRepair",
         "name": "2K Car Care Vijayawada",
         "image": "",
-        "description": "Premium car detailing, ceramic coating, graphene coating, painting, PPF and denting services in Vijayawada since 2015.",
+        "description": "Premium car detailing, ceramic coating, graphene coating, painting, PPF and denting services in Vijayawada since 2015. Trusted by 5000+ customers across Andhra Pradesh, Telangana and Karnataka.",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "GP54+728 Plot No. 267, New Autonagar, Kanuru",
@@ -47,6 +47,11 @@
             "postalCode": "520007",
             "addressCountry": "IN"
         },
+        "areaServed": [
+            {"@type": "State", "name": "Andhra Pradesh"},
+            {"@type": "State", "name": "Telangana"},
+            {"@type": "State", "name": "Karnataka"}
+        ],
         "geo": {
             "@type": "GeoCoordinates",
             "latitude": 16.5067,
@@ -732,14 +737,12 @@
         .hero-subtitle { font-size: clamp(0.95rem, 3vw, 1.2rem); }
         .section-title { font-size: clamp(1.8rem, 5vw, 3.5rem); }
 
-        /* Trust badge animations */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
         .float-anim { animation: float 4s ease-in-out infinite; }
 
-        /* Graphic badges */
         .trust-badge {
             display: inline-flex;
             align-items: center;
@@ -812,6 +815,103 @@
             margin: 4px;
         }
 
+        /* State Cards - NEW */
+        .state-card {
+            position: relative;
+            padding: 1.5rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .state-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--state-color, #8b5cf6), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .state-card:hover::before { opacity: 1; }
+        .state-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.15);
+        }
+        .state-card .state-flag {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--state-color, #8b5cf6), var(--state-color-dark, #6d28d9));
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .state-card .state-flag::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 16px;
+            background: inherit;
+            filter: blur(10px);
+            opacity: 0.4;
+            z-index: -1;
+        }
+        .state-card .state-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+        .state-card .state-sub {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0.75rem;
+        }
+        .state-card .state-cities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .state-card .city-chip {
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Reach Banner */
+        .reach-banner {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .reach-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .reach-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -50%; left: -20%;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
         @media (max-width: 640px) {
             .glass { border-radius: 16px; }
             .glass-sm { border-radius: 12px; }
@@ -830,6 +930,7 @@
             .nav-glass { padding: 3px 0; }
             .cursor-glow { width: 180px; height: 180px; }
             .security-toast { font-size: 0.8rem; padding: 10px 20px; top: 80px; }
+            .reach-banner { padding: 1.5rem; }
         }
 
         @media (max-width: 400px) {
@@ -961,14 +1062,14 @@
                         <span class="text-white block">Shine Like New</span>
                     </h1>
                     <p class="hero-subtitle text-white/60 mb-6 sm:mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0">
-                        Trusted by <strong class="text-white">5000+ car owners</strong> across Vijayawada since 2015. From a simple foam wash to full ceramic coating and paint protection — we treat every vehicle like it's our own.
+                        Trusted by <strong class="text-white">5000+ car owners</strong> across <strong class="text-white">Andhra Pradesh, Telangana & Karnataka</strong> since 2015. From a simple foam wash to full ceramic coating and paint protection — we treat every vehicle like it's our own.
                     </p>
                     
                     <!-- Trust Graphics -->
                     <div class="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 mb-8">
                         <span class="trust-badge"><i class="fas fa-check-circle"></i> 9+ Years Experience</span>
                         <span class="trust-badge"><i class="fas fa-star"></i> 4.6★ Google Rated</span>
-                        <span class="trust-badge"><i class="fas fa-shield-alt"></i> Warranty Backed</span>
+                        <span class="trust-badge"><i class="fas fa-map-marked-alt"></i> 3 States Served</span>
                     </div>
                     
                     <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-10 sm:mb-12">
@@ -991,8 +1092,8 @@
                             <div class="text-white/50 text-xs mt-1">Rated Service</div>
                         </div>
                         <div class="stat-graphic text-center">
-                            <div class="text-2xl sm:text-3xl font-black text-green-400">100%</div>
-                            <div class="text-white/50 text-xs mt-1">Satisfaction</div>
+                            <div class="text-2xl sm:text-3xl font-black text-green-400">3</div>
+                            <div class="text-white/50 text-xs mt-1">States Served</div>
                         </div>
                     </div>
                 </div>
@@ -1201,7 +1302,7 @@
                         <div class="service-icon flex-shrink-0"><i class="fas fa-bolt text-yellow-400"></i></div>
                         <div>
                             <h3 class="text-base sm:text-lg font-bold text-white mb-2">QRS – Quick Repair Service</h3>
-                            <p class="text-white/50 text-xs sm:text-sm">Fast spot repairs for minor scratches, dents, and paint chips  back on the road in no time.</p>
+                            <p class="text-white/50 text-xs sm:text-sm">Fast spot repairs for minor scratches, dents, and paint chips — back on the road in no time.</p>
                         </div>
                     </div>
                 </div>
@@ -1390,6 +1491,118 @@
         </div>
     </section>
 
+    <!-- OUR REACH - 3 STATES (NEW SECTION) - H2 -->
+    <section class="py-16 sm:py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <div class="section-badge"><i class="fas fa-map-marked-alt"></i> OUR REACH</div>
+                <h2 class="section-title font-black text-white mt-4 sm:mt-6">Car Owners Drive In From 3 States</h2>
+                <p class="text-white/50 max-w-3xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">
+                    Word of mouth travels fast when the work speaks for itself. While our workshop sits in Vijayawada, our customers come from across the region — and they keep coming back.
+                </p>
+            </div>
+
+            <!-- Reach Banner -->
+            <div class="reach-banner mb-10 reveal">
+                <div class="relative z-10 grid md:grid-cols-3 gap-6 items-center">
+                    <div class="text-center md:text-left">
+                        <div class="text-4xl sm:text-5xl font-black gradient-text mb-2">3</div>
+                        <div class="text-white/70 text-sm sm:text-base font-semibold">States Served</div>
+                        <div class="text-white/40 text-xs mt-1">Andhra Pradesh • Telangana • Karnataka</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl sm:text-5xl font-black text-white mb-2">5000+</div>
+                        <div class="text-white/70 text-sm sm:text-base font-semibold">Happy Customers</div>
+                        <div class="text-white/40 text-xs mt-1">Across the region</div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <div class="text-4xl sm:text-5xl font-black text-white mb-2">4.6★</div>
+                        <div class="text-white/70 text-sm sm:text-base font-semibold">Google Rating</div>
+                        <div class="text-white/40 text-xs mt-1">44+ genuine reviews</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- State Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 reveal">
+                <!-- Andhra Pradesh -->
+                <div class="state-card" style="--state-color: #f59e0b; --state-color-dark: #d97706;">
+                    <div class="state-flag">
+                        <i class="fas fa-map-marker-alt text-white"></i>
+                    </div>
+                    <h3 class="state-name">Andhra Pradesh</h3>
+                    <p class="state-sub">Our home state — where we started and grew</p>
+                    <div class="state-cities">
+                        <span class="city-chip">Vijayawada</span>
+                        <span class="city-chip">Guntur</span>
+                        <span class="city-chip">Visakhapatnam</span>
+                        <span class="city-chip">Tirupati</span>
+                        <span class="city-chip">Nellore</span>
+                        <span class="city-chip">Kakinada</span>
+                        <span class="city-chip">Rajahmundry</span>
+                    </div>
+                </div>
+
+                <!-- Telangana -->
+                <div class="state-card" style="--state-color: #3b82f6; --state-color-dark: #2563eb;">
+                    <div class="state-flag">
+                        <i class="fas fa-map-marker-alt text-white"></i>
+                    </div>
+                    <h3 class="state-name">Telangana</h3>
+                    <p class="state-sub">Our neighbours who trust us with their cars</p>
+                    <div class="state-cities">
+                        <span class="city-chip">Hyderabad</span>
+                        <span class="city-chip">Warangal</span>
+                        <span class="city-chip">Nizamabad</span>
+                        <span class="city-chip">Karimnagar</span>
+                        <span class="city-chip">Khammam</span>
+                        <span class="city-chip">Mahbubnagar</span>
+                        <span class="city-chip">Nalgonda</span>
+                    </div>
+                </div>
+
+                <!-- Karnataka -->
+                <div class="state-card" style="--state-color: #10b981; --state-color-dark: #059669;">
+                    <div class="state-flag">
+                        <i class="fas fa-map-marker-alt text-white"></i>
+                    </div>
+                    <h3 class="state-name">Karnataka</h3>
+                    <p class="state-sub">Customers who drive across borders for our service</p>
+                    <div class="state-cities">
+                        <span class="city-chip">Bangalore</span>
+                        <span class="city-chip">Mysore</span>
+                        <span class="city-chip">Hubli</span>
+                        <span class="city-chip">Mangalore</span>
+                        <span class="city-chip">Belgaum</span>
+                        <span class="city-chip">Raichur</span>
+                        <span class="city-chip">Bellary</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial about reach -->
+            <div class="glass p-6 sm:p-8 mt-8 reveal">
+                <div class="flex items-start gap-4">
+                    <div class="graphic-icon flex-shrink-0 bg-gradient-to-br from-purple-500/30 to-blue-500/10 text-purple-400" style="width: 56px; height: 56px; font-size: 1.4rem;">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div>
+                        <p class="text-white/70 text-sm sm:text-base leading-relaxed mb-3">
+                            "I drive all the way from Hyderabad just to get my car serviced at 2K Car Care. The quality of ceramic coating they did on my BMW was better than what I got at a premium workshop in Hyderabad. Worth every kilometre of the drive!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm">RK</div>
+                            <div>
+                                <div class="text-white font-semibold text-sm">Rajesh Kumar</div>
+                                <div class="text-white/40 text-xs">Hyderabad, Telangana • BMW 5 Series</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- REVIEWS - H2 -->
     <section id="reviews" class="py-16 sm:py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -1397,7 +1610,7 @@
                 <div class="section-badge"><i class="fas fa-star"></i> CUSTOMER LOVE</div>
                 <h2 class="section-title font-black text-white mt-4 sm:mt-6">What Our Customers Say About Us</h2>
                 <p class="text-white/50 max-w-3xl mx-auto mt-4 text-sm sm:text-base">
-                    Real reviews from real car owners in Vijayawada. We don't fake reviews — every star is earned.
+                    Real reviews from real car owners across Andhra Pradesh, Telangana & Karnataka. We don't fake reviews — every star is earned.
                 </p>
             </div>
 
@@ -1439,7 +1652,7 @@
                         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">NK</div>
                         <div class="min-w-0">
                             <h4 class="font-bold text-white text-sm sm:text-base truncate">Nirmal Kumar</h4>
-                            <p class="text-white/40 text-xs">5 months ago</p>
+                            <p class="text-white/40 text-xs">Vijayawada, AP • 5 months ago</p>
                         </div>
                     </div>
                     <div class="stars mb-2 sm:mb-3 text-sm">
@@ -1452,7 +1665,7 @@
                         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">PK</div>
                         <div class="min-w-0">
                             <h4 class="font-bold text-white text-sm sm:text-base truncate">Phani Kumar S.</h4>
-                            <p class="text-white/40 text-xs">8 months ago</p>
+                            <p class="text-white/40 text-xs">Guntur, AP • 8 months ago</p>
                         </div>
                     </div>
                     <div class="stars mb-2 sm:mb-3 text-sm">
@@ -1465,7 +1678,7 @@
                         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">TC</div>
                         <div class="min-w-0">
                             <h4 class="font-bold text-white text-sm sm:text-base truncate">TrilokChand B</h4>
-                            <p class="text-white/40 text-xs">10 months ago</p>
+                            <p class="text-white/40 text-xs">Hyderabad, TG • 10 months ago</p>
                         </div>
                     </div>
                     <div class="stars mb-2 sm:mb-3 text-sm">
@@ -1478,7 +1691,7 @@
                         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">GP</div>
                         <div class="min-w-0">
                             <h4 class="font-bold text-white text-sm sm:text-base truncate">Golden Prasad</h4>
-                            <p class="text-white/40 text-xs">11 months ago</p>
+                            <p class="text-white/40 text-xs">Vijayawada, AP • 11 months ago</p>
                         </div>
                     </div>
                     <div class="stars mb-2 sm:mb-3 text-sm">
@@ -1491,7 +1704,7 @@
                         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">BN</div>
                         <div class="min-w-0">
                             <h4 class="font-bold text-white text-sm sm:text-base truncate">B A Naidu</h4>
-                            <p class="text-white/40 text-xs">1 year ago</p>
+                            <p class="text-white/40 text-xs">Bangalore, KA • 1 year ago</p>
                         </div>
                     </div>
                     <div class="stars mb-2 sm:mb-3 text-sm">
@@ -1504,7 +1717,7 @@
                         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">RN</div>
                         <div class="min-w-0">
                             <h4 class="font-bold text-white text-sm sm:text-base truncate">Raghu Naidu</h4>
-                            <p class="text-white/40 text-xs">1 year ago</p>
+                            <p class="text-white/40 text-xs">Visakhapatnam, AP • 1 year ago</p>
                         </div>
                     </div>
                     <div class="stars mb-2 sm:mb-3 text-sm">
@@ -1542,6 +1755,15 @@
                 </div>
                 <div class="faq-item reveal" style="transition-delay: 0.05s;">
                     <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <span class="text-sm sm:text-base">Do customers from other states really visit your workshop?</span>
+                        <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/60 text-xs sm:text-sm leading-relaxed">Yes, absolutely! While most of our customers are from Vijayawada and nearby areas in Andhra Pradesh, we regularly serve car owners from Telangana (especially Hyderabad, Warangal, and Nizamabad) and Karnataka (especially Bangalore, Mysore, and Raichur). Many of them drive 3-5 hours just to get their cars serviced here because they trust our quality. Word of mouth has brought us customers from all three states.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal" style="transition-delay: 0.1s;">
+                    <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
                         <span class="text-sm sm:text-base">How long does ceramic coating take and how long does it last?</span>
                         <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
                     </div>
@@ -1549,7 +1771,7 @@
                         <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/60 text-xs sm:text-sm leading-relaxed">Ceramic coating typically takes 2-3 days depending on your car's condition and the level of paint correction needed. The coating itself cures within 24-48 hours. Once applied, professional ceramic coating lasts 3-5 years with proper maintenance. We also offer graphene coating which lasts 5-7 years with even better durability.</div>
                     </div>
                 </div>
-                <div class="faq-item reveal" style="transition-delay: 0.1s;">
+                <div class="faq-item reveal" style="transition-delay: 0.15s;">
                     <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
                         <span class="text-sm sm:text-base">Do you offer warranty on your services?</span>
                         <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
@@ -1558,7 +1780,7 @@
                         <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/60 text-xs sm:text-sm leading-relaxed">Yes! All our coating services come with a written warranty. Ceramic coatings are covered for 3-5 years, graphene coatings for 5-7 years, and paint protection films (PPF) for 7-10 years. We stand behind our work — if something goes wrong due to our application, we'll fix it at no extra cost.</div>
                     </div>
                 </div>
-                <div class="faq-item reveal" style="transition-delay: 0.15s;">
+                <div class="faq-item reveal" style="transition-delay: 0.2s;">
                     <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
                         <span class="text-sm sm:text-base">What is the difference between Nano, Ceramic, and Graphene coating?</span>
                         <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
@@ -1567,7 +1789,7 @@
                         <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/60 text-xs sm:text-sm leading-relaxed">Nano coating uses nano-particles to create a thin protective layer that lasts 6-12 months — it's a good entry-level option. Ceramic coating uses silicon dioxide for much harder, longer-lasting protection (3-5 years) with superior hydrophobic properties. Graphene coating is the newest technology — it offers even better hardness, heat resistance, and a deeper mirror gloss than ceramic, lasting 5-7 years. Our team can help you choose the right option based on your budget and needs.</div>
                     </div>
                 </div>
-                <div class="faq-item reveal" style="transition-delay: 0.2s;">
+                <div class="faq-item reveal" style="transition-delay: 0.25s;">
                     <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
                         <span class="text-sm sm:text-base">How much does car painting cost in Vijayawada?</span>
                         <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
@@ -1576,7 +1798,7 @@
                         <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/60 text-xs sm:text-sm leading-relaxed">Car painting costs vary based on the type of paint, car size, and finish you want. At 2K Car Care, we offer transparent pricing with no hidden charges. A full body paint job with premium automotive paint is competitively priced. Contact us at +91 85199 57776 for a free, no-obligation quote tailored to your specific vehicle.</div>
                     </div>
                 </div>
-                <div class="faq-item reveal" style="transition-delay: 0.25s;">
+                <div class="faq-item reveal" style="transition-delay: 0.3s;">
                     <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
                         <span class="text-sm sm:text-base">What are your working hours and where are you located?</span>
                         <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
@@ -1585,7 +1807,7 @@
                         <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/60 text-xs sm:text-sm leading-relaxed">We're open Monday through Saturday from 9:00 AM to 10:00 PM, and Sunday from 9:00 AM to 5:00 PM. We're located at GP54+728 Plot No. 267, New Autonagar, Kanuru, Vijayawada, Andhra Pradesh 520007. We recommend booking in advance for peak times, especially for ceramic coating and painting services.</div>
                     </div>
                 </div>
-                <div class="faq-item reveal" style="transition-delay: 0.3s;">
+                <div class="faq-item reveal" style="transition-delay: 0.35s;">
                     <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
                         <span class="text-sm sm:text-base">Is PPF (Paint Protection Film) worth it for my car?</span>
                         <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
@@ -1594,7 +1816,7 @@
                         <div class="px-4 sm:px-6 pb-4 sm:pb-6 text-white/60 text-xs sm:text-sm leading-relaxed">Absolutely! PPF is a self-healing transparent film that protects your car's paint from stone chips, scratches, and environmental damage. It's especially worth it for new cars, luxury vehicles, or if you drive on highways frequently. PPF can last 7-10 years and helps maintain your car's resale value. We offer professional PPF installation with warranty at our Vijayawada workshop.</div>
                     </div>
                 </div>
-                <div class="faq-item reveal" style="transition-delay: 0.35s;">
+                <div class="faq-item reveal" style="transition-delay: 0.4s;">
                     <div class="faq-question" onclick="toggleFaq(this)" role="button" aria-expanded="false">
                         <span class="text-sm sm:text-base">Can I book an appointment online or do I need to walk in?</span>
                         <i class="fas fa-chevron-down faq-icon text-purple-400 text-sm"></i>
@@ -1648,7 +1870,7 @@
             <div class="text-center mb-12 sm:mb-16 reveal">
                 <div class="section-badge"><i class="fas fa-phone"></i> GET IN TOUCH</div>
                 <h2 class="section-title font-black text-white mt-4 sm:mt-6">Book Your Car Service Today</h2>
-                <p class="text-white/50 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base">Ready to give your car the care it deserves? Call us or WhatsApp and we'll get back to you right away.</p>
+                <p class="text-white/50 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base">Whether you're in Vijayawada, Hyderabad, or Bangalore — we're just a call away. Ready to give your car the care it deserves?</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
                 <div class="glass p-6 sm:p-8 text-center card-3d reveal">
@@ -1704,6 +1926,7 @@
                 <span class="text-white font-bold text-sm sm:text-base">2K Car Care Vijayawada</span>
             </div>
             <p class="text-white/40 text-xs sm:text-sm mb-2">Best Car Detailing, Ceramic Coating & Painting Service in Vijayawada Since 2015</p>
+            <p class="text-white/30 text-xs sm:text-sm mb-2">Trusted by 5000+ customers across Andhra Pradesh, Telangana & Karnataka</p>
             <p class="text-white/30 text-xs sm:text-sm">© 2026 2K Car Care Vijayawada. All rights reserved. | Made with ❤️ for car lovers.</p>
         </div>
     </footer>
