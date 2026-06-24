@@ -92,7 +92,7 @@ a, button, input, select, textarea { -webkit-user-select: text; user-select: tex
 .touch-glow { position: fixed; left: 0; top: 0; width: 80px; height: 80px; border-radius: 50%; pointer-events: none; z-index: 99996; transform: translate3d(-100px, -100px, 0); opacity: 0; will-change: transform, opacity; contain: layout style paint; background: radial-gradient(circle, rgba(192,132,252,0.5) 0%, rgba(59,130,246,0.3) 40%, transparent 70%); }
 .touch-glow.active { opacity: 1; }
 .cursor-particle { position: fixed; pointer-events: none; z-index: 99995; border-radius: 50%; will-change: transform, opacity; }
-@media (hover: hover) and (pointer: fine) { * { cursor: none !important; } a, button, input, select, textarea, .service-card, .review-card, .faq-question, .package-card, .paint-service-card, .district-group, .compare-row { cursor: none !important; } }
+@media (hover: hover) and (pointer: fine) { * { cursor: none !important; } a, button, input, select, textarea, .service-card, .review-card, .faq-question, .package-card, .paint-service-card, .district-group { cursor: none !important; } }
 .security-toast { position: fixed; top: 100px; left: 50%; transform: translateX(-50%) translateY(-20px); background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(185, 28, 28, 0.95)); color: #fff; padding: 14px 28px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; z-index: 100000; opacity: 0; pointer-events: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 10px 40px rgba(239, 68, 68, 0.4); display: flex; align-items: center; gap: 10px; backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); max-width: 90vw; }
 .security-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; position: relative; overflow: hidden; }
@@ -225,7 +225,6 @@ a, button, input, select, textarea { -webkit-user-select: text; user-select: tex
 .paint-service-icon::after { content: ''; position: absolute; inset: -2px; border-radius: 16px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(139, 92, 246, 0.4)); filter: blur(10px); opacity: 0.5; z-index: -1; }
 .paint-service-card h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
 .paint-service-card p { font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); line-height: 1.6; }
-/* AREAS WE COVER STYLES */
 .area-section-bg { position: relative; background: linear-gradient(180deg, #05050a 0%, #030308 50%, #05050a 100%); overflow: hidden; }
 .area-section-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 45%), radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.06) 0%, transparent 50%); pointer-events: none; }
 .area-banner { background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.08)); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 24px; padding: 2rem; position: relative; overflow: hidden; }
@@ -244,352 +243,135 @@ a, button, input, select, textarea { -webkit-user-select: text; user-select: tex
 .area-stat-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.25rem; text-align: center; transition: all 0.3s ease; }
 .area-stat-card:active { border-color: rgba(139, 92, 246, 0.3); }
 .service-area-tag { display: inline-block; padding: 6px 14px; border-radius: 50px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); font-size: 0.8rem; color: #93c5fd; margin: 4px; }
-
-
-.compare-section {
-    position: relative;
-    overflow: hidden;
-}
-.compare-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
-    pointer-events: none;
-}
-.compare-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 2;
-}
-.compare-header-cell {
-    padding: 14px 12px;
-    border-radius: 14px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-.compare-header-cell.cell-2k {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.05));
-    border: 1px solid rgba(139, 92, 246, 0.3);
-}
-.compare-header-cell.cell-glasurit {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05));
-    border: 1px solid rgba(59, 130, 246, 0.3);
-}
-.compare-header-cell .brand-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 1.1rem;
-    margin: 0 auto 8px;
-    color: #fff;
-}
-.compare-header-cell.cell-2k .brand-icon {
-    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
-    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
-}
-.compare-header-cell.cell-glasurit .brand-icon {
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
-    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
-}
-.compare-header-cell .brand-name {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 2px;
-}
-.compare-header-cell .brand-tag {
-    font-size: 0.6rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.compare-header-cell.cell-2k .brand-tag { color: #c084fc; }
-.compare-header-cell.cell-glasurit .brand-tag { color: #93c5fd; }
-
-.compare-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
-    z-index: 2;
-}
-.compare-row {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 12px;
-    transition: all 0.3s ease;
-}
-.compare-row:active {
-    transform: scale(0.98);
-    border-color: rgba(139, 92, 246, 0.3);
-}
-@media (hover: hover) {
-    .compare-row:hover {
-        border-color: rgba(139, 92, 246, 0.25);
-        background: rgba(139, 92, 246, 0.04);
-        transform: translateY(-2px);
-    }
-}
-.compare-row .feature-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-}
-.compare-row .feature-label i {
-    font-size: 0.85rem;
-}
-.compare-row .values-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-}
-.compare-row .value-box {
-    padding: 10px 12px;
-    border-radius: 10px;
-    text-align: center;
-    min-height: 56px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.compare-row .value-box.box-2k {
-    background: rgba(139, 92, 246, 0.08);
-    border: 1px solid rgba(139, 92, 246, 0.15);
-}
-.compare-row .value-box.box-glasurit {
-    background: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.15);
-}
-.compare-row .value-box .value-text {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.3;
-}
-.compare-row .value-box.box-2k .value-text { color: #e9d5ff; }
-.compare-row .value-box.box-glasurit .value-text { color: #dbeafe; }
-.compare-row .value-box .winner-tag {
-    display: inline-block;
-    margin-top: 4px;
-    padding: 2px 8px;
-    border-radius: 50px;
-    font-size: 0.55rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    background: rgba(34, 197, 94, 0.15);
-    color: #4ade80;
-    border: 1px solid rgba(34, 197, 94, 0.3);
-}
-
-/* Desktop: larger layout */
-@media (min-width: 768px) {
-    .compare-header-cell { padding: 20px 16px; }
-    .compare-header-cell .brand-icon { width: 56px; height: 56px; font-size: 1.3rem; }
-    .compare-header-cell .brand-name { font-size: 1.15rem; }
-    .compare-header-cell .brand-tag { font-size: 0.7rem; }
-    .compare-list { gap: 14px; }
-    .compare-row { padding: 18px; border-radius: 16px; }
-    .compare-row .feature-label { font-size: 0.78rem; margin-bottom: 12px; padding-bottom: 10px; }
-    .compare-row .feature-label i { font-size: 1rem; }
-    .compare-row .values-grid { gap: 12px; }
-    .compare-row .value-box { padding: 14px 16px; min-height: 64px; }
-    .compare-row .value-box .value-text { font-size: 0.95rem; }
-    .compare-row .value-box .winner-tag { font-size: 0.6rem; padding: 3px 10px; }
-}
-
-/* Large desktop */
-@media (min-width: 1024px) {
-    .compare-header-cell .brand-icon { width: 64px; height: 64px; font-size: 1.5rem; }
-    .compare-header-cell .brand-name { font-size: 1.3rem; }
-    .compare-row { padding: 22px; }
-    .compare-row .feature-label { font-size: 0.85rem; }
-    .compare-row .value-box { padding: 18px 20px; min-height: 72px; }
-    .compare-row .value-box .value-text { font-size: 1.05rem; }
-}
-
-/* Small mobile */
-@media (max-width: 400px) {
-    .compare-header { gap: 8px; margin-bottom: 12px; }
-    .compare-header-cell { padding: 10px 8px; border-radius: 12px; }
-    .compare-header-cell .brand-icon { width: 36px; height: 36px; font-size: 0.9rem; margin-bottom: 6px; }
-    .compare-header-cell .brand-name { font-size: 0.82rem; }
-    .compare-header-cell .brand-tag { font-size: 0.52rem; letter-spacing: 0.5px; }
-    .compare-list { gap: 8px; }
-    .compare-row { padding: 10px; border-radius: 12px; }
-    .compare-row .feature-label { font-size: 0.62rem; margin-bottom: 8px; padding-bottom: 6px; gap: 6px; }
-    .compare-row .feature-label i { font-size: 0.75rem; }
-    .compare-row .values-grid { gap: 6px; }
-    .compare-row .value-box { padding: 8px 8px; min-height: 50px; border-radius: 8px; }
-    .compare-row .value-box .value-text { font-size: 0.72rem; }
-    .compare-row .value-box .winner-tag { font-size: 0.5rem; padding: 1px 6px; margin-top: 3px; }
-}
-
-/* Extra small */
-@media (max-width: 340px) {
-    .compare-header-cell .brand-icon { width: 32px; height: 32px; font-size: 0.8rem; }
-    .compare-header-cell .brand-name { font-size: 0.75rem; }
-    .compare-row .value-box .value-text { font-size: 0.68rem; }
-    .compare-row .feature-label { font-size: 0.58rem; }
-}
-
-/* Landscape mobile */
-@media (max-height: 500px) and (orientation: landscape) {
-    .compare-row .value-box { min-height: 44px; padding: 6px 10px; }
-}
-
-/* ============================================
-   MOBILE RESPONSIVE - ENHANCED FOR ALL DEVICES
-   ============================================ */
 @media (max-width: 1024px) {
-    .hero-title { font-size: clamp(2rem, 7vw, 3.5rem); }
-    .section-title { font-size: clamp(1.6rem, 5vw, 2.8rem); }
+.hero-title { font-size: clamp(2rem, 7vw, 3.5rem); }
+.section-title { font-size: clamp(1.6rem, 5vw, 2.8rem); }
 }
 @media (max-width: 768px) {
-    .hero-title { font-size: clamp(1.8rem, 8vw, 2.8rem); line-height: 1.15; }
-    .hero-subtitle { font-size: 0.95rem; }
-    .section-title { font-size: clamp(1.5rem, 6vw, 2.2rem); line-height: 1.2; }
-    .section-badge { font-size: 0.65rem; padding: 6px 14px; letter-spacing: 1.5px; }
-    .glass { border-radius: 16px; }
-    .glass-sm { border-radius: 12px; }
-    .service-card, .package-card, .paint-service-card, .district-group { padding: 1.25rem; border-radius: 16px; }
-    .service-icon, .paint-service-icon, .district-group-icon { width: 48px; height: 48px; font-size: 1.1rem; margin-bottom: 0.75rem; }
-    .paint-service-card h3 { font-size: 1.1rem; }
-    .paint-service-card p { font-size: 0.85rem; }
-    .whatsapp-float { width: 52px; height: 52px; font-size: 1.4rem; bottom: 16px; right: 16px; }
-    .youtube-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 78px; right: 16px; }
-    .instagram-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 140px; right: 16px; }
-    .scroll-top { width: 44px; height: 44px; bottom: 82px; left: 16px; }
-    .visitor-counter { bottom: 16px; left: 16px; }
-    .visitor-badge { padding: 8px 14px; min-width: 170px; }
-    .visitor-badge .counter-number { font-size: 1rem; }
-    .visitor-badge .counter-icon { width: 30px; height: 30px; }
-    .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; min-height: 46px; }
-    .nav-glass { padding: 3px 0; }
-    .cursor-glow { display: none; }
-    .security-toast { font-size: 0.8rem; padding: 10px 20px; top: 80px; }
-    .reach-banner, .area-banner { padding: 1.5rem; border-radius: 20px; }
-    .eet-card, .paint-brand-card { padding: 1.5rem; }
-    .district-chip { font-size: 0.68rem; padding: 5px 10px; margin: 2px; }
-    .faq-question { padding: 1rem 1.25rem; min-height: 56px; }
-    .faq-answer > div { padding: 0 1.25rem 1.25rem !important; }
-    .state-card { padding: 1.25rem; }
-    .state-card .state-flag { width: 48px; height: 48px; font-size: 1.3rem; }
-    .state-card .city-chip { font-size: 0.6rem; padding: 3px 7px; }
-    .package-icon { width: 56px; height: 56px; font-size: 1.5rem; }
-    .package-card { padding: 1.5rem; }
-    .stat-graphic { padding: 1rem; }
-    .stat-graphic .text-2xl { font-size: 1.5rem; }
-    .area-stat-card { padding: 1rem; }
-    .area-stat-card .text-3xl { font-size: 1.8rem; }
-    .paint-brand-logo { width: 64px; height: 64px; font-size: 1.6rem; }
-    .process-step { padding: 1.25rem; }
-    .process-number { width: 42px; height: 42px; font-size: 1.1rem; }
-    .review-card { padding: 1.25rem; }
-    .marquee { font-size: 0.9rem; }
+.hero-title { font-size: clamp(1.8rem, 8vw, 2.8rem); line-height: 1.15; }
+.hero-subtitle { font-size: 0.95rem; }
+.section-title { font-size: clamp(1.5rem, 6vw, 2.2rem); line-height: 1.2; }
+.section-badge { font-size: 0.65rem; padding: 6px 14px; letter-spacing: 1.5px; }
+.glass { border-radius: 16px; }
+.glass-sm { border-radius: 12px; }
+.service-card, .package-card, .paint-service-card, .district-group { padding: 1.25rem; border-radius: 16px; }
+.service-icon, .paint-service-icon, .district-group-icon { width: 48px; height: 48px; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.paint-service-card h3 { font-size: 1.1rem; }
+.paint-service-card p { font-size: 0.85rem; }
+.whatsapp-float { width: 52px; height: 52px; font-size: 1.4rem; bottom: 16px; right: 16px; }
+.youtube-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 78px; right: 16px; }
+.instagram-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 140px; right: 16px; }
+.scroll-top { width: 44px; height: 44px; bottom: 82px; left: 16px; }
+.visitor-counter { bottom: 16px; left: 16px; }
+.visitor-badge { padding: 8px 14px; min-width: 170px; }
+.visitor-badge .counter-number { font-size: 1rem; }
+.visitor-badge .counter-icon { width: 30px; height: 30px; }
+.btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; min-height: 46px; }
+.nav-glass { padding: 3px 0; }
+.cursor-glow { display: none; }
+.security-toast { font-size: 0.8rem; padding: 10px 20px; top: 80px; }
+.reach-banner, .area-banner { padding: 1.5rem; border-radius: 20px; }
+.eet-card, .paint-brand-card { padding: 1.5rem; }
+.district-chip { font-size: 0.68rem; padding: 5px 10px; margin: 2px; }
+.faq-question { padding: 1rem 1.25rem; min-height: 56px; }
+.faq-answer > div { padding: 0 1.25rem 1.25rem !important; }
+.state-card { padding: 1.25rem; }
+.state-card .state-flag { width: 48px; height: 48px; font-size: 1.3rem; }
+.state-card .city-chip { font-size: 0.6rem; padding: 3px 7px; }
+.package-icon { width: 56px; height: 56px; font-size: 1.5rem; }
+.package-card { padding: 1.5rem; }
+.stat-graphic { padding: 1rem; }
+.stat-graphic .text-2xl { font-size: 1.5rem; }
+.area-stat-card { padding: 1rem; }
+.area-stat-card .text-3xl { font-size: 1.8rem; }
+.paint-brand-logo { width: 64px; height: 64px; font-size: 1.6rem; }
+.process-step { padding: 1.25rem; }
+.process-number { width: 42px; height: 42px; font-size: 1.1rem; }
+.review-card { padding: 1.25rem; }
+.marquee { font-size: 0.9rem; }
 }
 @media (max-width: 400px) {
-    .hero-title { font-size: 1.75rem; }
-    .hero-subtitle { font-size: 0.88rem; }
-    .section-title { font-size: 1.4rem; }
-    .section-badge { font-size: 0.6rem; padding: 5px 12px; }
-    .service-icon, .paint-service-icon, .district-group-icon { width: 42px; height: 42px; font-size: 1rem; }
-    .service-card, .package-card, .paint-service-card, .district-group { padding: 1rem; }
-    .paint-service-card h3 { font-size: 1rem; }
-    .visitor-badge { min-width: 150px; padding: 7px 12px; }
-    .visitor-badge .counter-number { font-size: 0.9rem; }
-    .visitor-badge .counter-icon { width: 28px; height: 28px; font-size: 0.8rem; }
-    .visitor-badge .counter-label { font-size: 0.55rem; }
-    .btn-primary, .btn-outline { padding: 11px 18px; font-size: 0.8rem; min-height: 44px; width: 100%; justify-content: center; }
-    .whatsapp-float { width: 48px; height: 48px; font-size: 1.3rem; bottom: 14px; right: 14px; }
-    .youtube-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 72px; right: 14px; }
-    .instagram-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 130px; right: 14px; }
-    .scroll-top { width: 40px; height: 40px; bottom: 76px; left: 14px; font-size: 1rem; }
-    .visitor-counter { bottom: 14px; left: 14px; }
-    .district-chip { font-size: 0.62rem; padding: 4px 8px; margin: 2px; }
-    .state-card .city-chip { font-size: 0.58rem; padding: 2px 6px; }
-    .area-stat-card .text-3xl { font-size: 1.5rem; }
-    .area-stat-card { padding: 0.75rem; }
-    .faq-question { padding: 0.9rem 1rem; min-height: 52px; font-size: 0.85rem; }
-    .stat-graphic { padding: 0.75rem; }
-    .stat-graphic .text-2xl { font-size: 1.3rem; }
-    .paint-brand-logo { width: 56px; height: 56px; font-size: 1.4rem; }
-    .trust-badge { font-size: 0.65rem; padding: 5px 10px; }
-    .review-card { padding: 1rem; }
-    .review-card h4 { font-size: 0.85rem; }
-    .marquee { font-size: 0.8rem; }
-    .package-icon { width: 48px; height: 48px; font-size: 1.3rem; }
-    .package-card h3 { font-size: 1.15rem; }
-    .process-step { padding: 1rem; }
-    .process-number { width: 38px; height: 38px; font-size: 1rem; }
+.hero-title { font-size: 1.75rem; }
+.hero-subtitle { font-size: 0.88rem; }
+.section-title { font-size: 1.4rem; }
+.section-badge { font-size: 0.6rem; padding: 5px 12px; }
+.service-icon, .paint-service-icon, .district-group-icon { width: 42px; height: 42px; font-size: 1rem; }
+.service-card, .package-card, .paint-service-card, .district-group { padding: 1rem; }
+.paint-service-card h3 { font-size: 1rem; }
+.visitor-badge { min-width: 150px; padding: 7px 12px; }
+.visitor-badge .counter-number { font-size: 0.9rem; }
+.visitor-badge .counter-icon { width: 28px; height: 28px; font-size: 0.8rem; }
+.visitor-badge .counter-label { font-size: 0.55rem; }
+.btn-primary, .btn-outline { padding: 11px 18px; font-size: 0.8rem; min-height: 44px; width: 100%; justify-content: center; }
+.whatsapp-float { width: 48px; height: 48px; font-size: 1.3rem; bottom: 14px; right: 14px; }
+.youtube-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 72px; right: 14px; }
+.instagram-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 130px; right: 14px; }
+.scroll-top { width: 40px; height: 40px; bottom: 76px; left: 14px; font-size: 1rem; }
+.visitor-counter { bottom: 14px; left: 14px; }
+.district-chip { font-size: 0.62rem; padding: 4px 8px; margin: 2px; }
+.state-card .city-chip { font-size: 0.58rem; padding: 2px 6px; }
+.area-stat-card .text-3xl { font-size: 1.5rem; }
+.area-stat-card { padding: 0.75rem; }
+.faq-question { padding: 0.9rem 1rem; min-height: 52px; font-size: 0.85rem; }
+.stat-graphic { padding: 0.75rem; }
+.stat-graphic .text-2xl { font-size: 1.3rem; }
+.paint-brand-logo { width: 56px; height: 56px; font-size: 1.4rem; }
+.trust-badge { font-size: 0.65rem; padding: 5px 10px; }
+.review-card { padding: 1rem; }
+.review-card h4 { font-size: 0.85rem; }
+.marquee { font-size: 0.8rem; }
+.package-icon { width: 48px; height: 48px; font-size: 1.3rem; }
+.package-card h3 { font-size: 1.15rem; }
+.process-step { padding: 1rem; }
+.process-number { width: 38px; height: 38px; font-size: 1rem; }
 }
 @media (max-width: 340px) {
-    .hero-title { font-size: 1.5rem; }
-    .section-title { font-size: 1.25rem; }
-    .btn-primary, .btn-outline { font-size: 0.75rem; padding: 10px 16px; }
-    .district-chip { font-size: 0.58rem; padding: 3px 7px; }
+.hero-title { font-size: 1.5rem; }
+.section-title { font-size: 1.25rem; }
+.btn-primary, .btn-outline { font-size: 0.75rem; padding: 10px 16px; }
+.district-chip { font-size: 0.58rem; padding: 3px 7px; }
 }
 @media (max-height: 500px) and (orientation: landscape) {
-    #home { min-height: auto; padding-top: 80px; padding-bottom: 40px; }
-    .hero-title { font-size: 1.8rem; }
+#home { min-height: auto; padding-top: 80px; padding-bottom: 40px; }
+.hero-title { font-size: 1.8rem; }
 }
 @media (hover: none) and (pointer: coarse) {
-    .service-card:active, .review-card:active, .faq-question:active,
-    .package-card:active, .paint-service-card:active, .district-group:active,
-    .state-card:active, .area-stat-card:active, .eet-card:active {
-        transform: scale(0.98);
-        border-color: rgba(139, 92, 246, 0.3);
-    }
-    a, button { min-height: 44px; min-width: 44px; }
-    .nav-link { padding: 8px 4px; }
-    .mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+.service-card:active, .review-card:active, .faq-question:active,
+.package-card:active, .paint-service-card:active, .district-group:active,
+.state-card:active, .area-stat-card:active, .eet-card:active {
+transform: scale(0.98);
+border-color: rgba(139, 92, 246, 0.3);
+}
+a, button { min-height: 44px; min-width: 44px; }
+.nav-link { padding: 8px 4px; }
+.mobile-menu a { min-height: 44px; display: flex; align-items: center; }
 }
 @supports (padding-top: env(safe-area-inset-top)) {
-    .nav-glass { padding-top: calc(12px + env(safe-area-inset-top)); }
-    body { padding-bottom: env(safe-area-inset-bottom); }
-    .whatsapp-float { bottom: calc(16px + env(safe-area-inset-bottom)); }
-    .youtube-float { bottom: calc(78px + env(safe-area-inset-bottom)); }
-    .instagram-float { bottom: calc(140px + env(safe-area-inset-bottom)); }
-    .visitor-counter { bottom: calc(16px + env(safe-area-inset-bottom)); }
-    .scroll-top { bottom: calc(82px + env(safe-area-inset-bottom)); }
+.nav-glass { padding-top: calc(12px + env(safe-area-inset-top)); }
+body { padding-bottom: env(safe-area-inset-bottom); }
+.whatsapp-float { bottom: calc(16px + env(safe-area-inset-bottom)); }
+.youtube-float { bottom: calc(78px + env(safe-area-inset-bottom)); }
+.instagram-float { bottom: calc(140px + env(safe-area-inset-bottom)); }
+.visitor-counter { bottom: calc(16px + env(safe-area-inset-bottom)); }
+.scroll-top { bottom: calc(82px + env(safe-area-inset-bottom)); }
 }
 input, select, textarea { font-size: 16px !important; }
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    .reveal { opacity: 1; transform: none; }
+*, *::before, *::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+.reveal { opacity: 1; transform: none; }
 }
 @media print {
-    #three-canvas, .cursor-dot, .cursor-ring, .cursor-glow, .touch-glow,
-    .whatsapp-float, .youtube-float, .instagram-float, .scroll-top,
-    .visitor-counter, .loader, .mobile-menu { display: none !important; }
-    body { background: #fff; color: #000; }
-    .glass, .glass-sm, .service-card, .review-card { background: #f5f5f5; color: #000; border: 1px solid #ddd; }
-    .text-white, h1, h2, h3, h4 { color: #000 !important; }
-    .text-white\/50, .text-white\/60, .text-white\/70, p { color: #333 !important; }
+#three-canvas, .cursor-dot, .cursor-ring, .cursor-glow, .touch-glow,
+.whatsapp-float, .youtube-float, .instagram-float, .scroll-top,
+.visitor-counter, .loader, .mobile-menu { display: none !important; }
+body { background: #fff; color: #000; }
+.glass, .glass-sm, .service-card, .review-card { background: #f5f5f5; color: #000; border: 1px solid #ddd; }
+.text-white, h1, h2, h3, h4 { color: #000 !important; }
+.text-white\/50, .text-white\/60, .text-white\/70, p { color: #333 !important; }
 }
 </style>
 </head>
@@ -623,7 +405,6 @@ input, select, textarea { font-size: 16px !important; }
 <a href="#painting" class="nav-link">Painting</a>
 <a href="#wash-packages" class="nav-link">Wash Packages</a>
 <a href="#paints" class="nav-link">Premium Paints</a>
-<a href="#compare" class="nav-link">Compare</a>
 <a href="#areas" class="nav-link">Areas</a>
 <a href="#expertise" class="nav-link">Expertise</a>
 <a href="#reviews" class="nav-link">Reviews</a>
@@ -642,7 +423,6 @@ input, select, textarea { font-size: 16px !important; }
 <a href="#painting" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Painting</a>
 <a href="#wash-packages" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Wash Packages</a>
 <a href="#paints" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Premium Paints</a>
-<a href="#compare" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Quick Compare</a>
 <a href="#areas" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Areas We Cover</a>
 <a href="#expertise" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Expertise</a>
 <a href="#reviews" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Reviews</a>
@@ -832,7 +612,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <h2 class="section-title font-black text-white mt-4 sm:mt-6">We Use Only the Best Paints</h2>
 <p class="text-white/50 max-w-3xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">Your car deserves the finest. That's why we exclusively use professional-grade 2K paints and Glasurit premium paints — manufactured in Germany and France — the same paints trusted by luxury car manufacturers worldwide.</p>
 </div>
-<div class="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12">
+<div class="grid md:grid-cols-2 gap-6 sm:gap-8">
 <div class="paint-brand-card reveal" style="--accent-color: #8b5cf6; --accent-color-dark: #6d28d9;">
 <div class="paint-brand-logo bg-gradient-to-br from-purple-500 to-purple-700 text-white">2K</div>
 <h3 class="text-2xl font-black text-white mb-3">2K Paints</h3>
@@ -859,197 +639,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 <div class="glass-sm p-3 rounded-xl"><p class="text-white/50 text-xs"><strong class="text-white">Best for:</strong> Luxury vehicles, show cars, customers who want the absolute best quality regardless of budget</p></div>
 <a href="https://www.glasurit.com/en-int" target="_blank" rel="noopener noreferrer" class="brand-official-link"><i class="fas fa-external-link-alt"></i><span>Learn more about Glasurit</span></a>
-</div>
-</div>
-<div class="glass p-6 sm:p-8 reveal">
-<h3 class="text-xl font-bold text-white mb-6 text-center">Quick Comparison</h3>
-<div class="grid md:grid-cols-3 gap-4">
-<div class="text-center p-4"><div class="text-white/50 text-xs mb-2">Feature</div></div>
-<div class="text-center p-4 bg-purple-500/10 rounded-xl"><div class="text-purple-400 font-bold text-sm mb-2">2K Paints</div></div>
-<div class="text-center p-4 bg-blue-500/10 rounded-xl"><div class="text-blue-400 font-bold text-sm mb-2">Glasurit</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white/70 text-xs">Durability</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Excellent (5-7 years)</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Outstanding (10+ years)</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white/70 text-xs">Color Accuracy</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Very Good</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Exceptional</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white/70 text-xs">Price Range</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Moderate</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Premium</div></div>
-</div>
-</div>
-</div>
-</section>
-
-
-<section id="compare" class="compare-section py-16 sm:py-24 relative z-10">
-<div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-<div class="text-center mb-10 sm:mb-12 reveal">
-<div class="section-badge"><i class="fas fa-balance-scale"></i> SIDE BY SIDE</div>
-<h2 class="section-title font-black text-white mt-4 sm:mt-6">Quick Compare: <span class="gradient-text">2K vs Glasurit</span></h2>
-<p class="text-white/50 max-w-2xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">Not sure which paint is right for your car? Compare both options side by side
-</p>
-</div>
-
-<div class="glass p-4 sm:p-6 lg:p-8 reveal">
-<!-- Brand Headers - Side by Side -->
-<div class="compare-header">
-<div class="compare-header-cell cell-2k">
-<div class="brand-icon">2K</div>
-<div class="brand-name">2K Paints</div>
-<div class="brand-tag">Professional Grade</div>
-</div>
-<div class="compare-header-cell cell-glasurit">
-<div class="brand-icon">GL</div>
-<div class="brand-name">Glasurit</div>
-<div class="brand-tag">Luxury Grade</div>
-</div>
-</div>
-
-<!-- Comparison Rows -->
-<div class="compare-list">
-<!-- Durability -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-shield-alt text-purple-400"></i> Durability</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Excellent<br><span style="font-size:0.7em; opacity:0.7;">(5-7 years)</span></div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Outstanding<br><span style="font-size:0.7em; opacity:0.7;">(10+ years)</span></div>
-<span class="winner-tag">BEST</span>
-</div>
-</div>
-</div>
-
-<!-- Color Accuracy -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-palette text-blue-400"></i> Color Accuracy</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Very Good</div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Exceptional</div>
-<span class="winner-tag">BEST</span>
-</div>
-</div>
-</div>
-
-<!-- UV Resistance -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-sun text-amber-400"></i> UV Resistance</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Excellent</div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Superior</div>
-<span class="winner-tag">BEST</span>
-</div>
-</div>
-</div>
-
-<!-- Gloss Finish -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-star text-yellow-400"></i> Gloss Finish</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">High Gloss</div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Mirror-like Deep Gloss</div>
-<span class="winner-tag">BEST</span>
-</div>
-</div>
-</div>
-
-<!-- Scratch Resistance -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-cut text-pink-400"></i> Scratch Resistance</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Very Good</div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Exceptional</div>
-<span class="winner-tag">BEST</span>
-</div>
-</div>
-</div>
-
-<!-- Best For -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-car text-cyan-400"></i> Best For</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Everyday Vehicles<br><span style="font-size:0.7em; opacity:0.7;">Swift, Creta, City</span></div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Luxury & Show Cars<br><span style="font-size:0.7em; opacity:0.7;">BMW, Mercedes, Audi</span></div>
-</div>
-</div>
-</div>
-
-<!-- Price Range -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-rupee-sign text-green-400"></i> Price Range</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Moderate<br><span style="font-size:0.7em; opacity:0.7;">Budget Friendly</span></div>
-<span class="winner-tag">VALUE</span>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Premium<br><span style="font-size:0.7em; opacity:0.7;">Luxury Investment</span></div>
-</div>
-</div>
-</div>
-
-<!-- Application -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-tools text-indigo-400"></i> Application</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Professional Booth</div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Professional Booth</div>
-</div>
-</div>
-</div>
-
-<!-- Origin -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-globe text-teal-400"></i> Origin</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Nexa Autocolor<br><span style="font-size:0.7em; opacity:0.7;">International</span></div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Germany & France<br><span style="font-size:0.7em; opacity:0.7;">BASF Coatings</span></div>
-</div>
-</div>
-</div>
-
-<!-- Warranty -->
-<div class="compare-row">
-<div class="feature-label"><i class="fas fa-certificate text-rose-400"></i> Warranty</div>
-<div class="values-grid">
-<div class="value-box box-2k">
-<div class="value-text">Comprehensive Coverage</div>
-</div>
-<div class="value-box box-glasurit">
-<div class="value-text">Extended Coverage</div>
-<span class="winner-tag">BEST</span>
-</div>
-</div>
-</div>
-</div>
-
-<!-- CTA -->
-<div class="text-center mt-6 sm:mt-8 pt-6 border-t border-white/5">
-<p class="text-white/50 text-xs sm:text-sm mb-4">Still unsure? Our experts will help you choose the right paint for your car.</p>
-<a href="tel:+918519957776" class="btn-primary text-sm"><i class="fas fa-phone"></i> Get Free Consultation</a>
 </div>
 </div>
 </div>
@@ -1423,7 +1012,7 @@ mouseX = e.clientX; mouseY = e.clientY;
 cursorDot.classList.add('active'); cursorRing.classList.add('active'); cursorGlow.classList.add('active');
 if (Math.random() > 0.93) createSparkle(mouseX, mouseY);
 });
-const hoverTargets = document.querySelectorAll('a, button, .service-card, .review-card, .faq-question, .package-card, .paint-service-card, .district-group, .compare-row, input, select, textarea');
+const hoverTargets = document.querySelectorAll('a, button, .service-card, .review-card, .faq-question, .package-card, .paint-service-card, .district-group, input, select, textarea');
 hoverTargets.forEach(function(el) {
 el.addEventListener('mouseenter', function() { isHovering = true; cursorDot.classList.add('hovering'); cursorRing.classList.add('hovering'); });
 el.addEventListener('mouseleave', function() { isHovering = false; cursorDot.classList.remove('hovering'); cursorRing.classList.remove('hovering'); });
