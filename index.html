@@ -7,6 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
     <title>2K Car Care Vijayawada | Premium Auto Care</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.0.0/index.min.css" rel="stylesheet">
@@ -17,6 +19,29 @@
         html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
         body { font-family: 'Montserrat', sans-serif; background: #05050a; color: #fff; overflow-x: hidden; min-height: 100vh; min-height: -webkit-fill-available; }
         
+       
+        body {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+        img {
+            -webkit-user-drag: none !important;
+            -khtml-user-drag: none !important;
+            -moz-user-drag: none !important;
+            -o-user-drag: none !important;
+            user-drag: none !important;
+            pointer-events: none;
+        }
+        a, button, input, select, textarea {
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+            user-select: text !important;
+        }
+
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #0a0a1a; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8b5cf6, #3b82f6); border-radius: 2px; }
@@ -29,9 +54,7 @@
             pointer-events: none;
         }
 
-        /* ============================================
-           CURSOR EFFECTS - PC & MOBILE
-           ============================================ */
+
         .cursor-dot {
             position: fixed;
             left: 0; top: 0;
@@ -41,10 +64,9 @@
             pointer-events: none;
             z-index: 99999;
             transform: translate3d(-50px, -50px, 0);
-            transition: width 0.25s ease, height 0.25s ease, background 0.25s ease;
-            mix-blend-mode: difference;
             opacity: 0;
-            will-change: transform;
+            will-change: transform, opacity;
+            contain: layout style paint;
         }
         .cursor-dot.active { opacity: 1; }
         .cursor-dot.hovering {
@@ -61,9 +83,9 @@
             pointer-events: none;
             z-index: 99998;
             transform: translate3d(-50px, -50px, 0);
-            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
             opacity: 0;
-            will-change: transform;
+            will-change: transform, opacity;
+            contain: layout style paint;
         }
         .cursor-ring.active { opacity: 1; }
         .cursor-ring.hovering {
@@ -80,17 +102,16 @@
             z-index: 99997;
             transform: translate3d(-1000px, -1000px, 0);
             opacity: 0;
-            transition: opacity 0.4s ease;
             will-change: transform, opacity;
+            contain: layout style paint;
             background: radial-gradient(circle, 
-                rgba(139, 92, 246, 0.18) 0%, 
-                rgba(59, 130, 246, 0.12) 20%, 
-                rgba(6, 182, 212, 0.08) 40%, 
-                rgba(34, 211, 153, 0.05) 60%, 
-                rgba(251, 191, 36, 0.03) 75%, 
+                rgba(139, 92, 246, 0.2) 0%, 
+                rgba(59, 130, 246, 0.14) 20%, 
+                rgba(6, 182, 212, 0.09) 40%, 
+                rgba(34, 211, 153, 0.06) 60%, 
+                rgba(251, 191, 36, 0.04) 75%, 
                 transparent 100%
             );
-            filter: blur(4px);
         }
         .cursor-glow.active { opacity: 1; }
 
@@ -103,8 +124,8 @@
             z-index: 99996;
             transform: translate3d(-100px, -100px, 0);
             opacity: 0;
-            transition: opacity 0.15s ease;
             will-change: transform, opacity;
+            contain: layout style paint;
             background: radial-gradient(circle, rgba(192,132,252,0.5) 0%, rgba(59,130,246,0.3) 40%, transparent 70%);
         }
         .touch-glow.active { opacity: 1; }
@@ -117,10 +138,37 @@
             will-change: transform, opacity;
         }
 
-        /* Desktop: hide default cursor */
         @media (hover: hover) and (pointer: fine) {
             * { cursor: none !important; }
             a, button, input, select, textarea, .service-card, .review-card, .faq-question { cursor: none !important; }
+        }
+
+       
+        .security-toast {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(185, 28, 28, 0.95));
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 100000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(239, 68, 68, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .security-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         .glass {
@@ -478,7 +526,6 @@
         .scroll-top.visible { opacity: 1; transform: translateY(0); }
         .scroll-top:active { transform: scale(0.9); }
 
-        /* Visitor Counter - Bottom Left Fixed */
         .visitor-counter {
             position: fixed;
             bottom: 20px;
@@ -516,9 +563,7 @@
             flex-shrink: 0;
         }
 
-        .visitor-badge .counter-info {
-            flex: 1;
-        }
+        .visitor-badge .counter-info { flex: 1; }
 
         .visitor-badge .counter-label {
             font-size: 0.6rem;
@@ -582,6 +627,7 @@
             .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; }
             .nav-glass { padding: 3px 0; }
             .cursor-glow { width: 180px; height: 180px; }
+            .security-toast { font-size: 0.8rem; padding: 10px 20px; top: 80px; }
         }
 
         @media (max-width: 400px) {
@@ -603,6 +649,12 @@
 <body>
 
     <canvas id="three-canvas"></canvas>
+
+    <!-- Security Toast -->
+    <div class="security-toast" id="securityToast">
+        <i class="fas fa-shield-alt"></i>
+        <span id="securityToastMsg">This action is not allowed</span>
+    </div>
 
     <!-- Custom Cursor Elements -->
     <div class="cursor-glow" id="cursorGlow"></div>
@@ -627,7 +679,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Visitor Counter - Bottom Left -->
+    <!-- Visitor Counter -->
     <div class="visitor-counter" id="visitorCounter">
         <div class="visitor-badge">
             <div class="counter-icon">
@@ -1201,7 +1253,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-16 sm:py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -1315,7 +1366,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-10 sm:py-12 border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
             <div class="flex items-center justify-center space-x-3 mb-4 sm:mb-6">
@@ -1329,15 +1379,156 @@
     </footer>
 
     <script>
+        
+        (function() {
+            const toast = document.getElementById('securityToast');
+            const toastMsg = document.getElementById('securityToastMsg');
+            let toastTimeout;
+
+            function showToast(msg) {
+                toastMsg.textContent = msg;
+                toast.classList.add('show');
+                clearTimeout(toastTimeout);
+                toastTimeout = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2500);
+            }
+
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                showToast('Right-click is disabled');
+                return false;
+            });
+
+            // Disable keyboard shortcuts for source code / dev tools
+            document.addEventListener('keydown', function(e) {
+                // F12 - Dev Tools
+                if (e.key === 'F12' || e.keyCode === 123) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showToast('Developer tools are disabled');
+                    return false;
+                }
+                // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C - Dev Tools
+                if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showToast('Developer tools are disabled');
+                    return false;
+                }
+                // Ctrl+U - View Source
+                if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showToast('View source is disabled');
+                    return false;
+                }
+                // Ctrl+S - Save
+                if (e.ctrlKey && (e.key === 'S' || e.key === 's')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showToast('Saving is disabled');
+                    return false;
+                }
+                // Ctrl+P - Print
+                if (e.ctrlKey && (e.key === 'P' || e.key === 'p')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showToast('Printing is disabled');
+                    return false;
+                }
+                // Ctrl+A - Select All (on body)
+                if (e.ctrlKey && (e.key === 'A' || e.key === 'a')) {
+                    const tag = e.target.tagName;
+                    if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        showToast('Selection is disabled');
+                        return false;
+                    }
+                }
+                // Ctrl+C - Copy
+                if (e.ctrlKey && (e.key === 'C' || e.key === 'c')) {
+                    const tag = e.target.tagName;
+                    if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        showToast('Copying is disabled');
+                        return false;
+                    }
+                }
+            });
+
+            // Disable drag on images
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+
+            // Disable selection on body
+            document.addEventListener('selectstart', function(e) {
+                const tag = e.target.tagName;
+                if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Disable copy/cut
+            document.addEventListener('copy', function(e) {
+                const tag = e.target.tagName;
+                if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+                    e.preventDefault();
+                    showToast('Copying is disabled');
+                    return false;
+                }
+            });
+            document.addEventListener('cut', function(e) {
+                const tag = e.target.tagName;
+                if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Detect dev tools open (basic check)
+            setInterval(function() {
+                const threshold = 160;
+                const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+                const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+                if (widthThreshold || heightThreshold) {
+                    document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#05050a;color:#fff;font-family:Montserrat,sans-serif;text-align:center;padding:20px;"><div><h1 style="font-size:2rem;margin-bottom:1rem;">⚠️ Access Denied</h1><p style="color:rgba(255,255,255,0.6);">Developer tools are not allowed on this page.</p></div></div>';
+                }
+            }, 1000);
+
+            // Disable long-press context menu on mobile
+            let touchTimer;
+            document.addEventListener('touchstart', function(e) {
+                touchTimer = setTimeout(function() {
+                    e.preventDefault();
+                }, 500);
+            }, { passive: true });
+            document.addEventListener('touchend', function() {
+                clearTimeout(touchTimer);
+            });
+            document.addEventListener('touchmove', function() {
+                clearTimeout(touchTimer);
+            });
+        })();
+
+        // Loader
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.getElementById('loader').classList.add('hidden');
             }, 1000);
         });
 
-        // ============================================
-        // VISITOR COUNTER
-        // ============================================
+        // Visitor Counter
         (function() {
             var visitCountEl = document.getElementById('visitCount');
             var visitorKey = '2kcarcare_visitor_tracked';
@@ -1390,9 +1581,7 @@
             }
         })();
 
-        // ============================================
-        // CURSOR EFFECT - PC & MOBILE
-        // ============================================
+        // Cursor Effect
         const cursorDot = document.getElementById('cursorDot');
         const cursorRing = document.getElementById('cursorRing');
         const cursorGlow = document.getElementById('cursorGlow');
@@ -1406,43 +1595,28 @@
         let isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
         let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        // Smooth animation loop
         function animateCursor() {
-            // Dot follows instantly
             cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-            
-            // Ring follows with smooth delay
             ringX += (mouseX - ringX) * 0.15;
             ringY += (mouseY - ringY) * 0.15;
             cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
-            
-            // Glow follows with even smoother delay
             glowX += (mouseX - glowX) * 0.08;
             glowY += (mouseY - glowY) * 0.08;
             cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
-            
             hue = (hue + 1.5) % 360;
-            
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
 
-        // Desktop mouse events
         document.addEventListener('mousemove', function(e) {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
             cursorDot.classList.add('active');
             cursorRing.classList.add('active');
             cursorGlow.classList.add('active');
-            
-            // Occasional sparkles
-            if (Math.random() > 0.93) {
-                createSparkle(mouseX, mouseY);
-            }
+            if (Math.random() > 0.93) createSparkle(mouseX, mouseY);
         });
 
-        // Hover effects on interactive elements
         const hoverTargets = document.querySelectorAll('a, button, .service-card, .review-card, .faq-question, input, select, textarea');
         hoverTargets.forEach(function(el) {
             el.addEventListener('mouseenter', function() {
@@ -1457,24 +1631,19 @@
             });
         });
 
-        // Click burst effect
         document.addEventListener('click', function(e) {
             if (!isTouchDevice) createBurst(e.clientX, e.clientY);
         });
 
-        // Mobile touch events
         document.addEventListener('touchstart', function(e) {
             const touch = e.touches[0];
             mouseX = ringX = glowX = touch.clientX;
             mouseY = ringY = glowY = touch.clientY;
-            
             touchGlow.style.transform = `translate3d(${touch.clientX - 40}px, ${touch.clientY - 40}px, 0)`;
             touchGlow.classList.add('active');
-            
             cursorDot.classList.add('active');
             cursorRing.classList.add('active');
             cursorGlow.classList.add('active');
-            
             createBurst(touch.clientX, touch.clientY);
         }, { passive: true });
 
@@ -1482,19 +1651,14 @@
             const touch = e.touches[0];
             mouseX = touch.clientX;
             mouseY = touch.clientY;
-            
             touchGlow.style.transform = `translate3d(${touch.clientX - 40}px, ${touch.clientY - 40}px, 0)`;
-            
-            if (Math.random() > 0.7) {
-                createSparkle(touch.clientX, touch.clientY);
-            }
+            if (Math.random() > 0.7) createSparkle(touch.clientX, touch.clientY);
         }, { passive: true });
 
         document.addEventListener('touchend', function() {
             touchGlow.classList.remove('active');
         });
 
-        // Particle burst on click/tap
         function createBurst(x, y) {
             for (let i = 0; i < 12; i++) {
                 const p = document.createElement('div');
@@ -1502,12 +1666,10 @@
                 const size = 4 + Math.random() * 6;
                 p.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:hsl(${(hue + i * 25) % 360}, 100%, 65%);position:fixed;border-radius:50%;pointer-events:none;z-index:99995;`;
                 document.body.appendChild(p);
-                
                 const angle = (Math.PI * 2 / 12) * i;
                 const dist = 30 + Math.random() * 50;
                 const tx = Math.cos(angle) * dist;
                 const ty = Math.sin(angle) * dist;
-                
                 p.animate([
                     { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
                     { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
@@ -1516,14 +1678,12 @@
             }
         }
 
-        // Sparkle particles
         function createSparkle(x, y) {
             const p = document.createElement('div');
             p.className = 'cursor-particle';
             const size = 3 + Math.random() * 3;
             p.style.cssText = `left:${x + (Math.random() - 0.5) * 30}px;top:${y + (Math.random() - 0.5) * 30}px;width:${size}px;height:${size}px;background:hsl(${(hue + Math.random() * 60) % 360}, 100%, 70%);position:fixed;border-radius:50%;pointer-events:none;z-index:99995;`;
             document.body.appendChild(p);
-            
             p.animate([
                 { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.8 },
                 { transform: 'translate(-50%, -50%) scale(0) translateY(-15px)', opacity: 0 }
@@ -1531,7 +1691,7 @@
             .onfinish = () => p.remove();
         }
 
-        // Three.js 3D Background
+        // Three.js Background
         var canvas = document.getElementById('three-canvas');
         if (canvas && typeof THREE !== 'undefined') {
             try {
@@ -1629,30 +1789,20 @@
         var isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
+            if (window.scrollY > 100) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+            if (window.scrollY > 500) scrollTopBtn.classList.add('visible');
+            else scrollTopBtn.classList.remove('visible');
             var sections = document.querySelectorAll('section[id]');
             var navLinks = document.querySelectorAll('.nav-link');
             var current = '';
             sections.forEach(function(section) {
                 var sectionTop = section.offsetTop - 200;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
+                if (window.scrollY >= sectionTop) current = section.getAttribute('id');
             });
             navLinks.forEach(function(link) {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
             });
         });
 
@@ -1671,15 +1821,11 @@
 
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(function(el) {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
         function toggleFaq(element) {
             var item = element.parentElement;
@@ -1694,7 +1840,6 @@
         }
 
         function animateCounter(element, target, duration) {
-            var start = 0;
             var startTime = performance.now();
             function update(currentTime) {
                 var elapsed = currentTime - startTime;
@@ -1732,18 +1877,14 @@
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 var target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
         var lastTouchEnd = 0;
         document.addEventListener('touchend', function(e) {
             var now = Date.now();
-            if (now - lastTouchEnd <= 300) {
-                e.preventDefault();
-            }
+            if (now - lastTouchEnd <= 300) e.preventDefault();
             lastTouchEnd = now;
         }, false);
     </script>
