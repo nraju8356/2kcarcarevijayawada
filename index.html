@@ -1280,7 +1280,7 @@ if (canvas && typeof THREE !== 'undefined') {
             requestAnimationFrame(animate);
             particles.rotation.y += 0.0005; particles.rotation.x += 0.0002;
             camera.lookAt(scene.position);
-            renderer.render(scene, camera);
+            renderer.render(scene, camera); 
         }
         animate();
         window.addEventListener('resize', function() { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
