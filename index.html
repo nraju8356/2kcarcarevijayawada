@@ -81,10 +81,7 @@ a, button, input, select, textarea { -webkit-user-select: text; user-select: tex
 ::-webkit-scrollbar-track { background: #0a0a1a; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8b5cf6, #3b82f6); border-radius: 2px; }
 #three-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-/* ============================================
-3D GLASS ICON STYLES - Premium Glassmorphism
-Inspired by Dribbble 3D Glass Icons
-============================================ */
+/*  */
 .icon-3d-glass {
 width: 56px;
 height: 56px;
@@ -294,14 +291,6 @@ height: 22px;
 .scroll-top { position: fixed; bottom: 90px; left: 20px; width: 46px; height: 46px; background: linear-gradient(135deg, #8b5cf6, #6d28d9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; z-index: 1000; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; border: none; text-decoration: none; }
 .scroll-top.visible { opacity: 1; transform: translateY(0); }
 .scroll-top:active { transform: scale(0.9); }
-.visitor-counter { position: fixed; bottom: 20px; left: 20px; z-index: 1000; }
-.visitor-badge { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 10px 18px; display: flex; align-items: center; gap: 10px; min-width: 200px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); animation: fadeInUp 0.8s ease forwards; opacity: 0; animation-delay: 2s; }
-.visitor-badge .counter-icon { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3)); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #c084fc; flex-shrink: 0; }
-.visitor-badge .counter-info { flex: 1; }
-.visitor-badge .counter-label { font-size: 0.6rem; color: rgba(255, 255, 255, 0.4); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-.visitor-badge .counter-number { font-size: 1.2rem; font-weight: 800; color: #fff; line-height: 1.2; }
-.visitor-badge .counter-number .live-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #34d399; margin-right: 4px; animation: pulseDot 2s ease-in-out infinite; }
-@keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .marquee { animation: marquee 30s linear infinite; }
@@ -400,10 +389,6 @@ height: 22px;
 .youtube-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 78px; right: 16px; }
 .instagram-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 140px; right: 16px; }
 .scroll-top { width: 44px; height: 44px; bottom: 82px; left: 16px; }
-.visitor-counter { bottom: 16px; left: 16px; }
-.visitor-badge { padding: 8px 14px; min-width: 170px; }
-.visitor-badge .counter-number { font-size: 1rem; }
-.visitor-badge .counter-icon { width: 30px; height: 30px; }
 .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; min-height: 46px; }
 .nav-glass { padding: 3px 0; }
 .security-toast { font-size: 0.8rem; padding: 10px 20px; top: 80px; }
@@ -435,16 +420,11 @@ height: 22px;
 .service-icon, .paint-service-icon, .district-group-icon { width: 42px; height: 42px; font-size: 1rem; }
 .service-card, .package-card, .paint-service-card, .district-group { padding: 1rem; }
 .paint-service-card h3 { font-size: 1rem; }
-.visitor-badge { min-width: 150px; padding: 7px 12px; }
-.visitor-badge .counter-number { font-size: 0.9rem; }
-.visitor-badge .counter-icon { width: 28px; height: 28px; font-size: 0.8rem; }
-.visitor-badge .counter-label { font-size: 0.55rem; }
 .btn-primary, .btn-outline { padding: 11px 18px; font-size: 0.8rem; min-height: 44px; width: 100%; justify-content: center; }
 .whatsapp-float { width: 48px; height: 48px; font-size: 1.3rem; bottom: 14px; right: 14px; }
 .youtube-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 72px; right: 14px; }
 .instagram-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 130px; right: 14px; }
 .scroll-top { width: 40px; height: 40px; bottom: 76px; left: 14px; font-size: 1rem; }
-.visitor-counter { bottom: 14px; left: 14px; }
 .district-chip { font-size: 0.62rem; padding: 4px 8px; margin: 2px; }
 .state-card .city-chip { font-size: 0.58rem; padding: 2px 6px; }
 .area-stat-card .text-3xl { font-size: 1.5rem; }
@@ -465,7 +445,7 @@ height: 22px;
 @media (max-width: 340px) { .hero-title { font-size: 1.5rem; } .section-title { font-size: 1.25rem; } .btn-primary, .btn-outline { font-size: 0.75rem; padding: 10px 16px; } .district-chip { font-size: 0.58rem; padding: 3px 7px; } }
 @media (max-height: 500px) and (orientation: landscape) { #home { min-height: auto; padding-top: 80px; padding-bottom: 40px; } .hero-title { font-size: 1.8rem; } }
 @media (hover: none) and (pointer: coarse) { .service-card:active, .review-card:active, .faq-question:active, .package-card:active, .paint-service-card:active, .district-group:active, .state-card:active, .area-stat-card:active, .eet-card:active { transform: scale(0.98); border-color: rgba(139, 92, 246, 0.3); } a, button { min-height: 44px; min-width: 44px; } .nav-link { padding: 8px 4px; } .mobile-menu a { min-height: 44px; display: flex; align-items: center; } }
-@supports (padding-top: env(safe-area-inset-top)) { .nav-glass { padding-top: calc(12px + env(safe-area-inset-top)); } body { padding-bottom: env(safe-area-inset-bottom); } .whatsapp-float { bottom: calc(16px + env(safe-area-inset-bottom)); } .youtube-float { bottom: calc(78px + env(safe-area-inset-bottom)); } .instagram-float { bottom: calc(140px + env(safe-area-inset-bottom)); } .visitor-counter { bottom: calc(16px + env(safe-area-inset-bottom)); } .scroll-top { bottom: calc(82px + env(safe-area-inset-bottom)); } }
+@supports (padding-top: env(safe-area-inset-top)) { .nav-glass { padding-top: calc(12px + env(safe-area-inset-top)); } body { padding-bottom: env(safe-area-inset-bottom); } .whatsapp-float { bottom: calc(16px + env(safe-area-inset-bottom)); } .youtube-float { bottom: calc(78px + env(safe-area-inset-bottom)); } .instagram-float { bottom: calc(140px + env(safe-area-inset-bottom)); } .scroll-top { bottom: calc(82px + env(safe-area-inset-bottom)); } }
 input, select, textarea { font-size: 16px !important; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } .reveal { opacity: 1; transform: none; } }
 </style>
@@ -477,30 +457,24 @@ input, select, textarea { font-size: 16px !important; }
 <a href="https://www.instagram.com/2kcarcarevijayawada/reels/" target="_blank" rel="noopener noreferrer" class="instagram-float" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
 <a href="https://www.youtube.com/@2kcarcarevijayawada271/shorts" target="_blank" rel="noopener noreferrer" class="youtube-float" title="Watch our YouTube Shorts" aria-label="Watch our YouTube Shorts"><i class="fab fa-youtube"></i></a>
 <a href="https://wa.me/918519957776" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-<div class="visitor-counter" id="visitorCounter">
-<div class="visitor-badge">
-<div class="counter-icon"><i class="fas fa-eye"></i></div>
-<div class="counter-info"><div class="counter-label">Total Visitors</div><div class="counter-number"><span class="live-dot"></span><span id="visitCount">0</span></div></div>
-</div>
-</div>
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 <nav class="nav-glass fixed top-0 left-0 right-0 z-50" id="navbar">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-<a href="#" class="flex items-center space-x-2 sm:space-x-3">
+<a href="index.html" class="flex items-center space-x-2 sm:space-x-3">
 <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20 flex-shrink-0"><span class="text-white font-black text-base sm:text-lg">2K</span></div>
 <div class="min-w-0"><span class="text-white font-bold text-sm sm:text-lg tracking-wider block truncate">2K Car Care</span><span class="block text-purple-400 text-[10px] sm:text-xs font-semibold tracking-widest">VIJAYAWADA</span></div>
 </a>
 <div class="hidden lg:flex items-center space-x-8">
-<a href="#home" class="nav-link active">Home</a>
-<a href="#services" class="nav-link">Services</a>
-<a href="#painting" class="nav-link">Painting</a>
-<a href="#wash-packages" class="nav-link">Wash Packages</a>
-<a href="#paints" class="nav-link">Premium Paints</a>
-<a href="#areas" class="nav-link">Areas</a>
-<a href="#expertise" class="nav-link">Expertise</a>
-<a href="#reviews" class="nav-link">Reviews</a>
-<a href="#faq" class="nav-link">FAQ</a>
-<a href="#contact" class="nav-link">Contact</a>
+<a href="index.html" class="nav-link active">Home</a>
+<a href="services.html" class="nav-link">Services</a>
+<a href="painting.html" class="nav-link">Painting</a>
+<a href="wash-packages.html" class="nav-link">Wash Packages</a>
+<a href="premium-paints.html" class="nav-link">Premium Paints</a>
+<a href="areas.html" class="nav-link">Areas</a>
+<a href="expertise.html" class="nav-link">Expertise</a>
+<a href="reviews.html" class="nav-link">Reviews</a>
+<a href="faq.html" class="nav-link">FAQ</a>
+<a href="contact.html" class="nav-link">Contact</a>
 <a href="tel:+918519957776" class="btn-primary text-sm"><i class="fas fa-phone"></i> Call Now</a>
 </div>
 <button class="lg:hidden text-purple-400 text-xl p-2" onclick="toggleMobile()" aria-label="Toggle menu"><i class="fas fa-bars" id="menuIcon"></i></button>
@@ -509,16 +483,16 @@ input, select, textarea { font-size: 16px !important; }
 <div class="mobile-menu fixed top-0 right-0 w-[85vw] max-w-sm h-full z-50 p-6" id="mobileMenu" style="background: rgba(5,5,10,0.97); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);">
 <button class="absolute top-5 right-5 text-purple-400 text-2xl p-2" onclick="toggleMobile()" aria-label="Close menu"><i class="fas fa-times"></i></button>
 <div class="mt-16 flex flex-col space-y-5">
-<a href="#home" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Home</a>
-<a href="#services" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Services</a>
-<a href="#painting" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Painting</a>
-<a href="#wash-packages" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Wash Packages</a>
-<a href="#paints" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Premium Paints</a>
-<a href="#areas" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Areas We Cover</a>
-<a href="#expertise" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Expertise</a>
-<a href="#reviews" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Reviews</a>
-<a href="#faq" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">FAQ</a>
-<a href="#contact" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Contact</a>
+<a href="index.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Home</a>
+<a href="services.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Services</a>
+<a href="painting.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Painting</a>
+<a href="wash-packages.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Wash Packages</a>
+<a href="premium-paints.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Premium Paints</a>
+<a href="areas.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Areas We Cover</a>
+<a href="expertise.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Expertise</a>
+<a href="reviews.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Reviews</a>
+<a href="faq.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">FAQ</a>
+<a href="contact.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Contact</a>
 <a href="tel:+918519957776" class="btn-primary text-center mt-4" onclick="toggleMobile()"><i class="fas fa-phone"></i> Call Now</a>
 </div>
 </div>
@@ -545,7 +519,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 <div class="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-10 sm:mb-12">
 <a href="tel:+918519957776" class="btn-primary"><i class="fas fa-phone"></i> Book Now</a>
-<a href="#services" class="btn-outline"><i class="fas fa-sparkles"></i> Our Services</a>
+<a href="services.html" class="btn-outline"><i class="fas fa-sparkles"></i> Our Services</a>
 </div>
 <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-lg mx-auto lg:mx-0">
 <div class="stat-graphic text-center"><div class="text-2xl sm:text-3xl font-black text-purple-400" id="counter1">0</div><div class="text-white/50 text-xs mt-1">Cars Serviced</div></div>
@@ -559,6 +533,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <div class="glass relative p-8 rounded-3xl">
 <div class="w-72 h-72 rounded-2xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center"><i class="fas fa-car text-7xl text-purple-400/60"></i></div>
 <div class="absolute -bottom-4 -right-4 glass-sm p-4 rounded-xl"><div class="flex items-center space-x-2"><div class="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div><span class="text-white/70 text-sm font-semibold">Open Now</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -891,23 +866,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <a href="https://www.glasurit.com/en-int" target="_blank" rel="noopener noreferrer" class="brand-official-link"><i class="fas fa-external-link-alt"></i><span>Learn more about Glasurit</span></a>
 </div>
 </div>
-<div class="glass p-6 sm:p-8 reveal">
-<h3 class="text-xl font-bold text-white mb-6 text-center">Quick Comparison</h3>
-<div class="grid md:grid-cols-3 gap-4">
-<div class="text-center p-4"><div class="text-white/50 text-xs mb-2">Feature</div></div>
-<div class="text-center p-4 bg-purple-500/10 rounded-xl"><div class="text-purple-400 font-bold text-sm mb-2">2K Paints</div></div>
-<div class="text-center p-4 bg-blue-500/10 rounded-xl"><div class="text-blue-400 font-bold text-sm mb-2">Glasurit</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white/70 text-xs">Durability</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Excellent (5-7 years)</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Outstanding (10+ years)</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white/70 text-xs">Color Accuracy</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Very Good</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Exceptional</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white/70 text-xs">Price Range</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Moderate</div></div>
-<div class="text-center p-4 border-t border-white/10"><div class="text-white text-xs">Premium</div></div>
-</div>
-</div>
 </div>
 </section>
 <!-- AREAS WE COVER -->
@@ -1115,16 +1073,6 @@ document.addEventListener('copy', function(e) { const tag = e.target.tagName; if
 setInterval(function() { const threshold = 160; const widthThreshold = window.outerWidth - window.innerWidth > threshold; const heightThreshold = window.outerHeight - window.innerHeight > threshold; if (widthThreshold || heightThreshold) { document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#05050a;color:#fff;font-family:Montserrat,sans-serif;text-align:center;padding:20px;"><div><h1 style="font-size:2rem;margin-bottom:1rem;">⚠️ Access Denied</h1><p style="color:rgba(255,255,255,0.6);">Developer tools are not allowed on this page.</p></div></div>'; } }, 1000);
 })();
 window.addEventListener('load', function() { setTimeout(function() { document.getElementById('loader').classList.add('hidden'); }, 1000); });
-// Visitor Counter
-(function() {
-var visitCountEl = document.getElementById('visitCount');
-var visitorKey = '2kcarcare_visitor_tracked';
-var totalVisitsKey = '2kcarcare_total_visits';
-var totalVisits = parseInt(localStorage.getItem(totalVisitsKey)) || 0;
-var isNewVisitor = !sessionStorage.getItem(visitorKey);
-if (isNewVisitor) { sessionStorage.setItem(visitorKey, 'true'); totalVisits++; localStorage.setItem(totalVisitsKey, totalVisits.toString()); try { fetch('https://api.countapi.xyz/hit/2kcarcarevijayawada/visits', { method: 'GET', mode: 'cors' }).then(function(response) { return response.json(); }).then(function(data) { if (data && data.value) { totalVisits = Math.max(totalVisits, data.value); localStorage.setItem(totalVisitsKey, totalVisits.toString()); animateVisitCount(totalVisits); } }).catch(function() { animateVisitCount(totalVisits); }); } catch(e) { animateVisitCount(totalVisits); } } else { animateVisitCount(totalVisits); }
-function animateVisitCount(target) { var current = 0; var duration = 2000; var startTime = performance.now(); function update(currentTime) { var elapsed = currentTime - startTime; var progress = Math.min(elapsed / duration, 1); var eased = 1 - Math.pow(1 - progress, 3); current = Math.floor(target * eased); visitCountEl.textContent = current.toLocaleString(); if (progress < 1) requestAnimationFrame(update); } requestAnimationFrame(update); }
-})();
 // Three.js
 var canvas = document.getElementById('three-canvas');
 if (canvas && typeof THREE !== 'undefined') {
@@ -1182,11 +1130,6 @@ var isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 window.addEventListener('scroll', function() {
 if (window.scrollY > 100) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
 if (window.scrollY > 500) scrollTopBtn.classList.add('visible'); else scrollTopBtn.classList.remove('visible');
-var sections = document.querySelectorAll('section[id]');
-var navLinks = document.querySelectorAll('.nav-link');
-var current = '';
-sections.forEach(function(section) { var sectionTop = section.offsetTop - 200; if (window.scrollY >= sectionTop) current = section.getAttribute('id'); });
-navLinks.forEach(function(link) { link.classList.remove('active'); if (link.getAttribute('href') === '#' + current) link.classList.add('active'); });
 }, { passive: true });
 function toggleMobile() {
 var menu = document.getElementById('mobileMenu');
