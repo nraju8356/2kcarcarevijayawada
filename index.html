@@ -113,7 +113,7 @@ transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 overflow: hidden;
 }
 
-/* Top glass highlight */
+
 .weather-widget-8d::before {
 content: '';
 position: absolute;
@@ -130,7 +130,7 @@ pointer-events: none;
 z-index: 1;
 }
 
-/* Bottom reflection glow */
+
 .weather-widget-8d::after {
 content: '';
 position: absolute;
@@ -358,7 +358,6 @@ color: #f87171;
 margin-right: 4px;
 }
 
-/* Mobile responsive */
 @media (max-width: 768px) {
 .weather-widget-8d {
 top: 80px;
@@ -424,7 +423,6 @@ display: none;
 }
 }
 
-/* Landscape mode adjustments */
 @media (max-height: 500px) and (orientation: landscape) {
 .weather-widget-8d {
 top: 70px;
@@ -797,7 +795,7 @@ input, select, textarea { font-size: 16px !important; }
 <div class="security-toast" id="securityToast"><i class="fas fa-shield-alt"></i><span id="securityToastMsg">This action is not allowed</span></div>
 <div class="loader" id="loader"><div class="loader-ring"></div><div class="mt-4 text-purple-400 font-bold tracking-widest text-sm">2K CAR CARE</div></div>
 
-<!-- 8D FLOATING GLASS WEATHER WIDGET - VIJAYAWADA LIVE -->
+
 <div class="weather-widget-8d" id="weatherWidget" aria-label="Live weather in Vijayawada">
 <div class="weather-widget-inner">
 <div class="weather-header">
@@ -903,7 +901,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- Marquee Strip -->
+
 <section class="py-6 border-y border-white/5 relative z-10 overflow-hidden">
 <div class="flex whitespace-nowrap">
 <div class="marquee flex items-center space-x-12 text-white/20 font-bold text-lg">
@@ -912,7 +910,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- SERVICES SECTION WITH 3D GLASS ICONS -->
+
 <section id="services" class="py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1113,7 +1111,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- PROFESSIONAL PAINTING SERVICES -->
+
 <section id="painting" class="painting-section-bg py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1402,10 +1400,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </footer>
 <script>
-// ============================================
-// LIVE VIJAYAWADA WEATHER - Open-Meteo API
-// Free, no API key required, real-time data
-// ============================================
+
 (function() {
 const WEATHER_CODES = {
 0: { icon: '☀️', label: 'Clear sky' },
