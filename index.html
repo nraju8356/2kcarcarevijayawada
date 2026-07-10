@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="4-5G3lC6mZ8Dd3pEyGVmQbQSLGVtPVPko19RXkEfKdU" />
+<meta name="google-site-verification" content="4-5G3lC6mZ8Dd3pEyGVmQbQSLGVtPVPko19RXkEfKdU" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <meta name="theme-color" content="#05050a">
@@ -82,500 +82,63 @@ a, button, input, select, textarea { -webkit-user-select: text; user-select: tex
 ::-webkit-scrollbar-track { background: #0a0a1a; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8b5cf6, #3b82f6); border-radius: 2px; }
 #three-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-
-
-.weather-widget-8d {
-position: fixed;
-top: 100px;
-left: 20px;
-z-index: 999;
-width: 220px;
-border-radius: 22px;
-padding: 14px 16px;
-background: linear-gradient(145deg,
-rgba(255, 255, 255, 0.08) 0%,
-rgba(255, 255, 255, 0.03) 50%,
-rgba(139, 92, 246, 0.04) 100%);
-backdrop-filter: blur(24px) saturate(200%);
--webkit-backdrop-filter: blur(24px) saturate(200%);
-border: 1px solid rgba(255, 255, 255, 0.12);
-/* 8D multi-layer depth shadows */
-box-shadow:
-0 1px 0 rgba(255, 255, 255, 0.15) inset,
-0 -1px 0 rgba(0, 0, 0, 0.2) inset,
-1px 0 0 rgba(255, 255, 255, 0.08) inset,
--1px 0 0 rgba(0, 0, 0, 0.1) inset,
-0 8px 16px rgba(0, 0, 0, 0.4),
-0 16px 32px rgba(139, 92, 246, 0.15),
-0 24px 48px rgba(59, 130, 246, 0.1),
-0 0 0 1px rgba(139, 92, 246, 0.1);
-animation: weatherFloat 6s ease-in-out infinite;
-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-overflow: hidden;
-}
-
-
-.weather-widget-8d::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 50%;
-background: linear-gradient(180deg,
-rgba(255, 255, 255, 0.15) 0%,
-rgba(255, 255, 255, 0.05) 40%,
-rgba(255, 255, 255, 0) 100%);
-border-radius: 22px 22px 0 0;
-pointer-events: none;
-z-index: 1;
-}
-
-
-.weather-widget-8d::after {
-content: '';
-position: absolute;
-bottom: -2px;
-left: 15%;
-right: 15%;
-height: 40%;
-background: radial-gradient(ellipse at center,
-rgba(139, 92, 246, 0.2) 0%,
-transparent 70%);
-pointer-events: none;
-z-index: 1;
-filter: blur(8px);
-}
-
-@keyframes weatherFloat {
-0%, 100% {
-transform: translateY(0px) rotateX(0deg);
-box-shadow:
-0 1px 0 rgba(255, 255, 255, 0.15) inset,
-0 -1px 0 rgba(0, 0, 0, 0.2) inset,
-0 8px 16px rgba(0, 0, 0, 0.4),
-0 16px 32px rgba(139, 92, 246, 0.15),
-0 24px 48px rgba(59, 130, 246, 0.1);
-}
-50% {
-transform: translateY(-6px) rotateX(1deg);
-box-shadow:
-0 1px 0 rgba(255, 255, 255, 0.2) inset,
-0 -1px 0 rgba(0, 0, 0, 0.2) inset,
-0 12px 24px rgba(0, 0, 0, 0.5),
-0 20px 40px rgba(139, 92, 246, 0.2),
-0 32px 64px rgba(59, 130, 246, 0.15);
-}
-}
-
-.weather-widget-8d:hover {
-transform: translateY(-4px) scale(1.02);
-border-color: rgba(139, 92, 246, 0.3);
-}
-
-.weather-widget-inner {
-position: relative;
-z-index: 2;
-}
-
-.weather-header {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 10px;
-padding-bottom: 8px;
-border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.weather-location {
-display: flex;
-align-items: center;
-gap: 5px;
-font-size: 0.72rem;
-font-weight: 700;
-color: rgba(255, 255, 255, 0.85);
-letter-spacing: 0.5px;
-}
-
-.weather-location i {
-color: #c084fc;
-font-size: 0.7rem;
-}
-
-.weather-live-dot {
-width: 6px;
-height: 6px;
-border-radius: 50%;
-background: #4ade80;
-box-shadow: 0 0 8px #4ade80;
-animation: livePulse 2s ease-in-out infinite;
-}
-
-@keyframes livePulse {
-0%, 100% { opacity: 1; transform: scale(1); }
-50% { opacity: 0.5; transform: scale(1.3); }
-}
-
-.weather-main {
-display: flex;
-align-items: center;
-gap: 10px;
-margin-bottom: 10px;
-}
-
-.weather-icon-wrap {
-width: 44px;
-height: 44px;
-border-radius: 12px;
-background: linear-gradient(145deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.15));
-border: 1px solid rgba(255, 255, 255, 0.1);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1.4rem;
-flex-shrink: 0;
-box-shadow:
-inset 0 1px 1px rgba(255, 255, 255, 0.15),
-inset 0 -1px 2px rgba(0, 0, 0, 0.15),
-0 4px 8px rgba(0, 0, 0, 0.2);
-position: relative;
-overflow: hidden;
-}
-
-.weather-icon-wrap::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 50%;
-background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent);
-border-radius: 12px 12px 0 0;
-pointer-events: none;
-}
-
-.weather-temp {
-display: flex;
-flex-direction: column;
-line-height: 1;
-}
-
-.weather-temp-value {
-font-size: 1.5rem;
-font-weight: 900;
-color: #fff;
-background: linear-gradient(135deg, #fff 0%, #c084fc 100%);
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
-letter-spacing: -0.5px;
-}
-
-.weather-condition {
-font-size: 0.68rem;
-color: rgba(255, 255, 255, 0.6);
-font-weight: 600;
-margin-top: 2px;
-text-transform: capitalize;
-}
-
-.weather-stats {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 6px;
-}
-
-.weather-stat {
-display: flex;
-align-items: center;
-gap: 5px;
-padding: 5px 7px;
-border-radius: 8px;
-background: rgba(255, 255, 255, 0.04);
-border: 1px solid rgba(255, 255, 255, 0.06);
-font-size: 0.62rem;
-color: rgba(255, 255, 255, 0.7);
-font-weight: 600;
-}
-
-.weather-stat i {
-font-size: 0.65rem;
-opacity: 0.8;
-}
-
+.weather-widget-8d { position: fixed; top: 100px; left: 20px; z-index: 999; width: 220px; border-radius: 22px; padding: 14px 16px; background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 50%, rgba(139, 92, 246, 0.04) 100%); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.08) inset, -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0 8px 16px rgba(0, 0, 0, 0.4), 0 16px 32px rgba(139, 92, 246, 0.15), 0 24px 48px rgba(59, 130, 246, 0.1), 0 0 0 1px rgba(139, 92, 246, 0.1); animation: weatherFloat 6s ease-in-out infinite; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; }
+.weather-widget-8d::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 40%, rgba(255, 255, 255, 0) 100%); border-radius: 22px 22px 0 0; pointer-events: none; z-index: 1; }
+.weather-widget-8d::after { content: ''; position: absolute; bottom: -2px; left: 15%; right: 15%; height: 40%; background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.2) 0%, transparent 70%); pointer-events: none; z-index: 1; filter: blur(8px); }
+@keyframes weatherFloat { 0%, 100% { transform: translateY(0px) rotateX(0deg); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset, 0 8px 16px rgba(0, 0, 0, 0.4), 0 16px 32px rgba(139, 92, 246, 0.15), 0 24px 48px rgba(59, 130, 246, 0.1); } 50% { transform: translateY(-6px) rotateX(1deg); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset, 0 12px 24px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(139, 92, 246, 0.2), 0 32px 64px rgba(59, 130, 246, 0.15); } }
+.weather-widget-8d:hover { transform: translateY(-4px) scale(1.02); border-color: rgba(139, 92, 246, 0.3); }
+.weather-widget-inner { position: relative; z-index: 2; }
+.weather-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.weather-location { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 700; color: rgba(255, 255, 255, 0.85); letter-spacing: 0.5px; }
+.weather-location i { color: #c084fc; font-size: 0.7rem; }
+.weather-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade80; animation: livePulse 2s ease-in-out infinite; }
+@keyframes livePulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
+.weather-main { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.weather-icon-wrap { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(145deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.15)); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), inset 0 -1px 2px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden; }
+.weather-icon-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent); border-radius: 12px 12px 0 0; pointer-events: none; }
+.weather-temp { display: flex; flex-direction: column; line-height: 1; }
+.weather-temp-value { font-size: 1.5rem; font-weight: 900; color: #fff; background: linear-gradient(135deg, #fff 0%, #c084fc 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
+.weather-condition { font-size: 0.68rem; color: rgba(255, 255, 255, 0.6); font-weight: 600; margin-top: 2px; text-transform: capitalize; }
+.weather-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.weather-stat { display: flex; align-items: center; gap: 5px; padding: 5px 7px; border-radius: 8px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.62rem; color: rgba(255, 255, 255, 0.7); font-weight: 600; }
+.weather-stat i { font-size: 0.65rem; opacity: 0.8; }
 .weather-stat.humidity i { color: #60a5fa; }
 .weather-stat.wind i { color: #22d3ee; }
 .weather-stat.feels i { color: #fbbf24; }
 .weather-stat.rain i { color: #a78bfa; }
-
-.weather-stat-value {
-color: #fff;
-font-weight: 700;
-}
-
-.weather-updated {
-margin-top: 8px;
-font-size: 0.58rem;
-color: rgba(255, 255, 255, 0.4);
-text-align: center;
-font-weight: 500;
-letter-spacing: 0.3px;
-}
-
-.weather-updated i {
-color: #4ade80;
-margin-right: 3px;
-}
-
-.weather-loading {
-text-align: center;
-padding: 12px 0;
-color: rgba(255, 255, 255, 0.5);
-font-size: 0.7rem;
-font-weight: 600;
-}
-
-.weather-loading .spinner {
-width: 18px;
-height: 18px;
-border: 2px solid rgba(139, 92, 246, 0.2);
-border-top-color: #8b5cf6;
-border-radius: 50%;
-animation: spin 1s linear infinite;
-margin: 0 auto 6px;
-}
-
+.weather-stat-value { color: #fff; font-weight: 700; }
+.weather-updated { margin-top: 8px; font-size: 0.58rem; color: rgba(255, 255, 255, 0.4); text-align: center; font-weight: 500; letter-spacing: 0.3px; }
+.weather-updated i { color: #4ade80; margin-right: 3px; }
+.weather-loading { text-align: center; padding: 12px 0; color: rgba(255, 255, 255, 0.5); font-size: 0.7rem; font-weight: 600; }
+.weather-loading .spinner { width: 18px; height: 18px; border: 2px solid rgba(139, 92, 246, 0.2); border-top-color: #8b5cf6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 6px; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-.weather-error {
-text-align: center;
-padding: 8px 0;
-color: rgba(255, 255, 255, 0.5);
-font-size: 0.65rem;
-}
-
-.weather-error i {
-color: #f87171;
-margin-right: 4px;
-}
-
-@media (max-width: 768px) {
-.weather-widget-8d {
-top: 80px;
-left: 14px;
-width: 190px;
-padding: 12px 13px;
-border-radius: 18px;
-}
-.weather-icon-wrap {
-width: 38px;
-height: 38px;
-font-size: 1.2rem;
-border-radius: 10px;
-}
-.weather-temp-value {
-font-size: 1.3rem;
-}
-.weather-location {
-font-size: 0.68rem;
-}
-.weather-condition {
-font-size: 0.62rem;
-}
-.weather-stat {
-font-size: 0.58rem;
-padding: 4px 6px;
-}
-}
-
-@media (max-width: 400px) {
-.weather-widget-8d {
-top: 75px;
-left: 12px;
-width: 170px;
-padding: 10px 11px;
-border-radius: 16px;
-}
-.weather-icon-wrap {
-width: 34px;
-height: 34px;
-font-size: 1.1rem;
-}
-.weather-temp-value {
-font-size: 1.15rem;
-}
-.weather-main {
-gap: 8px;
-margin-bottom: 8px;
-}
-.weather-stats {
-gap: 4px;
-}
-.weather-stat {
-font-size: 0.55rem;
-padding: 3px 5px;
-}
-}
-
-/* Hide on very small screens if needed */
-@media (max-width: 340px) {
-.weather-widget-8d {
-display: none;
-}
-}
-
-@media (max-height: 500px) and (orientation: landscape) {
-.weather-widget-8d {
-top: 70px;
-}
-}
-
-.icon-3d-glass {
-width: 56px;
-height: 56px;
-border-radius: 16px;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 1rem;
-position: relative;
-flex-shrink: 0;
-overflow: hidden;
-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-box-shadow:
-0 8px 24px rgba(0, 0, 0, 0.3),
-0 2px 6px rgba(0, 0, 0, 0.2),
-inset 0 1px 1px rgba(255, 255, 255, 0.25),
-inset 0 -1px 2px rgba(0, 0, 0, 0.15);
-}
-.icon-3d-glass::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 50%;
-background: linear-gradient(180deg,
-rgba(255,255,255,0.35) 0%,
-rgba(255,255,255,0.12) 40%,
-rgba(255,255,255,0) 100%);
-border-radius: 16px 16px 0 0;
-pointer-events: none;
-z-index: 2;
-}
-.icon-3d-glass::after {
-content: '';
-position: absolute;
-bottom: 2px;
-left: 10%;
-right: 10%;
-height: 30%;
-background: radial-gradient(ellipse at center,
-rgba(255,255,255,0.15) 0%,
-transparent 70%);
-pointer-events: none;
-z-index: 2;
-}
-.icon-3d-glass svg {
-width: 32px;
-height: 32px;
-position: relative;
-z-index: 3;
-filter: drop-shadow(0 2px 3px rgba(0,0,0,0.25));
-transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-@media (hover: hover) {
-.service-card:hover .icon-3d-glass {
-transform: translateY(-3px) scale(1.05);
-box-shadow:
-0 12px 32px rgba(0, 0, 0, 0.4),
-0 4px 10px rgba(0, 0, 0, 0.25),
-inset 0 1px 2px rgba(255, 255, 255, 0.35),
-inset 0 -1px 2px rgba(0, 0, 0, 0.2);
-}
-.service-card:hover .icon-3d-glass svg {
-transform: scale(1.1) rotate(-3deg);
-}
-}
-.icon-purple {
-background: linear-gradient(145deg, #a78bfa 0%, #7c3aed 50%, #5b21b6 100%);
-border: 1px solid rgba(196, 181, 253, 0.3);
-}
-.icon-blue {
-background: linear-gradient(145deg, #60a5fa 0%, #2563eb 50%, #1d4ed8 100%);
-border: 1px solid rgba(147, 197, 253, 0.3);
-}
-.icon-cyan {
-background: linear-gradient(145deg, #22d3ee 0%, #0891b2 50%, #0e7490 100%);
-border: 1px solid rgba(103, 232, 249, 0.3);
-}
-.icon-yellow {
-background: linear-gradient(145deg, #fde047 0%, #eab308 50%, #ca8a04 100%);
-border: 1px solid rgba(253, 224, 71, 0.4);
-}
-.icon-green {
-background: linear-gradient(145deg, #4ade80 0%, #16a34a 50%, #15803d 100%);
-border: 1px solid rgba(134, 239, 172, 0.3);
-}
-.icon-pink {
-background: linear-gradient(145deg, #f472b6 0%, #db2777 50%, #be185d 100%);
-border: 1px solid rgba(249, 168, 212, 0.3);
-}
-.icon-teal {
-background: linear-gradient(145deg, #2dd4bf 0%, #0d9488 50%, #0f766e 100%);
-border: 1px solid rgba(94, 234, 212, 0.3);
-}
-.icon-orange {
-background: linear-gradient(145deg, #fb923c 0%, #ea580c 50%, #c2410c 100%);
-border: 1px solid rgba(251, 146, 60, 0.3);
-}
-.icon-red {
-background: linear-gradient(145deg, #f87171 0%, #dc2626 50%, #b91c1c 100%);
-border: 1px solid rgba(252, 165, 165, 0.3);
-}
-.icon-amber {
-background: linear-gradient(145deg, #fbbf24 0%, #d97706 50%, #b45309 100%);
-border: 1px solid rgba(252, 211, 77, 0.3);
-}
-.icon-indigo {
-background: linear-gradient(145deg, #818cf8 0%, #4f46e5 50%, #4338ca 100%);
-border: 1px solid rgba(165, 180, 252, 0.3);
-}
-.icon-sky {
-background: linear-gradient(145deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%);
-border: 1px solid rgba(125, 211, 252, 0.3);
-}
-.icon-violet {
-background: linear-gradient(145deg, #a78bfa 0%, #7c3aed 50%, #6d28d9 100%);
-border: 1px solid rgba(196, 181, 253, 0.3);
-}
-.icon-rose {
-background: linear-gradient(145deg, #fb7185 0%, #e11d48 50%, #be123c 100%);
-border: 1px solid rgba(251, 113, 133, 0.3);
-}
-@media (max-width: 768px) {
-.icon-3d-glass {
-width: 48px;
-height: 48px;
-border-radius: 14px;
-margin-bottom: 0.75rem;
-}
-.icon-3d-glass svg {
-width: 26px;
-height: 26px;
-}
-}
-@media (max-width: 400px) {
-.icon-3d-glass {
-width: 42px;
-height: 42px;
-border-radius: 12px;
-}
-.icon-3d-glass svg {
-width: 22px;
-height: 22px;
-}
-}
+.weather-error { text-align: center; padding: 8px 0; color: rgba(255, 255, 255, 0.5); font-size: 0.65rem; }
+.weather-error i { color: #f87171; margin-right: 4px; }
+@media (max-width: 768px) { .weather-widget-8d { top: 80px; left: 14px; width: 190px; padding: 12px 13px; border-radius: 18px; } .weather-icon-wrap { width: 38px; height: 38px; font-size: 1.2rem; border-radius: 10px; } .weather-temp-value { font-size: 1.3rem; } .weather-location { font-size: 0.68rem; } .weather-condition { font-size: 0.62rem; } .weather-stat { font-size: 0.58rem; padding: 4px 6px; } }
+@media (max-width: 400px) { .weather-widget-8d { top: 75px; left: 12px; width: 170px; padding: 10px 11px; border-radius: 16px; } .weather-icon-wrap { width: 34px; height: 34px; font-size: 1.1rem; } .weather-temp-value { font-size: 1.15rem; } .weather-main { gap: 8px; margin-bottom: 8px; } .weather-stats { gap: 4px; } .weather-stat { font-size: 0.55rem; padding: 3px 5px; } }
+@media (max-width: 340px) { .weather-widget-8d { display: none; } }
+@media (max-height: 500px) and (orientation: landscape) { .weather-widget-8d { top: 70px; } }
+.icon-3d-glass { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; position: relative; flex-shrink: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 -1px 2px rgba(0, 0, 0, 0.15); }
+.icon-3d-glass::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.12) 40%, rgba(255,255,255,0) 100%); border-radius: 16px 16px 0 0; pointer-events: none; z-index: 2; }
+.icon-3d-glass::after { content: ''; position: absolute; bottom: 2px; left: 10%; right: 10%; height: 30%; background: radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, transparent 70%); pointer-events: none; z-index: 2; }
+.icon-3d-glass svg { width: 32px; height: 32px; position: relative; z-index: 3; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.25)); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+@media (hover: hover) { .service-card:hover .icon-3d-glass { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 4px 10px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.35), inset 0 -1px 2px rgba(0, 0, 0, 0.2); } .service-card:hover .icon-3d-glass svg { transform: scale(1.1) rotate(-3deg); } }
+.icon-purple { background: linear-gradient(145deg, #a78bfa 0%, #7c3aed 50%, #5b21b6 100%); border: 1px solid rgba(196, 181, 253, 0.3); }
+.icon-blue { background: linear-gradient(145deg, #60a5fa 0%, #2563eb 50%, #1d4ed8 100%); border: 1px solid rgba(147, 197, 253, 0.3); }
+.icon-cyan { background: linear-gradient(145deg, #22d3ee 0%, #0891b2 50%, #0e7490 100%); border: 1px solid rgba(103, 232, 249, 0.3); }
+.icon-yellow { background: linear-gradient(145deg, #fde047 0%, #eab308 50%, #ca8a04 100%); border: 1px solid rgba(253, 224, 71, 0.4); }
+.icon-green { background: linear-gradient(145deg, #4ade80 0%, #16a34a 50%, #15803d 100%); border: 1px solid rgba(134, 239, 172, 0.3); }
+.icon-pink { background: linear-gradient(145deg, #f472b6 0%, #db2777 50%, #be185d 100%); border: 1px solid rgba(249, 168, 212, 0.3); }
+.icon-teal { background: linear-gradient(145deg, #2dd4bf 0%, #0d9488 50%, #0f766e 100%); border: 1px solid rgba(94, 234, 212, 0.3); }
+.icon-orange { background: linear-gradient(145deg, #fb923c 0%, #ea580c 50%, #c2410c 100%); border: 1px solid rgba(251, 146, 60, 0.3); }
+.icon-red { background: linear-gradient(145deg, #f87171 0%, #dc2626 50%, #b91c1c 100%); border: 1px solid rgba(252, 165, 165, 0.3); }
+.icon-amber { background: linear-gradient(145deg, #fbbf24 0%, #d97706 50%, #b45309 100%); border: 1px solid rgba(252, 211, 77, 0.3); }
+.icon-indigo { background: linear-gradient(145deg, #818cf8 0%, #4f46e5 50%, #4338ca 100%); border: 1px solid rgba(165, 180, 252, 0.3); }
+.icon-sky { background: linear-gradient(145deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%); border: 1px solid rgba(125, 211, 252, 0.3); }
+.icon-violet { background: linear-gradient(145deg, #a78bfa 0%, #7c3aed 50%, #6d28d9 100%); border: 1px solid rgba(196, 181, 253, 0.3); }
+.icon-rose { background: linear-gradient(145deg, #fb7185 0%, #e11d48 50%, #be123c 100%); border: 1px solid rgba(251, 113, 133, 0.3); }
+@media (max-width: 768px) { .icon-3d-glass { width: 48px; height: 48px; border-radius: 14px; margin-bottom: 0.75rem; } .icon-3d-glass svg { width: 26px; height: 26px; } }
+@media (max-width: 400px) { .icon-3d-glass { width: 42px; height: 42px; border-radius: 12px; } .icon-3d-glass svg { width: 22px; height: 22px; } }
 .security-toast { position: fixed; top: 100px; left: 50%; transform: translateX(-50%) translateY(-20px); background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(185, 28, 28, 0.95)); color: #fff; padding: 14px 28px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; z-index: 100000; opacity: 0; pointer-events: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 10px 40px rgba(239, 68, 68, 0.4); display: flex; align-items: center; gap: 10px; backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); max-width: 90vw; }
 .security-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; position: relative; overflow: hidden; }
@@ -715,74 +278,8 @@ height: 22px;
 .area-stat-card:active { border-color: rgba(139, 92, 246, 0.3); }
 .service-area-tag { display: inline-block; padding: 6px 14px; border-radius: 50px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); font-size: 0.8rem; color: #93c5fd; margin: 4px; }
 @media (max-width: 1024px) { .hero-title { font-size: clamp(2rem, 7vw, 3.5rem); } .section-title { font-size: clamp(1.6rem, 5vw, 2.8rem); } }
-@media (max-width: 768px) {
-.hero-title { font-size: clamp(1.8rem, 8vw, 2.8rem); line-height: 1.15; }
-.hero-subtitle { font-size: 0.95rem; }
-.section-title { font-size: clamp(1.5rem, 6vw, 2.2rem); line-height: 1.2; }
-.section-badge { font-size: 0.65rem; padding: 6px 14px; letter-spacing: 1.5px; }
-.glass { border-radius: 16px; }
-.glass-sm { border-radius: 12px; }
-.service-card, .package-card, .paint-service-card, .district-group { padding: 1.25rem; border-radius: 16px; }
-.service-icon, .paint-service-icon, .district-group-icon { width: 48px; height: 48px; font-size: 1.1rem; margin-bottom: 0.75rem; }
-.paint-service-card h3 { font-size: 1.1rem; }
-.paint-service-card p { font-size: 0.85rem; }
-.whatsapp-float { width: 52px; height: 52px; font-size: 1.4rem; bottom: 16px; right: 16px; }
-.youtube-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 78px; right: 16px; }
-.instagram-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 140px; right: 16px; }
-.scroll-top { width: 44px; height: 44px; bottom: 82px; left: 16px; }
-.btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; min-height: 46px; }
-.nav-glass { padding: 3px 0; }
-.security-toast { font-size: 0.8rem; padding: 10px 20px; top: 80px; }
-.reach-banner, .area-banner { padding: 1.5rem; border-radius: 20px; }
-.eet-card, .paint-brand-card { padding: 1.5rem; }
-.district-chip { font-size: 0.68rem; padding: 5px 10px; margin: 2px; }
-.faq-question { padding: 1rem 1.25rem; min-height: 56px; }
-.faq-answer > div { padding: 0 1.25rem 1.25rem !important; }
-.state-card { padding: 1.25rem; }
-.state-card .state-flag { width: 48px; height: 48px; font-size: 1.3rem; }
-.state-card .city-chip { font-size: 0.6rem; padding: 3px 7px; }
-.package-icon { width: 56px; height: 56px; font-size: 1.5rem; }
-.package-card { padding: 1.5rem; }
-.stat-graphic { padding: 1rem; }
-.stat-graphic .text-2xl { font-size: 1.5rem; }
-.area-stat-card { padding: 1rem; }
-.area-stat-card .text-3xl { font-size: 1.8rem; }
-.paint-brand-logo { width: 64px; height: 64px; font-size: 1.6rem; }
-.process-step { padding: 1.25rem; }
-.process-number { width: 42px; height: 42px; font-size: 1.1rem; }
-.review-card { padding: 1.25rem; }
-.marquee { font-size: 0.9rem; }
-}
-@media (max-width: 400px) {
-.hero-title { font-size: 1.75rem; }
-.hero-subtitle { font-size: 0.88rem; }
-.section-title { font-size: 1.4rem; }
-.section-badge { font-size: 0.6rem; padding: 5px 12px; }
-.service-icon, .paint-service-icon, .district-group-icon { width: 42px; height: 42px; font-size: 1rem; }
-.service-card, .package-card, .paint-service-card, .district-group { padding: 1rem; }
-.paint-service-card h3 { font-size: 1rem; }
-.btn-primary, .btn-outline { padding: 11px 18px; font-size: 0.8rem; min-height: 44px; width: 100%; justify-content: center; }
-.whatsapp-float { width: 48px; height: 48px; font-size: 1.3rem; bottom: 14px; right: 14px; }
-.youtube-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 72px; right: 14px; }
-.instagram-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 130px; right: 14px; }
-.scroll-top { width: 40px; height: 40px; bottom: 76px; left: 14px; font-size: 1rem; }
-.district-chip { font-size: 0.62rem; padding: 4px 8px; margin: 2px; }
-.state-card .city-chip { font-size: 0.58rem; padding: 2px 6px; }
-.area-stat-card .text-3xl { font-size: 1.5rem; }
-.area-stat-card { padding: 0.75rem; }
-.faq-question { padding: 0.9rem 1rem; min-height: 52px; font-size: 0.85rem; }
-.stat-graphic { padding: 0.75rem; }
-.stat-graphic .text-2xl { font-size: 1.3rem; }
-.paint-brand-logo { width: 56px; height: 56px; font-size: 1.4rem; }
-.trust-badge { font-size: 0.65rem; padding: 5px 10px; }
-.review-card { padding: 1rem; }
-.review-card h4 { font-size: 0.85rem; }
-.marquee { font-size: 0.8rem; }
-.package-icon { width: 48px; height: 48px; font-size: 1.3rem; }
-.package-card h3 { font-size: 1.15rem; }
-.process-step { padding: 1rem; }
-.process-number { width: 38px; height: 38px; font-size: 1rem; }
-}
+@media (max-width: 768px) { .hero-title { font-size: clamp(1.8rem, 8vw, 2.8rem); line-height: 1.15; } .hero-subtitle { font-size: 0.95rem; } .section-title { font-size: clamp(1.5rem, 6vw, 2.2rem); line-height: 1.2; } .section-badge { font-size: 0.65rem; padding: 6px 14px; letter-spacing: 1.5px; } .glass { border-radius: 16px; } .glass-sm { border-radius: 12px; } .service-card, .package-card, .paint-service-card, .district-group { padding: 1.25rem; border-radius: 16px; } .service-icon, .paint-service-icon, .district-group-icon { width: 48px; height: 48px; font-size: 1.1rem; margin-bottom: 0.75rem; } .paint-service-card h3 { font-size: 1.1rem; } .paint-service-card p { font-size: 0.85rem; } .whatsapp-float { width: 52px; height: 52px; font-size: 1.4rem; bottom: 16px; right: 16px; } .youtube-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 78px; right: 16px; } .instagram-float { width: 52px; height: 52px; font-size: 1.3rem; bottom: 140px; right: 16px; } .scroll-top { width: 44px; height: 44px; bottom: 82px; left: 16px; } .btn-primary, .btn-outline { padding: 12px 22px; font-size: 0.85rem; min-height: 46px; } .nav-glass { padding: 3px 0; } .security-toast { font-size: 0.8rem; padding: 10px 20px; top: 80px; } .reach-banner, .area-banner { padding: 1.5rem; border-radius: 20px; } .eet-card, .paint-brand-card { padding: 1.5rem; } .district-chip { font-size: 0.68rem; padding: 5px 10px; margin: 2px; } .faq-question { padding: 1rem 1.25rem; min-height: 56px; } .faq-answer > div { padding: 0 1.25rem 1.25rem !important; } .state-card { padding: 1.25rem; } .state-card .state-flag { width: 48px; height: 48px; font-size: 1.3rem; } .state-card .city-chip { font-size: 0.6rem; padding: 3px 7px; } .package-icon { width: 56px; height: 56px; font-size: 1.5rem; } .package-card { padding: 1.5rem; } .stat-graphic { padding: 1rem; } .stat-graphic .text-2xl { font-size: 1.5rem; } .area-stat-card { padding: 1rem; } .area-stat-card .text-3xl { font-size: 1.8rem; } .paint-brand-logo { width: 64px; height: 64px; font-size: 1.6rem; } .process-step { padding: 1.25rem; } .process-number { width: 42px; height: 42px; font-size: 1.1rem; } .review-card { padding: 1.25rem; } .marquee { font-size: 0.9rem; } }
+@media (max-width: 400px) { .hero-title { font-size: 1.75rem; } .hero-subtitle { font-size: 0.88rem; } .section-title { font-size: 1.4rem; } .section-badge { font-size: 0.6rem; padding: 5px 12px; } .service-icon, .paint-service-icon, .district-group-icon { width: 42px; height: 42px; font-size: 1rem; } .service-card, .package-card, .paint-service-card, .district-group { padding: 1rem; } .paint-service-card h3 { font-size: 1rem; } .btn-primary, .btn-outline { padding: 11px 18px; font-size: 0.8rem; min-height: 44px; width: 100%; justify-content: center; } .whatsapp-float { width: 48px; height: 48px; font-size: 1.3rem; bottom: 14px; right: 14px; } .youtube-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 72px; right: 14px; } .instagram-float { width: 48px; height: 48px; font-size: 1.2rem; bottom: 130px; right: 14px; } .scroll-top { width: 40px; height: 40px; bottom: 76px; left: 14px; font-size: 1rem; } .district-chip { font-size: 0.62rem; padding: 4px 8px; margin: 2px; } .state-card .city-chip { font-size: 0.58rem; padding: 2px 6px; } .area-stat-card .text-3xl { font-size: 1.5rem; } .area-stat-card { padding: 0.75rem; } .faq-question { padding: 0.9rem 1rem; min-height: 52px; font-size: 0.85rem; } .stat-graphic { padding: 0.75rem; } .stat-graphic .text-2xl { font-size: 1.3rem; } .paint-brand-logo { width: 56px; height: 56px; font-size: 1.4rem; } .trust-badge { font-size: 0.65rem; padding: 5px 10px; } .review-card { padding: 1rem; } .review-card h4 { font-size: 0.85rem; } .marquee { font-size: 0.8rem; } .package-icon { width: 48px; height: 48px; font-size: 1.3rem; } .package-card h3 { font-size: 1.15rem; } .process-step { padding: 1rem; } .process-number { width: 38px; height: 38px; font-size: 1rem; } }
 @media (max-width: 340px) { .hero-title { font-size: 1.5rem; } .section-title { font-size: 1.25rem; } .btn-primary, .btn-outline { font-size: 0.75rem; padding: 10px 16px; } .district-chip { font-size: 0.58rem; padding: 3px 7px; } }
 @media (max-height: 500px) and (orientation: landscape) { #home { min-height: auto; padding-top: 80px; padding-bottom: 40px; } .hero-title { font-size: 1.8rem; } }
 @media (hover: none) and (pointer: coarse) { .service-card:active, .review-card:active, .faq-question:active, .package-card:active, .paint-service-card:active, .district-group:active, .state-card:active, .area-stat-card:active, .eet-card:active { transform: scale(0.98); border-color: rgba(139, 92, 246, 0.3); } a, button { min-height: 44px; min-width: 44px; } .nav-link { padding: 8px 4px; } .mobile-menu a { min-height: 44px; display: flex; align-items: center; } }
@@ -795,26 +292,17 @@ input, select, textarea { font-size: 16px !important; }
 <canvas id="three-canvas"></canvas>
 <div class="security-toast" id="securityToast"><i class="fas fa-shield-alt"></i><span id="securityToastMsg">This action is not allowed</span></div>
 <div class="loader" id="loader"><div class="loader-ring"></div><div class="mt-4 text-purple-400 font-bold tracking-widest text-sm">2K CAR CARE</div></div>
-
-
 <div class="weather-widget-8d" id="weatherWidget" aria-label="Live weather in Vijayawada">
 <div class="weather-widget-inner">
 <div class="weather-header">
-<div class="weather-location">
-<i class="fas fa-map-marker-alt"></i>
-<span>Vijayawada</span>
-</div>
+<div class="weather-location"><i class="fas fa-map-marker-alt"></i><span>Vijayawada</span></div>
 <div class="weather-live-dot" title="Live data"></div>
 </div>
 <div id="weatherContent">
-<div class="weather-loading">
-<div class="spinner"></div>
-<div>Fetching live weather...</div>
+<div class="weather-loading"><div class="spinner"></div><div>Fetching live weather...</div></div>
 </div>
 </div>
 </div>
-</div>
-
 <a href="https://www.instagram.com/2kcarcarevijayawada/reels/" target="_blank" rel="noopener noreferrer" class="instagram-float" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
 <a href="https://www.youtube.com/@2kcarcarevijayawada271/shorts" target="_blank" rel="noopener noreferrer" class="youtube-float" title="Watch our YouTube Shorts" aria-label="Watch our YouTube Shorts"><i class="fab fa-youtube"></i></a>
 <a href="https://wa.me/918519957776" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -857,7 +345,6 @@ input, select, textarea { font-size: 16px !important; }
 <a href="tel:+918519957776" class="btn-primary text-center mt-4" onclick="toggleMobile()"><i class="fas fa-phone"></i> Call Now</a>
 </div>
 </div>
-<!-- HERO SECTION -->
 <section id="home" class="min-h-screen flex items-center relative z-10 pt-20">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
 <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -902,7 +389,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-
 <section class="py-6 border-y border-white/5 relative z-10 overflow-hidden">
 <div class="flex whitespace-nowrap">
 <div class="marquee flex items-center space-x-12 text-white/20 font-bold text-lg">
@@ -911,7 +397,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-
 <section id="services" class="py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -922,189 +407,91 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 <div class="service-card reveal">
 <div class="icon-3d-glass icon-purple">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18 46L32 32L46 18" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
-<path d="M14 50L18 46" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
-<circle cx="46" cy="18" r="8" fill="white" fill-opacity="0.95"/>
-<circle cx="46" cy="18" r="5" fill="#7c3aed"/>
-<path d="M28 36C28 36 32 32 36 36" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 46L32 32L46 18" stroke="white" stroke-width="3.5" stroke-linecap="round"/><path d="M14 50L18 46" stroke="white" stroke-width="3.5" stroke-linecap="round"/><circle cx="46" cy="18" r="8" fill="white" fill-opacity="0.95"/><circle cx="46" cy="18" r="5" fill="#7c3aed"/><path d="M28 36C28 36 32 32 36 36" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Denting</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Precision dent removal that brings your car's body panels back to their original shape  no filler shortcuts.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.05s;">
 <div class="icon-3d-glass icon-blue">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 40L20 28L44 28L44 40L36 40L36 48L28 48L28 40Z" fill="white" fill-opacity="0.95"/>
-<rect x="22" y="30" width="20" height="8" fill="#2563eb"/>
-<path d="M44 32L52 28L52 36L44 36Z" fill="white" fill-opacity="0.9"/>
-<circle cx="54" cy="24" r="2" fill="white" fill-opacity="0.7"/>
-<circle cx="56" cy="28" r="1.5" fill="white" fill-opacity="0.6"/>
-<circle cx="54" cy="32" r="1.5" fill="white" fill-opacity="0.6"/>
-<circle cx="58" cy="26" r="1" fill="white" fill-opacity="0.5"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 40L20 28L44 28L44 40L36 40L36 48L28 48L28 40Z" fill="white" fill-opacity="0.95"/><rect x="22" y="30" width="20" height="8" fill="#2563eb"/><path d="M44 32L52 28L52 36L44 36Z" fill="white" fill-opacity="0.9"/><circle cx="54" cy="24" r="2" fill="white" fill-opacity="0.7"/><circle cx="56" cy="28" r="1.5" fill="white" fill-opacity="0.6"/><circle cx="54" cy="32" r="1.5" fill="white" fill-opacity="0.6"/><circle cx="58" cy="26" r="1" fill="white" fill-opacity="0.5"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Car Painting</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">High-quality automotive painting with 2K paints and Glasurit premium paints. Perfect colour matching guaranteed.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.1s;">
 <div class="icon-3d-glass icon-cyan">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M32 8L50 16V32C50 44 42 52 32 56C22 52 14 44 14 32V16L32 8Z" fill="white" fill-opacity="0.95"/>
-<path d="M32 14L44 20V32C44 40 38 46 32 50C26 46 20 40 20 32V20L32 14Z" fill="#0891b2"/>
-<circle cx="32" cy="30" r="4" fill="white"/>
-<circle cx="24" cy="36" r="2.5" fill="white" fill-opacity="0.8"/>
-<circle cx="40" cy="36" r="2.5" fill="white" fill-opacity="0.8"/>
-<line x1="32" y1="30" x2="24" y2="36" stroke="white" stroke-width="1.5"/>
-<line x1="32" y1="30" x2="40" y2="36" stroke="white" stroke-width="1.5"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 8L50 16V32C50 44 42 52 32 56C22 52 14 44 14 32V16L32 8Z" fill="white" fill-opacity="0.95"/><path d="M32 14L44 20V32C44 40 38 46 32 50C26 46 20 40 20 32V20L32 14Z" fill="#0891b2"/><circle cx="32" cy="30" r="4" fill="white"/><circle cx="24" cy="36" r="2.5" fill="white" fill-opacity="0.8"/><circle cx="40" cy="36" r="2.5" fill="white" fill-opacity="0.8"/><line x1="32" y1="30" x2="24" y2="36" stroke="white" stroke-width="1.5"/><line x1="32" y1="30" x2="40" y2="36" stroke="white" stroke-width="1.5"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Nano Coat</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Advanced nano-technology coating that creates an ultra-thin protective layer over your paint for 6-12 months.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.15s;">
 <div class="icon-3d-glass icon-yellow">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 24L24 14H40L48 24L32 52L16 24Z" fill="white" fill-opacity="0.95"/>
-<path d="M24 14L32 24L40 14" stroke="#ca8a04" stroke-width="2"/>
-<path d="M16 24H48" stroke="#ca8a04" stroke-width="2"/>
-<path d="M32 24L32 52" stroke="#ca8a04" stroke-width="1.5"/>
-<path d="M24 24L32 52L40 24" fill="#eab308" fill-opacity="0.6"/>
-<circle cx="28" cy="20" r="1.5" fill="white" fill-opacity="0.9"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 24L24 14H40L48 24L32 52L16 24Z" fill="white" fill-opacity="0.95"/><path d="M24 14L32 24L40 14" stroke="#ca8a04" stroke-width="2"/><path d="M16 24H48" stroke="#ca8a04" stroke-width="2"/><path d="M32 24L32 52" stroke="#ca8a04" stroke-width="1.5"/><path d="M24 24L32 52L40 24" fill="#eab308" fill-opacity="0.6"/><circle cx="28" cy="20" r="1.5" fill="white" fill-opacity="0.9"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Ceramic Coat</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Long-lasting 9H ceramic protection that repels water, dirt, and UV rays for 3-5 years. Our most popular service.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.2s;">
 <div class="icon-3d-glass icon-green">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M32 10L50 20V40L32 54L14 40V20L32 10Z" fill="white" fill-opacity="0.95"/>
-<path d="M32 16L44 23V37L32 48L20 37V23L32 16Z" fill="#15803d"/>
-<circle cx="32" cy="32" r="5" fill="white"/>
-<circle cx="32" cy="32" r="2" fill="#16a34a"/>
-<circle cx="22" cy="26" r="2" fill="white" fill-opacity="0.8"/>
-<circle cx="42" cy="26" r="2" fill="white" fill-opacity="0.8"/>
-<circle cx="22" cy="38" r="2" fill="white" fill-opacity="0.8"/>
-<circle cx="42" cy="38" r="2" fill="white" fill-opacity="0.8"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 10L50 20V40L32 54L14 40V20L32 10Z" fill="white" fill-opacity="0.95"/><path d="M32 16L44 23V37L32 48L20 37V23L32 16Z" fill="#15803d"/><circle cx="32" cy="32" r="5" fill="white"/><circle cx="32" cy="32" r="2" fill="#16a34a"/><circle cx="22" cy="26" r="2" fill="white" fill-opacity="0.8"/><circle cx="42" cy="26" r="2" fill="white" fill-opacity="0.8"/><circle cx="22" cy="38" r="2" fill="white" fill-opacity="0.8"/><circle cx="42" cy="38" r="2" fill="white" fill-opacity="0.8"/></svg>
 </div>
-<h3 class="text-base sm:text-lg font-bold text-white mb-2">Graphene Coat</h3>
+<h3 class="text-base sm:text-lg font-bold text-white mb-2"><a href="https://kovalentcoatings.com/" target="_blank" style="color: inherit; text-decoration: none;">Graphene Coat</a></h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Next-gen graphene coating with superior hardness, heat resistance, and a deeper mirror gloss than ceramic.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.25s;">
 <div class="icon-3d-glass icon-pink">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="32" cy="38" rx="20" ry="10" fill="white" fill-opacity="0.95"/>
-<ellipse cx="32" cy="36" rx="20" ry="10" fill="#db2777"/>
-<ellipse cx="32" cy="34" rx="16" ry="7" fill="white" fill-opacity="0.3"/>
-<rect x="28" y="16" width="8" height="18" rx="2" fill="white" fill-opacity="0.95"/>
-<rect x="30" y="18" width="4" height="14" rx="1" fill="#be185d"/>
-<path d="M18 44C18 44 24 48 32 48C40 48 46 44 46 44" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
-<circle cx="22" cy="22" r="2" fill="white" fill-opacity="0.7"/>
-<circle cx="44" cy="20" r="1.5" fill="white" fill-opacity="0.6"/>
-<circle cx="48" cy="28" r="1" fill="white" fill-opacity="0.5"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="32" cy="38" rx="20" ry="10" fill="white" fill-opacity="0.95"/><ellipse cx="32" cy="36" rx="20" ry="10" fill="#db2777"/><ellipse cx="32" cy="34" rx="16" ry="7" fill="white" fill-opacity="0.3"/><rect x="28" y="16" width="8" height="18" rx="2" fill="white" fill-opacity="0.95"/><rect x="30" y="18" width="4" height="14" rx="1" fill="#be185d"/><path d="M18 44C18 44 24 48 32 48C40 48 46 44 46 44" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/><circle cx="22" cy="22" r="2" fill="white" fill-opacity="0.7"/><circle cx="44" cy="20" r="1.5" fill="white" fill-opacity="0.6"/><circle cx="48" cy="28" r="1" fill="white" fill-opacity="0.5"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Rubbing & Polish</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Machine polishing that eliminates swirl marks, light scratches, and oxidation for a showroom shine.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.3s;">
 <div class="icon-3d-glass icon-teal">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M32 10L48 18V34C48 44 40 52 32 56C24 52 16 44 16 34V18L32 10Z" fill="white" fill-opacity="0.95"/>
-<path d="M32 18L42 24V34C42 40 38 46 32 50C26 46 22 40 22 34V24L32 18Z" fill="#0d9488" fill-opacity="0.8"/>
-<path d="M32 26L36 29V34C36 37 34 40 32 42C30 40 28 37 28 34V29L32 26Z" fill="white" fill-opacity="0.9"/>
-<path d="M24 22L32 18L40 22" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/>
-<path d="M24 28L32 24L40 28" stroke="white" stroke-width="1.5" fill="none" opacity="0.5"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 10L48 18V34C48 44 40 52 32 56C24 52 16 44 16 34V18L32 10Z" fill="white" fill-opacity="0.95"/><path d="M32 18L42 24V34C42 40 38 46 32 50C26 46 22 40 22 34V24L32 18Z" fill="#0d9488" fill-opacity="0.8"/><path d="M32 26L36 29V34C36 37 34 40 32 42C30 40 28 37 28 34V29L32 26Z" fill="white" fill-opacity="0.9"/><path d="M24 22L32 18L40 22" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/><path d="M24 28L32 24L40 28" stroke="white" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Teflon Coating</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Teflon treatment that protects your car's paint from minor abrasions, dust, and environmental damage.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.35s;">
 <div class="icon-3d-glass icon-orange">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 18C20 14 24 12 28 12H36C40 12 44 14 44 18V36C44 38 42 40 40 40H24C22 40 20 38 20 36V18Z" fill="white" fill-opacity="0.95"/>
-<path d="M24 16C24 14 26 13 28 13H36C38 13 40 14 40 16V34H24V16Z" fill="#ea580c"/>
-<path d="M18 40H46V48C46 50 44 52 42 52H22C20 52 18 50 18 48V40Z" fill="white" fill-opacity="0.95"/>
-<path d="M20 42H44V48H20V42Z" fill="#c2410c"/>
-<rect x="28" y="20" width="8" height="10" rx="1" fill="white" fill-opacity="0.3"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 18C20 14 24 12 28 12H36C40 12 44 14 44 18V36C44 38 42 40 40 40H24C22 40 20 38 20 36V18Z" fill="white" fill-opacity="0.95"/><path d="M24 16C24 14 26 13 28 13H36C38 13 40 14 40 16V34H24V16Z" fill="#ea580c"/><path d="M18 40H46V48C46 50 44 52 42 52H22C20 52 18 50 18 48V40Z" fill="white" fill-opacity="0.95"/><path d="M20 42H44V48H20V42Z" fill="#c2410c"/><rect x="28" y="20" width="8" height="10" rx="1" fill="white" fill-opacity="0.3"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Interior Detailing</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Deep cleaning, steam treatment, and leather conditioning. Your cabin will feel brand new.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.4s;">
 <div class="icon-3d-glass icon-red">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 32L18 22H46L52 32V40H12V32Z" fill="white" fill-opacity="0.95"/>
-<path d="M16 32L20 26H44L48 32V36H16V32Z" fill="#dc2626"/>
-<circle cx="22" cy="42" r="5" fill="white" fill-opacity="0.95"/>
-<circle cx="22" cy="42" r="3" fill="#b91c1c"/>
-<circle cx="42" cy="42" r="5" fill="white" fill-opacity="0.95"/>
-<circle cx="42" cy="42" r="3" fill="#b91c1c"/>
-<path d="M28 44L32 40L36 44L32 52L28 44Z" fill="white" fill-opacity="0.9"/>
-<path d="M32 42L34 44L32 48L30 44L32 42Z" fill="#dc2626"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 32L18 22H46L52 32V40H12V32Z" fill="white" fill-opacity="0.95"/><path d="M16 32L20 26H44L48 32V36H16V32Z" fill="#dc2626"/><circle cx="22" cy="42" r="5" fill="white" fill-opacity="0.95"/><circle cx="22" cy="42" r="3" fill="#b91c1c"/><circle cx="42" cy="42" r="5" fill="white" fill-opacity="0.95"/><circle cx="42" cy="42" r="3" fill="#b91c1c"/><path d="M28 44L32 40L36 44L32 52L28 44Z" fill="white" fill-opacity="0.9"/><path d="M32 42L34 44L32 48L30 44L32 42Z" fill="#dc2626"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Underbody Anti-Rust</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Heavy-duty coating that shields your chassis from rust, corrosion, and moisture  essential for Indian roads.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.45s;">
 <div class="icon-3d-glass icon-amber">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="14" y="18" width="36" height="28" rx="3" fill="white" fill-opacity="0.95"/>
-<rect x="18" y="22" width="28" height="20" rx="2" fill="#d97706" fill-opacity="0.8"/>
-<rect x="18" y="22" width="14" height="20" rx="2" fill="#b45309" fill-opacity="0.6"/>
-<line x1="32" y1="22" x2="32" y2="42" stroke="white" stroke-width="1.5" opacity="0.6"/>
-<circle cx="48" cy="14" r="6" fill="white" fill-opacity="0.95"/>
-<circle cx="48" cy="14" r="3" fill="#fbbf24"/>
-<line x1="48" y1="6" x2="48" y2="8" stroke="white" stroke-width="2" stroke-linecap="round"/>
-<line x1="48" y1="20" x2="48" y2="22" stroke="white" stroke-width="2" stroke-linecap="round"/>
-<line x1="40" y1="14" x2="42" y2="14" stroke="white" stroke-width="2" stroke-linecap="round"/>
-<line x1="54" y1="14" x2="56" y2="14" stroke="white" stroke-width="2" stroke-linecap="round"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="18" width="36" height="28" rx="3" fill="white" fill-opacity="0.95"/><rect x="18" y="22" width="28" height="20" rx="2" fill="#d97706" fill-opacity="0.8"/><rect x="18" y="22" width="14" height="20" rx="2" fill="#b45309" fill-opacity="0.6"/><line x1="32" y1="22" x2="32" y2="42" stroke="white" stroke-width="1.5" opacity="0.6"/><circle cx="48" cy="14" r="6" fill="white" fill-opacity="0.95"/><circle cx="48" cy="14" r="3" fill="#fbbf24"/><line x1="48" y1="6" x2="48" y2="8" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="48" y1="20" x2="48" y2="22" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="14" x2="42" y2="14" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="54" y1="14" x2="56" y2="14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Glass Cooling Film</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Premium window films that block heat and UV rays. Keep your cabin cool even in Vijayawada summers.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.5s;">
 <div class="icon-3d-glass icon-indigo">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 20H28V16C28 14 30 12 32 12C34 12 36 14 36 16V20H48V32H52C54 32 56 34 56 36C56 38 54 40 52 40H48V52H36V48C36 46 34 44 32 44C30 44 28 46 28 48V52H16V40H12C10 40 8 38 8 36C8 34 10 32 12 32H16V20Z" fill="white" fill-opacity="0.95"/>
-<path d="M20 24H28V20C28 18 30 16 32 16C34 16 36 18 36 20V24H44V32H48C50 32 52 34 52 36C52 38 50 40 48 40H44V48H36V44C36 42 34 40 32 40C30 40 28 42 28 44V48H20V40H16C14 40 12 38 12 36C12 34 14 32 16 32H20V24Z" fill="#4f46e5"/>
-<circle cx="32" cy="36" r="3" fill="white" fill-opacity="0.9"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 20H28V16C28 14 30 12 32 12C34 12 36 14 36 16V20H48V32H52C54 32 56 34 56 36C56 38 54 40 52 40H48V52H36V48C36 46 34 44 32 44C30 44 28 46 28 48V52H16V40H12C10 40 8 38 8 36C8 34 10 32 12 32H16V20Z" fill="white" fill-opacity="0.95"/><path d="M20 24H28V20C28 18 30 16 32 16C34 16 36 18 36 20V24H44V32H48C50 32 52 34 52 36C52 38 50 40 48 40H44V48H36V44C36 42 34 40 32 40C30 40 28 42 28 44V48H20V40H16C14 40 12 38 12 36C12 34 14 32 16 32H20V24Z" fill="#4f46e5"/><circle cx="32" cy="36" r="3" fill="white" fill-opacity="0.9"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Car Accessories</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Quality seat covers, mats, organizers, and more. Everything you need to enhance your ride.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.55s;">
 <div class="icon-3d-glass icon-sky">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M32 8C32 8 16 26 16 38C16 48 23 56 32 56C41 56 48 48 48 38C48 26 32 8 32 8Z" fill="white" fill-opacity="0.95"/>
-<path d="M32 16C32 16 22 30 22 38C22 44 26 50 32 50C38 50 42 44 42 38C42 30 32 16 32 16Z" fill="#0284c7"/>
-<ellipse cx="28" cy="34" rx="3" ry="5" fill="white" fill-opacity="0.5" transform="rotate(-20 28 34)"/>
-<circle cx="26" cy="30" r="1.5" fill="white" fill-opacity="0.8"/>
-<path d="M20 46C20 46 24 50 32 50" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C32 8 16 26 16 38C16 48 23 56 32 56C41 56 48 48 48 38C48 26 32 8 32 8Z" fill="white" fill-opacity="0.95"/><path d="M32 16C32 16 22 30 22 38C22 44 26 50 32 50C38 50 42 44 42 38C42 30 32 16 32 16Z" fill="#0284c7"/><ellipse cx="28" cy="34" rx="3" ry="5" fill="white" fill-opacity="0.5" transform="rotate(-20 28 34)"/><circle cx="26" cy="30" r="1.5" fill="white" fill-opacity="0.8"/><path d="M20 46C20 46 24 50 32 50" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Water Wash</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Thorough exterior water wash that removes dust, grime, and dirt for a clean, refreshed look.</p>
 </div>
 <div class="service-card reveal" style="transition-delay: 0.6s;">
 <div class="icon-3d-glass icon-violet">
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M32 10C18 10 8 20 8 32C8 44 18 54 32 54C36 54 38 52 38 48C38 46 37 44 36 43C35 42 35 40 36 39C37 38 39 38 40 38H44C52 38 58 32 58 24C58 16 46 10 32 10Z" fill="white" fill-opacity="0.95"/>
-<path d="M32 14C20 14 12 22 12 32C12 42 20 50 32 50C34 50 36 49 36 46C36 45 35 44 34 43C33 42 33 40 34 39C35 38 37 38 38 38H42C48 38 54 33 54 26C54 20 44 14 32 14Z" fill="#7c3aed"/>
-<circle cx="22" cy="28" r="4" fill="#f87171"/>
-<circle cx="30" cy="20" r="4" fill="#fbbf24"/>
-<circle cx="40" cy="24" r="4" fill="#4ade80"/>
-<circle cx="24" cy="40" r="4" fill="#60a5fa"/>
-<circle cx="44" cy="34" r="3" fill="#f472b6"/>
-</svg>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 10C18 10 8 20 8 32C8 44 18 54 32 54C36 54 38 52 38 48C38 46 37 44 36 43C35 42 35 40 36 39C37 38 39 38 40 38H44C52 38 58 32 58 24C58 16 46 10 32 10Z" fill="white" fill-opacity="0.95"/><path d="M32 14C20 14 12 22 12 32C12 42 20 50 32 50C34 50 36 49 36 46C36 45 35 44 34 43C33 42 33 40 34 39C35 38 37 38 38 38H42C48 38 54 33 54 26C54 20 44 14 32 14Z" fill="#7c3aed"/><circle cx="22" cy="28" r="4" fill="#f87171"/><circle cx="30" cy="20" r="4" fill="#fbbf24"/><circle cx="40" cy="24" r="4" fill="#4ade80"/><circle cx="24" cy="40" r="4" fill="#60a5fa"/><circle cx="44" cy="34" r="3" fill="#f472b6"/></svg>
 </div>
 <h3 class="text-base sm:text-lg font-bold text-white mb-2">Colour Customization</h3>
 <p class="text-white/50 text-xs sm:text-sm leading-relaxed">Full-body custom colour wraps and paint jobs for a completely unique, personalized look.</p>
@@ -1112,7 +499,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-
 <section id="painting" class="painting-section-bg py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1137,7 +523,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- CAR WASH MAINTENANCE PACKAGES -->
 <section id="wash-packages" class="py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1177,7 +562,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- PREMIUM PAINTS SECTION -->
 <section id="paints" class="py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1216,7 +600,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- AREAS WE COVER -->
 <section id="areas" class="area-section-bg py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1237,13 +620,13 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <div class="district-group-icon text-white"><i class="fas fa-water"></i></div>
 <h3 class="text-lg font-bold text-white mb-1">Coastal Andhra</h3>
 <p class="text-white/40 text-xs mb-4">Eastern coastline districts</p>
-<div class="flex flex-wrap"><span class="district-chip home-chip">Krishna</span><span class="district-chip">Guntur</span><span class="district-chip">West Godavari</span><span class="district-chip">Eluru</span><span class="district-chip">East Godavari</span><span class="district-chip">Kakinada</span><span class="district-chip">Konaseema</span><span class="district-chip">Visakhapatnam</span><span class="district-chip">Anakapalli</span><span class="district-chip">Alluri Sitharama Raju</span><span class="district-chip">Srikakulam</span><span class="district-chip">Vizianagaram</span></div>
+<div class="flex flex-wrap"><span class="district-chip home-chip"><a href="https://krishna.ap.gov.in/" target="_blank" style="color: inherit; text-decoration: none;">Krishna</a></span><span class="district-chip">Guntur</span><span class="district-chip">West Godavari</span><span class="district-chip">Eluru</span><span class="district-chip">East Godavari</span><span class="district-chip">Kakinada</span><span class="district-chip">Konaseema</span><span class="district-chip">Visakhapatnam</span><span class="district-chip">Anakapalli</span><span class="district-chip">Alluri Sitharama Raju</span><span class="district-chip">Srikakulam</span><span class="district-chip">Vizianagaram</span></div>
 </div>
 <div class="district-group reveal" style="transition-delay: 0.1s; --group-color: #3b82f6; --group-color-dark: #2563eb;">
 <div class="district-group-icon text-white"><i class="fas fa-city"></i></div>
 <h3 class="text-lg font-bold text-white mb-1">Rayalaseema</h3>
 <p class="text-white/40 text-xs mb-4">Southern interior districts</p>
-<div class="flex flex-wrap"><span class="district-chip">Kurnool</span><span class="district-chip">Nandyal</span><span class="district-chip">YSR Kadapa</span><span class="district-chip">Anantapur</span><span class="district-chip">Sri Sathya Sai</span><span class="district-chip">Chittoor</span><span class="district-chip">Tirupati</span></div>
+<div class="flex flex-wrap"><span class="district-chip">Kurnool</span><span class="district-chip">Nandyal</span><span class="district-chip">YSR Kadapa</span><span class="district-chip">Anantapur</span><span class="district-chip">Sri Sathya Sai</span><span class="district-chip">Chittoor</span><span class="district-chip"><a href="https://en.wikipedia.org/wiki/Tirupati" target="_blank" style="color: inherit; text-decoration: none;">Tirupati</a></span></div>
 </div>
 <div class="district-group reveal" style="transition-delay: 0.2s; --group-color: #10b981; --group-color-dark: #059669;">
 <div class="district-group-icon text-white"><i class="fas fa-map"></i></div>
@@ -1270,7 +653,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- E-E-A-T EXPERTISE SECTION -->
 <section id="expertise" class="py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1295,7 +677,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- OUR REACH - 3 STATES -->
 <section class="py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1311,13 +692,12 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 reveal">
-<div class="state-card" style="--state-color: #f59e0b; --state-color-dark: #d97706;"><div class="state-flag"><i class="fas fa-map-marker-alt text-white"></i></div><h3 class="state-name">Andhra Pradesh</h3><p class="state-sub">Our home state  where we started and grew</p><div class="state-cities"><span class="city-chip">Vijayawada</span><span class="city-chip">Guntur</span><span class="city-chip">Visakhapatnam</span><span class="city-chip">Tirupati</span><span class="city-chip">Nellore</span><span class="city-chip">Kakinada</span><span class="city-chip">Rajahmundry</span></div></div>
-<div class="state-card" style="--state-color: #3b82f6; --state-color-dark: #2563eb;"><div class="state-flag"><i class="fas fa-map-marker-alt text-white"></i></div><h3 class="state-name">Telangana</h3><p class="state-sub">Our neighbours who trust us with their cars</p><div class="state-cities"><span class="city-chip">Hyderabad</span><span class="city-chip">Warangal</span><span class="city-chip">Nizamabad</span><span class="city-chip">Karimnagar</span><span class="city-chip">Khammam</span><span class="city-chip">Mahbubnagar</span><span class="city-chip">Nalgonda</span></div></div>
-<div class="state-card" style="--state-color: #10b981; --state-color-dark: #059669;"><div class="state-flag"><i class="fas fa-map-marker-alt text-white"></i></div><h3 class="state-name">Karnataka</h3><p class="state-sub">Customers who drive across borders for our service</p><div class="state-cities"><span class="city-chip">Bangalore</span><span class="city-chip">Mysore</span><span class="city-chip">Hubli</span><span class="city-chip">Mangalore</span><span class="city-chip">Belgaum</span><span class="city-chip">Raichur</span><span class="city-chip">Bellary</span></div></div>
+<div class="state-card" style="--state-color: #f59e0b; --state-color-dark: #d97706;"><div class="state-flag"><i class="fas fa-map-marker-alt text-white"></i></div><h3 class="state-name"><a href="https://www.incredibleindia.gov.in/en/andhra-pradesh" target="_blank" style="color: inherit; text-decoration: none;">Andhra Pradesh</a></h3><p class="state-sub">Our home state  where we started and grew</p><div class="state-cities"><span class="city-chip">Vijayawada</span><span class="city-chip">Guntur</span><span class="city-chip">Visakhapatnam</span><span class="city-chip">Tirupati</span><span class="city-chip">Nellore</span><span class="city-chip">Kakinada</span><span class="city-chip">Rajahmundry</span></div></div>
+<div class="state-card" style="--state-color: #3b82f6; --state-color-dark: #2563eb;"><div class="state-flag"><i class="fas fa-map-marker-alt text-white"></i></div><h3 class="state-name"><a href="https://en.wikipedia.org/wiki/Telangana" target="_blank" style="color: inherit; text-decoration: none;">Telangana</a></h3><p class="state-sub">Our neighbours who trust us with their cars</p><div class="state-cities"><span class="city-chip">Hyderabad</span><span class="city-chip">Warangal</span><span class="city-chip">Nizamabad</span><span class="city-chip">Karimnagar</span><span class="city-chip">Khammam</span><span class="city-chip">Mahbubnagar</span><span class="city-chip">Nalgonda</span></div></div>
+<div class="state-card" style="--state-color: #10b981; --state-color-dark: #059669;"><div class="state-flag"><i class="fas fa-map-marker-alt text-white"></i></div><h3 class="state-name"><a href="https://karnataka.gov.in/english" target="_blank" style="color: inherit; text-decoration: none;">Karnataka</a></h3><p class="state-sub">Customers who drive across borders for our service</p><div class="state-cities"><span class="city-chip">Bangalore</span><span class="city-chip">Mysore</span><span class="city-chip">Hubli</span><span class="city-chip">Mangalore</span><span class="city-chip">Belgaum</span><span class="city-chip">Raichur</span><span class="city-chip">Bellary</span></div></div>
 </div>
 </div>
 </section>
-<!-- REVIEWS -->
 <section id="reviews" class="py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1342,7 +722,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <div class="text-center mt-8 sm:mt-12 reveal"><a href="https://www.google.com/maps?cid=18288564258799507178" target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fas fa-external-link-alt"></i> See All Reviews on Google</a></div>
 </div>
 </section>
-<!-- FAQ SECTION -->
 <section id="faq" class="py-16 sm:py-24 relative z-10">
 <div class="max-w-3xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1366,7 +745,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- CONTACT -->
 <section id="contact" class="py-16 sm:py-24 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6">
 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1387,7 +765,6 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </div>
 </section>
-<!-- Footer -->
 <footer class="py-10 sm:py-12 border-t border-white/5 relative z-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
 <div class="flex items-center justify-center space-x-3 mb-4 sm:mb-6">
@@ -1397,11 +774,35 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <p class="text-white/40 text-xs sm:text-sm mb-2">Best Car Detailing, Ceramic Coating & Painting Service in Vijayawada Since 2015</p>
 <p class="text-white/30 text-xs sm:text-sm mb-2">Certified experts using 2K paints & Glasurit premium paints (Germany & France)</p>
 <p class="text-white/30 text-xs sm:text-sm mb-2">Proudly serving customers across all 26 districts of Andhra Pradesh, Telangana & Karnataka</p>
-<p class="text-white/30 text-xs sm:text-sm">© 2026 2K Car Care Vijayawada. All rights reserved. | Designed by +91 9014663217</p>
+
+<!-- VISITOR COUNTER INSERTED HERE -->
+<div class="foot-row2" style="text-align: center; vertical-align: middle; margin-top: 20px;">
+    <table cellspacing="0" cellpadding="0" align="center">
+        <tr>
+            <td style="font-family: Verdana; font-size: 11px; color: #94a3b8; line-height: 30px; vertical-align: middle;">
+                 <b>Total Visitors :</b>
+            </td>
+            <td style="padding-left: 5px;">
+                <span class="hit-count-num" style="color: #fff; font-weight: bold;">
+                    <span id="lblSiteVisited">261766984</span>
+                </span>
+            </td>
+            <td style="font-family: Verdana; padding-left: 15px; font-size: 11px; color: #94a3b8; line-height: 18px; vertical-align: middle;">
+                <b>Today's Visitors :</b>
+            </td>
+            <td style="padding-left: 5px;">
+                <span class="hit-count-num" style="color: #fff; font-weight: bold;">
+                    <span id="lblCount">34437</span>
+                </span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<p class="text-white/30 text-xs sm:text-sm mt-4">© 2026 2K Car Care Vijayawada. All rights reserved. | Designed by +91 9014663217</p>
 </div>
 </footer>
 <script>
-
 (function() {
 const WEATHER_CODES = {
 0: { icon: '☀️', label: 'Clear sky' },
@@ -1433,11 +834,9 @@ const WEATHER_CODES = {
 96: { icon: '⛈️', label: 'Thunderstorm w/ hail' },
 99: { icon: '⛈️', label: 'Thunderstorm w/ heavy hail' }
 };
-
 function getWeatherInfo(code) {
 return WEATHER_CODES[code] || { icon: '🌡️', label: 'Unknown' };
 }
-
 function formatTime(date) {
 const h = date.getHours();
 const m = date.getMinutes();
@@ -1446,7 +845,6 @@ const hour = h % 12 || 12;
 const min = m < 10 ? '0' + m : m;
 return hour + ':' + min + ' ' + ampm;
 }
-
 async function fetchVijayawadaWeather() {
 const contentEl = document.getElementById('weatherContent');
 try {
@@ -1462,7 +860,6 @@ const humidity = Math.round(current.relative_humidity_2m);
 const wind = Math.round(current.wind_speed_10m);
 const precip = current.precipitation || 0;
 const now = new Date();
-
 contentEl.innerHTML =
 '<div class="weather-main">' +
 '<div class="weather-icon-wrap">' + info.icon + '</div>' +
@@ -1481,17 +878,12 @@ contentEl.innerHTML =
 } catch (err) {
 console.warn('Weather fetch failed:', err);
 contentEl.innerHTML = '<div class="weather-error"><i class="fas fa-exclamation-triangle"></i>Weather unavailable</div>';
-// Retry after 30 seconds on failure
 setTimeout(fetchVijayawadaWeather, 30000);
 }
 }
-
-// Initial fetch
 fetchVijayawadaWeather();
-// Auto-refresh every 10 minutes for live data
 setInterval(fetchVijayawadaWeather, 600000);
 })();
-
 (function() {
 const toast = document.getElementById('securityToast');
 const toastMsg = document.getElementById('securityToastMsg');
@@ -1610,4 +1002,3 @@ document.addEventListener('touchend', function(e) { var now = Date.now(); if (no
 </script>
 </body>
 </html>
-
