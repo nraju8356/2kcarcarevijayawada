@@ -775,7 +775,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <p class="text-white/30 text-xs sm:text-sm mb-2">Certified experts using 2K paints & Glasurit premium paints (Germany & France)</p>
 <p class="text-white/30 text-xs sm:text-sm mb-2">Proudly serving customers across all 26 districts of Andhra Pradesh, Telangana & Karnataka</p>
 
-<!-- VISITOR COUNTER INSERTED HERE -->
+<!-- REAL VISITOR COUNTER -->
 <div class="foot-row2" style="text-align: center; vertical-align: middle; margin-top: 20px;">
     <table cellspacing="0" cellpadding="0" align="center">
         <tr>
@@ -784,7 +784,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
             </td>
             <td style="padding-left: 5px;">
                 <span class="hit-count-num" style="color: #fff; font-weight: bold;">
-                    <span id="lblSiteVisited">261766984</span>
+                    <span id="lblSiteVisited">Loading...</span>
                 </span>
             </td>
             <td style="font-family: Verdana; padding-left: 15px; font-size: 11px; color: #94a3b8; line-height: 18px; vertical-align: middle;">
@@ -792,7 +792,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
             </td>
             <td style="padding-left: 5px;">
                 <span class="hit-count-num" style="color: #fff; font-weight: bold;">
-                    <span id="lblCount">34437</span>
+                    <span id="lblCount">Loading...</span>
                 </span>
             </td>
         </tr>
@@ -803,6 +803,32 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 </div>
 </footer>
 <script>
+// REAL VISITOR COUNTER API
+async function fetchVisitorCounts() {
+    try {
+        // Fetch Total Visits
+        const totalRes = await fetch('https://api.counterapi.dev/v1/2kcarcarevijayawada/total_visits/up');
+        if (totalRes.ok) {
+            const totalData = await totalRes.json();
+            document.getElementById('lblSiteVisited').textContent = totalData.count.toLocaleString();
+        }
+
+        // Fetch Today's Visits (Creates a new counter for each day)
+        const today = new Date().toISOString().split('T')[0].replace(/-/g, '');
+        const todayRes = await fetch(`https://api.counterapi.dev/v1/2kcarcarevijayawada/today_${today}/up`);
+        if (todayRes.ok) {
+            const todayData = await todayRes.json();
+            document.getElementById('lblCount').textContent = todayData.count.toLocaleString();
+        }
+    } catch (error) {
+        console.warn('Visitor counter API error:', error);
+        // Fallback if API is temporarily unreachable
+        document.getElementById('lblSiteVisited').textContent = '0';
+        document.getElementById('lblCount').textContent = '0';
+    }
+}
+fetchVisitorCounts();
+
 (function() {
 const WEATHER_CODES = {
 0: { icon: '☀️', label: 'Clear sky' },
