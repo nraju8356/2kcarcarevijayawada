@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-</html>
-  <meta name="msvalidate.01" content="D0E30DF18FD445FD8299503BA992C0DC" />
 <meta name="google-site-verification" content="4-5G3lC6mZ8Dd3pEyGVmQbQSLGVtPVPko19RXkEfKdU" />
+<meta name="yandex-verification" content="020c454175095e48" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <meta name="theme-color" content="#05050a">
@@ -445,7 +444,7 @@ Trusted by <strong class="text-white">5000+ car owners</strong> across <strong c
 <section class="py-6 border-y border-white/5 relative z-10 overflow-hidden">
 <div class="flex whitespace-nowrap">
 <div class="marquee flex items-center space-x-12 text-white/20 font-bold text-lg">
-<span>🎨 2K PAINTS</span><span>•</span><span>🇩🇪 GLASURIT PREMIUM</span><span>•</span><span>✨ CERAMIC COATING</span><span>•</span><span>🛡️ GRAPHENE COATING</span><span>•</span><span>💎 NANO COATING</span><span>•</span><span>🔧 DENTING</span><span>•</span><span>🧽 WASH PACKAGES</span><span>•</span><span>🪟 GLASS FILM</span><span>•</span>
+<span>🎨 2K PAINTS</span><span>•</span><span>🇪 GLASURIT PREMIUM</span><span>•</span><span>✨ CERAMIC COATING</span><span>•</span><span>🛡️ GRAPHENE COATING</span><span>•</span><span>💎 NANO COATING</span><span>•</span><span>🔧 DENTING</span><span>•</span><span>🧽 WASH PACKAGES</span><span>•</span><span>🪟 GLASS FILM</span><span>•</span>
 <span>🎨 2K PAINTS</span><span>•</span><span> GLASURIT PREMIUM</span><span>•</span><span>✨ CERAMIC COATING</span><span>•</span><span>🛡️ GRAPHENE COATING</span><span>•</span><span>💎 NANO COATING</span><span>•</span><span>🔧 DENTING</span><span>•</span><span>🧽 WASH PACKAGES</span><span>•</span><span> GLASS FILM</span><span>•</span>
 </div>
 </div>
@@ -886,14 +885,14 @@ const WEATHER_CODES = {
 55: { icon: '️', label: 'Dense drizzle' },
 56: { icon: '🌨️', label: 'Freezing drizzle' },
 57: { icon: '🌨️', label: 'Dense freezing drizzle' },
-61: { icon: '🌧️', label: 'Slight rain' },
+61: { icon: '️', label: 'Slight rain' },
 63: { icon: '🌧️', label: 'Moderate rain' },
 65: { icon: '🌧️', label: 'Heavy rain' },
 66: { icon: '🌨️', label: 'Freezing rain' },
-67: { icon: '🌨️', label: 'Heavy freezing rain' },
+67: { icon: '️', label: 'Heavy freezing rain' },
 71: { icon: '🌨️', label: 'Slight snow' },
 73: { icon: '❄️', label: 'Moderate snow' },
-75: { icon: '❄️', label: 'Heavy snow' },
+75: { icon: '️', label: 'Heavy snow' },
 77: { icon: '🌨️', label: 'Snow grains' },
 80: { icon: '🌦️', label: 'Rain showers' },
 81: { icon: '️', label: 'Moderate showers' },
@@ -901,8 +900,8 @@ const WEATHER_CODES = {
 85: { icon: '🌨️', label: 'Snow showers' },
 86: { icon: '🌨️', label: 'Heavy snow showers' },
 95: { icon: '⛈️', label: 'Thunderstorm' },
-96: { icon: '⛈️', label: 'Thunderstorm w/ hail' },
-99: { icon: '⛈️', label: 'Thunderstorm w/ heavy hail' }
+96: { icon: '️', label: 'Thunderstorm w/ hail' },
+99: { icon: '️', label: 'Thunderstorm w/ heavy hail' }
 };
 function getWeatherInfo(code) {
 return WEATHER_CODES[code] || { icon: '🌡️', label: 'Unknown' };
@@ -1069,7 +1068,6 @@ anchor.addEventListener('click', function(e) { e.preventDefault(); var target = 
 });
 var lastTouchEnd = 0;
 document.addEventListener('touchend', function(e) { var now = Date.now(); if (now - lastTouchEnd <= 300) e.preventDefault(); lastTouchEnd = now; }, false);
-
 // ===== AUDIO PLAYER + FIREWORK EFFECT =====
 (function() {
 const audio = document.getElementById('siteAudio');
@@ -1081,14 +1079,11 @@ const equalizer = document.getElementById('audioEqualizer');
 const fireworkCanvas = document.getElementById('firework-canvas');
 const audioToast = document.getElementById('audioToast');
 const audioToastMsg = document.getElementById('audioToastMsg');
-
 if (!audio || !playBtn || !fireworkCanvas) return;
-
 audio.volume = 0.5;
 let isPlaying = false;
 let fireworkAnimId = null;
 let lastFireworkTime = 0;
-
 // Firework particle system
 const ctx = fireworkCanvas.getContext('2d');
 let fwParticles = [];
@@ -1098,14 +1093,12 @@ const FW_COLORS = [
 [180, 100, 255], [100, 255, 150], [255, 120, 200],
 [255, 200, 80], [120, 180, 255], [255, 100, 100]
 ];
-
 function resizeFireworkCanvas() {
 fireworkCanvas.width = window.innerWidth;
 fireworkCanvas.height = window.innerHeight;
 }
 resizeFireworkCanvas();
 window.addEventListener('resize', resizeFireworkCanvas);
-
 function createRocket() {
 const x = Math.random() * fireworkCanvas.width;
 const targetY = fireworkCanvas.height * (0.2 + Math.random() * 0.4);
@@ -1119,7 +1112,6 @@ color: FW_COLORS[Math.floor(Math.random() * FW_COLORS.length)],
 trail: []
 });
 }
-
 function createExplosion(x, y, color) {
 const particleCount = 40 + Math.floor(Math.random() * 30);
 for (let i = 0; i < particleCount; i++) {
@@ -1137,32 +1129,26 @@ size: 1.5 + Math.random() * 2
 });
 }
 }
-
 function updateFireworks(timestamp) {
 if (!isPlaying) {
 ctx.clearRect(0, 0, fireworkCanvas.width, fireworkCanvas.height);
 return;
 }
-
 ctx.fillStyle = 'rgba(5, 5, 10, 0.15)';
 ctx.fillRect(0, 0, fireworkCanvas.width, fireworkCanvas.height);
-
 // Launch rockets periodically
 if (timestamp - lastFireworkTime > 400 + Math.random() * 400) {
 createRocket();
 lastFireworkTime = timestamp;
 }
-
 // Update rockets
 for (let i = fwRockets.length - 1; i >= 0; i--) {
 const r = fwRockets[i];
 r.trail.push({ x: r.x, y: r.y, life: 1 });
 if (r.trail.length > 8) r.trail.shift();
-
 r.x += r.vx;
 r.y += r.vy;
 r.vy += 0.08;
-
 // Draw trail
 for (let t = 0; t < r.trail.length; t++) {
 const tr = r.trail[t];
@@ -1173,13 +1159,11 @@ ctx.arc(tr.x, tr.y, 2, 0, Math.PI * 2);
 ctx.fillStyle = 'rgba(' + r.color[0] + ',' + r.color[1] + ',' + r.color[2] + ',' + tr.life + ')';
 ctx.fill();
 }
-
 if (r.y <= r.targetY || r.vy >= 0) {
 createExplosion(r.x, r.y, r.color);
 fwRockets.splice(i, 1);
 }
 }
-
 // Update particles
 for (let i = fwParticles.length - 1; i >= 0; i--) {
 const p = fwParticles[i];
@@ -1188,27 +1172,22 @@ p.y += p.vy;
 p.vy += 0.05;
 p.vx *= 0.98;
 p.life -= p.decay;
-
 if (p.life <= 0) {
 fwParticles.splice(i, 1);
 continue;
 }
-
 ctx.beginPath();
 ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
 ctx.fillStyle = 'rgba(' + p.color[0] + ',' + p.color[1] + ',' + p.color[2] + ',' + p.life + ')';
 ctx.fill();
-
 // Glow
 ctx.beginPath();
 ctx.arc(p.x, p.y, p.size * p.life * 2, 0, Math.PI * 2);
 ctx.fillStyle = 'rgba(' + p.color[0] + ',' + p.color[1] + ',' + p.color[2] + ',' + (p.life * 0.3) + ')';
 ctx.fill();
 }
-
 fireworkAnimId = requestAnimationFrame(updateFireworks);
 }
-
 function startFireworks() {
 if (fireworkAnimId) return;
 fireworkCanvas.classList.add('active');
@@ -1217,7 +1196,6 @@ fwRockets = [];
 lastFireworkTime = 0;
 fireworkAnimId = requestAnimationFrame(updateFireworks);
 }
-
 function stopFireworks() {
 if (fireworkAnimId) {
 cancelAnimationFrame(fireworkAnimId);
@@ -1228,13 +1206,11 @@ setTimeout(() => {
 ctx.clearRect(0, 0, fireworkCanvas.width, fireworkCanvas.height);
 }, 600);
 }
-
 function showAudioToast(msg) {
 audioToastMsg.textContent = msg;
 audioToast.classList.add('show');
 setTimeout(() => { audioToast.classList.remove('show'); }, 2200);
 }
-
 function updatePlayButton() {
 if (isPlaying) {
 playIcon.className = 'fas fa-pause';
@@ -1246,7 +1222,6 @@ playBtn.classList.remove('playing');
 equalizer.classList.remove('playing');
 }
 }
-
 function tryPlayAudio() {
 const playPromise = audio.play();
 if (playPromise !== undefined) {
@@ -1263,7 +1238,6 @@ showAudioToast('Tap play button to start music');
 });
 }
 }
-
 function togglePlay() {
 if (isPlaying) {
 audio.pause();
@@ -1275,19 +1249,16 @@ tryPlayAudio();
 }
 updatePlayButton();
 }
-
 playBtn.addEventListener('click', togglePlay);
 playBtn.addEventListener('touchend', function(e) {
 e.preventDefault();
 togglePlay();
 });
-
 volumeSlider.addEventListener('input', function() {
 const val = parseInt(this.value) / 100;
 audio.volume = val;
 updateVolumeIcon(val);
 });
-
 volumeIcon.addEventListener('click', function() {
 if (audio.volume > 0) {
 audio.dataset.prevVolume = audio.volume;
@@ -1301,7 +1272,6 @@ volumeSlider.value = prev * 100;
 updateVolumeIcon(prev);
 }
 });
-
 function updateVolumeIcon(vol) {
 if (vol === 0) {
 volumeIcon.className = 'fas fa-volume-mute audio-volume-icon';
@@ -1311,12 +1281,10 @@ volumeIcon.className = 'fas fa-volume-down audio-volume-icon';
 volumeIcon.className = 'fas fa-volume-up audio-volume-icon';
 }
 }
-
 audio.addEventListener('ended', function() {
 audio.currentTime = 0;
 audio.play();
 });
-
 audio.addEventListener('error', function() {
 console.warn('Audio failed to load');
 showAudioToast('️ Audio unavailable');
@@ -1324,14 +1292,12 @@ isPlaying = false;
 updatePlayButton();
 stopFireworks();
 });
-
 // Try autoplay on load (works on some browsers/devices)
 window.addEventListener('load', function() {
 setTimeout(() => {
 tryPlayAudio();
 }, 1500);
 });
-
 // Fallback: start on first user interaction if autoplay blocked
 function onFirstInteraction() {
 if (!isPlaying && audio.paused) {
