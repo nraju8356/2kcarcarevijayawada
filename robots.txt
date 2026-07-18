@@ -70,4 +70,4 @@ Disallow: /
 User-agent: AdsBot
 Disallow: /
 
-Sitemap: https://nraju8356.github.io/2kcarcarevijayawada/sitemap.xml
+Sitemap: https://nraju8356.github.io/2kcarcarevijayawada/sitemap.txt
