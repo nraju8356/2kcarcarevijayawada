@@ -67,4 +67,7 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
+User-agent: AdsBot
+Disallow: /
+
 Sitemap: https://nraju8356.github.io/2kcarcarevijayawada/sitemap.xml
