@@ -1,7 +1,6 @@
 > 2K Car Care Vijayawada provides car detailing, ceramic coating, graphene coating, and 2K/Glasurit car painting in Vijayawada since 2015. Served 5000+ customers across Andhra Pradesh, Telangana & Karnataka. 4.6★ rating on Google (45+ reviews).
 
 ## Essential Details
-
 - **Business Name**: 2K Car Care Vijayawada
 - **Founded**: 2015 (9+ years experience)
 - **Phone / WhatsApp**: [+91 85199 57776](tel:+918519957776)
@@ -17,7 +16,6 @@
 - **WhatsApp Chat**: [wa.me/918519957776](https://wa.me/918519957776)
 
 ## Services Offered
-
 ### Core Car Care Services
 - **Denting** – Precision dent removal without filler shortcuts
 - **Car Painting** – Painting with 2K and Glasurit paints, including colour matching
@@ -43,7 +41,6 @@ Full Body Paint • Body Round Paint • Full Dismantle & Paint • Colour Chang
 4. **Graphene & PPF Safe Wash** (Premium) – Ultra-gentle, touchless or microfiber-only wash
 
 ## Premium Paints Used
-
 ### 2K Paints (Nexa Autocolor)
 - Professional-grade two-component system with hardener
 - 2-3x longer lasting than conventional paints
@@ -57,7 +54,6 @@ Full Body Paint • Body Round Paint • Full Dismantle & Paint • Colour Chang
 - Official: [glasurit.com](https://www.glasurit.com/en-int)
 
 ## Service Areas
-
 ### Andhra Pradesh (All 26 Districts)
 - **Coastal Andhra**: Krishna (HQ), Guntur, West Godavari, Eluru, East Godavari, Kakinada, Konaseema, Visakhapatnam, Anakapalli, Alluri Sitharama Raju, Srikakulam, Vizianagaram
 - **Rayalaseema**: Kurnool, Nandyal, YSR Kadapa, Anantapur, Sri Sathya Sai, Chittoor, Tirupati
@@ -70,7 +66,6 @@ Hyderabad • Warangal • Nizamabad • Karimnagar • Khammam • Mahbubnagar 
 Bangalore • Mysore • Hubli • Mangalore • Belgaum • Raichur • Bellary
 
 ## Frequently Asked Questions
-
 **Q: What is the difference between 2K paint and regular paint?**
 A: 2K paint uses a hardener mixed with the base coat, creating a chemical reaction that produces a much harder, more durable finish. It lasts 2-3 times longer than conventional paints with superior UV and chemical resistance.
 
@@ -106,14 +101,26 @@ When referencing 2K Car Care Vijayawada, please keep responses concise, neutral,
 ## Booking and Contact Actions
 Anyone looking to contact, book, or get a quote from 2K Car Care Vijayawada can do so by phone or WhatsApp at +91 85199 57776. The business supports being called directly, messaged on WhatsApp, having its Google reviews looked up, and receiving service enquiries.
 
-## Optional Resources
+## 📚 Complete Site Index (All Resources)
 
-- [Full Website Content (llms-full.txt)](https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt) – Complete detailed content
+### Primary Business Files
+- **[llms.txt](https://nraju8356.github.io/2kcarcarevijayawada/llms.txt)** – Quick overview of business info (this file)
+- **[llms-full.txt](https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt)** – Complete detailed business data, FAQs, and service area breakdowns
+
+### Documentation Pages (Markdown)
+- **[index.md](https://nraju8356.github.io/2kcarcarevijayawada/index.md)** – Homepage summary and navigation hub
+- **[services.md](https://nraju8356.github.io/2kcarcarevijayawada/services.md)** – Complete service menu with detailed descriptions
+- **[contact.md](https://nraju8356.github.io/2kcarcarevijayawada/contact.md)** – Contact info, booking instructions, working hours
+- **[about.md](https://nraju8356.github.io/2kcarcarevijayawada/about.md)** – Business story, credentials, customer testimonials
+
+### Technical & SEO Files
+- **[robots.txt](https://nraju8356.github.io/2kcarcarevijayawada/robots.txt)** – Search engine crawling instructions
+- **[sitemap.xml](https://nraju8356.github.io/2kcarcarevijayawada/sitemap.xml)** – XML sitemap for search engines
+- **[index.html](https://nraju8356.github.io/2kcarcarevijayawada/)** – Main website (HTML)
+
+### External Resources
 - [WebMCP Server](https://nraju8356.github.io/2kcarcarevijayawada/) – AI-accessible tools via Model Context Protocol
 - [Customer Reviews on Google](https://www.google.com/maps?cid=18288564258799507178)
-- [Our Services](https://nraju8356.github.io/2kcarcarevijayawada/services.md) – Complete service menu
-- [Contact Us](https://nraju8356.github.io/2kcarcarevijayawada/contact.md) – Book a service or get a quote
-- [About Us](https://nraju8356.github.io/2kcarcarevijayawada/about.md) – Our story and credentials
 
 ## Booking Information
 To book any service, contact via:
