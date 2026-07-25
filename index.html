@@ -83,6 +83,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:description" content="Trusted by 5000+ customers across all 26 districts of Andhra Pradesh. Certified experts using Glasurit & 2K premium paints. 4.6★ rated on Google. Custom wash maintenance packages available.">
 <meta property="og:type" content="business.business">
 <meta property="og:locale" content="en_IN">
+<link rel="llms" href="/2kcarcarevijayawada/llms.txt" />
+<link rel="author" href="/2kcarcarevijayawada/llms.txt" type="text/plain" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebSite",
+"name": "2K Car Care Vijayawada",
+"url": "https://nraju8356.github.io/2kcarcarevijayawada/",
+"additionalType": "https://llmstxt.org/",
+"sameAs": [
+"https://nraju8356.github.io/2kcarcarevijayawada/llms.txt",
+"https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt"
+]
+}
+</script>
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
@@ -1057,7 +1072,7 @@ anchor.addEventListener('click', function(e) { e.preventDefault(); var target = 
 });
 var lastTouchEnd = 0;
 document.addEventListener('touchend', function(e) { var now = Date.now(); if (now - lastTouchEnd <= 300) e.preventDefault(); lastTouchEnd = now; }, false);
-
+// ===== AUDIO PLAYER + FIREWORK EFFECT =====
 (function() {
 const audio = document.getElementById('siteAudio');
 const playBtn = document.getElementById('audioPlayBtn');
@@ -1073,7 +1088,7 @@ audio.volume = 0.5;
 let isPlaying = false;
 let fireworkAnimId = null;
 let lastFireworkTime = 0;
-
+// Firework particle system
 const ctx = fireworkCanvas.getContext('2d');
 let fwParticles = [];
 let fwRockets = [];
@@ -1130,7 +1145,7 @@ if (timestamp - lastFireworkTime > 400 + Math.random() * 400) {
 createRocket();
 lastFireworkTime = timestamp;
 }
-
+// Update rockets
 for (let i = fwRockets.length - 1; i >= 0; i--) {
 const r = fwRockets[i];
 r.trail.push({ x: r.x, y: r.y, life: 1 });
@@ -1138,7 +1153,7 @@ if (r.trail.length > 8) r.trail.shift();
 r.x += r.vx;
 r.y += r.vy;
 r.vy += 0.08;
-
+// Draw trail
 for (let t = 0; t < r.trail.length; t++) {
 const tr = r.trail[t];
 tr.life -= 0.12;
@@ -1153,7 +1168,7 @@ createExplosion(r.x, r.y, r.color);
 fwRockets.splice(i, 1);
 }
 }
-
+// Update particles
 for (let i = fwParticles.length - 1; i >= 0; i--) {
 const p = fwParticles[i];
 p.x += p.vx;
@@ -1169,7 +1184,7 @@ ctx.beginPath();
 ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
 ctx.fillStyle = 'rgba(' + p.color[0] + ',' + p.color[1] + ',' + p.color[2] + ',' + p.life + ')';
 ctx.fill();
-
+// Glow
 ctx.beginPath();
 ctx.arc(p.x, p.y, p.size * p.life * 2, 0, Math.PI * 2);
 ctx.fillStyle = 'rgba(' + p.color[0] + ',' + p.color[1] + ',' + p.color[2] + ',' + (p.life * 0.3) + ')';
@@ -1281,13 +1296,13 @@ isPlaying = false;
 updatePlayButton();
 stopFireworks();
 });
-
+// Try autoplay on load (works on some browsers/devices)
 window.addEventListener('load', function() {
 setTimeout(() => {
 tryPlayAudio();
 }, 1500);
 });
-
+// Fallback: start on first user interaction if autoplay blocked
 function onFirstInteraction() {
 if (!isPlaying && audio.paused) {
 tryPlayAudio();
@@ -1299,279 +1314,6 @@ document.removeEventListener('keydown', onFirstInteraction);
 document.addEventListener('click', onFirstInteraction);
 document.addEventListener('touchstart', onFirstInteraction, { passive: true });
 document.addEventListener('keydown', onFirstInteraction);
-})();
-</script>
-
-
-<script type="module">
-(function initWebMCP() {
-  'use strict';
-
-  const BUSINESS_DATA = {
-    business: {
-      name: "2K Car Care Vijayawada",
-      tagline: "Vijayawada's premier car care specialists since 2015",
-      founded: "2015",
-      experience_years: 9,
-      rating: 4.6,
-      review_count: 45,
-      customers_served: 5000,
-      phone: "+91 85199 57776",
-      whatsapp: "https://wa.me/918519957776",
-      website: "https://nraju8356.github.io/2kcarcarevijayawada/",
-      google_maps: "https://www.google.com/maps?cid=18288564258799507178",
-      instagram: "https://www.instagram.com/2kcarcarevijayawada",
-      youtube: "https://www.youtube.com/@2kcarcarevijayawada271/shorts",
-      address: {
-        street: "GP54+728 Plot No. 267, New Autonagar, Kanuru",
-        city: "Vijayawada",
-        district: "Krishna",
-        state: "Andhra Pradesh",
-        country: "India",
-        postal_code: "520007",
-        coordinates: { lat: 16.5067, lng: 80.6482 }
-      },
-      hours: {
-        monday_saturday: "9:00 AM – 10:00 PM",
-        sunday: "9:00 AM – 5:00 PM"
-      },
-      states_served: ["Andhra Pradesh", "Telangana", "Karnataka"],
-      districts_covered: 26,
-      certifications: ["2K Paint Certified", "Glasurit Certified", "Ceramic Coating Specialist", "Graphene Coating Specialist"],
-      paints_used: ["2K (Two-Component) Paints", "Glasurit Premium Paints (Germany & France)"]
-    },
-    services: [
-      { name: "Denting", description: "Precision dent removal without filler shortcuts", category: "Body Work" },
-      { name: "Car Painting", description: "High-quality painting with 2K and Glasurit paints, perfect colour matching", category: "Painting" },
-      { name: "Nano Coat", description: "Nano-technology coating, protective layer for 6-12 months", category: "Coating" },
-      { name: "Ceramic Coat", description: "9H ceramic protection, repels water/dirt/UV for 3-5 years. Most popular service", category: "Coating" },
-      { name: "Graphene Coat", description: "Next-gen graphene coating with superior hardness and heat resistance, 5-7 years", category: "Coating" },
-      { name: "Rubbing & Polish", description: "Machine polishing eliminates swirl marks, light scratches, oxidation", category: "Detailing" },
-      { name: "Teflon Coating", description: "Protects paint from minor abrasions, dust, environmental damage", category: "Coating" },
-      { name: "Interior Detailing", description: "Deep cleaning, steam treatment, leather conditioning", category: "Detailing" },
-      { name: "Underbody Anti-Rust", description: "Heavy-duty coating shields chassis from rust and corrosion", category: "Protection" },
-      { name: "Glass Cooling Film", description: "Premium window films block heat and UV rays", category: "Protection" },
-      { name: "Car Accessories", description: "Seat covers, mats, organizers, and more", category: "Accessories" },
-      { name: "Water Wash", description: "Thorough exterior water wash removes dust, grime, dirt", category: "Washing" },
-      { name: "Colour Customization", description: "Full-body custom colour wraps and paint jobs", category: "Painting" }
-    ],
-    painting_services: [
-      "Full Body Paint", "Body Round Paint", "Full Dismantle & Paint", "Colour Change",
-      "Dual Tone Colour", "Dechrome", "Alloy Wheels Paint", "Calipers Paint",
-      "Interior Custom Paint", "Matt Finish Paint", "Outer Cladding Paint",
-      "Footboard Stone Guard", "QRS – Quick Repair Service"
-    ],
-    wash_packages: [
-      { name: "Express Foam Wash", tier: "Basic", description: "Quick, thorough exterior wash that lifts dirt safely", features: ["Pre-rinse with soft water", "pH-neutral snow foam", "Hand wash with microfiber mitts", "Wheel & tire cleaning", "Air-dry & microfiber finish"] },
-      { name: "Premium Full Clean", tier: "Popular", description: "Complete interior and exterior detailing for showroom-fresh feel", features: ["Everything in Express Foam Wash", "Interior vacuuming & dusting", "Dashboard & console polish", "Glass cleaning (inside & out)", "Tire dressing & air freshener"] },
-      { name: "Ceramic Maintenance Wash", tier: "Coated Cars", description: "Specially formulated for ceramic-coated vehicles with pH-neutral shampoos", features: ["Coating-safe pH-neutral shampoo", "Two-bucket wash method", "Iron fallout remover (if needed)", "Ceramic booster spray application", "Soft microfiber drying towels"] },
-      { name: "Graphene & PPF Safe Wash", tier: "Premium", description: "Ultra-gentle, touchless or microfiber-only wash for premium coatings", features: ["Touchless pre-soak option", "PPF/Graphene-safe chemicals only", "Decontamination wash", "Interior steam cleaning", "Full inspection & coating health check"] }
-    ],
-    paint_brands: [
-      { name: "2K Paints", origin: "Professional-grade two-component system", description: "Uses hardener mixed with base coat for harder, more durable finish", benefits: ["2-3x longer lasting", "Superior UV resistance", "Excellent chemical and scratch resistance", "Maintains gloss for years"], best_for: "Standard professional-grade finishes, everyday vehicles, budget-conscious customers", official_link: "https://www.nexaautocolor.com/en-GB" },
-      { name: "Glasurit Premium Paints", origin: "Manufactured in Germany and France (BASF Coatings group)", description: "One of the world's finest car paint systems, used by Mercedes-Benz, BMW, Porsche", benefits: ["Exceptional color accuracy", "Superior durability and weather resistance", "Mirror-like finish with deep gloss", "Used by luxury manufacturers"], best_for: "Luxury vehicles, show cars, customers who want absolute best quality", official_link: "https://www.glasurit.com/en-int" }
-    ],
-    service_areas: {
-      andhra_pradesh: {
-        coastal: ["Krishna", "Guntur", "West Godavari", "Eluru", "East Godavari", "Kakinada", "Konaseema", "Visakhapatnam", "Anakapalli", "Alluri Sitharama Raju", "Srikakulam", "Vizianagaram"],
-        rayalaseema: ["Kurnool", "Nandyal", "YSR Kadapa", "Anantapur", "Sri Sathya Sai", "Chittoor", "Tirupati"],
-        new_districts: ["Bapatla", "NTR", "Palnadu", "Annamaya", "Manyam (Parvathipuram)"]
-      },
-      telangana: ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam", "Mahbubnagar", "Nalgonda"],
-      karnataka: ["Bangalore", "Mysore", "Hubli", "Mangalore", "Belgaum", "Raichur", "Bellary"]
-    },
-    reviews_summary: {
-      average_rating: 4.6,
-      total_reviews: 44,
-      ai_summary: "Customers consistently praise the excellent service, friendly and talented staff, and the satisfying overall experience. The work is described as highly skilled, with standout finishing, detailing, and paint matching that leaves people extremely happy.",
-      sample_reviews: [
-        { name: "Nirmal Kumar", location: "Vijayawada, AP", rating: 5, text: "Perfect finishing and detailing" },
-        { name: "Phani Kumar S.", location: "Guntur, AP", rating: 5, text: "Excellent and most satisfying service. Mechanics are very friendly and well talented." },
-        { name: "TrilokChand B", location: "Hyderabad, TG", rating: 5, text: "Paint match is perfect, staff is very friendly. Extremely satisfied and highly recommend them." },
-        { name: "B A Naidu", location: "Bangalore, KA", rating: 5, text: "One of d best paint works in Vijayawada" }
-      ]
-    },
-    faq: [
-      { q: "What is the difference between 2K paint and regular paint?", a: "2K paint (two-component paint) uses a hardener mixed with the base coat, creating a chemical reaction that produces a much harder, more durable finish. It offers superior UV resistance, chemical resistance, and longevity, lasting 2-3 times longer than conventional paints." },
-      { q: "What is Glasurit paint and why is it premium?", a: "Glasurit is a premium automotive paint brand manufactured in Germany and France (BASF Coatings group). Used by Mercedes-Benz, BMW, and Porsche, it offers exceptional color accuracy, superior durability, and a mirror-like finish." },
-      { q: "What type of paints do you use?", a: "We use 2K (two-component) paints for standard professional-grade finishes, and Glasurit premium paints (Germany & France) for customers who want the highest quality." },
-      { q: "What car wash maintenance packages do you offer?", a: "Four packages: 1) Express Foam Wash, 2) Premium Interior + Exterior Wash, 3) Ceramic Maintenance Wash (pH-neutral), 4) Graphene/PPF Safe Wash (ultra-gentle)." },
-      { q: "How long does ceramic coating last?", a: "Professional ceramic coating lasts 3-5 years with proper maintenance. We also offer graphene coating lasting 5-7 years." },
-      { q: "Do you offer warranty?", a: "Yes! All services come with written warranty. Ceramic: 3-5 years. Graphene: 5-7 years. Paint jobs: comprehensive coverage." },
-      { q: "How much does car painting cost?", a: "Costs vary based on paint type (2K or Glasurit), car size, and finish. Contact +91 85199 57776 for a free, no-obligation quote." },
-      { q: "What are your working hours?", a: "Monday–Saturday: 9 AM – 10 PM. Sunday: 9 AM – 5 PM." },
-      { q: "Which districts do you serve?", a: "All 26 districts of Andhra Pradesh, plus customers from Telangana and Karnataka." }
-    ]
-  };
-
-  const MCP_TOOLS = [
-    { name: "get_business_info", description: "Get complete information about 2K Car Care Vijayawada including address, phone, hours, ratings, and credentials.", inputSchema: { type: "object", properties: {}, required: [] } },
-    { name: "get_services", description: "Get the full list of car care services offered with descriptions and categories.", inputSchema: { type: "object", properties: { category: { type: "string", description: "Optional filter by category: Painting, Coating, Detailing, Protection, Accessories, Washing, Body Work" } }, required: [] } },
-    { name: "get_painting_services", description: "Get the list of specialized car painting services.", inputSchema: { type: "object", properties: {}, required: [] } },
-    { name: "get_wash_packages", description: "Get details of the 4 car wash maintenance packages with features and tier info.", inputSchema: { type: "object", properties: {}, required: [] } },
-    { name: "get_premium_paints_info", description: "Get detailed information about the premium paints used: 2K paints and Glasurit.", inputSchema: { type: "object", properties: {}, required: [] } },
-    { name: "get_service_areas", description: "Get the list of areas, districts, and states served by 2K Car Care.", inputSchema: { type: "object", properties: { region: { type: "string", description: "Optional filter: andhra_pradesh, telangana, karnataka, or all" } }, required: [] } },
-    { name: "get_customer_reviews", description: "Get customer reviews summary, ratings, AI-generated review summary, and sample reviews.", inputSchema: { type: "object", properties: {}, required: [] } },
-    { name: "get_faq_answer", description: "Get answers to frequently asked questions about 2K Car Care services.", inputSchema: { type: "object", properties: { query: { type: "string", description: "The user's question or keyword to search FAQ" } }, required: ["query"] } },
-    { name: "get_contact_methods", description: "Get all available contact methods: phone, WhatsApp, Instagram, YouTube, Google Maps link.", inputSchema: { type: "object", properties: {}, required: [] } },
-    { name: "initiate_booking", description: "Initiate a booking/appointment. Returns the WhatsApp link and phone number.", inputSchema: { type: "object", properties: { service: { type: "string", description: "The service the customer wants to book" }, message: { type: "string", description: "Optional custom message to pre-fill in WhatsApp" } }, required: [] } },
-    { name: "check_business_status", description: "Check if 2K Car Care is currently open based on current day/time in IST.", inputSchema: { type: "object", properties: {}, required: [] } }
-  ];
-
-  const TOOL_HANDLERS = {
-    get_business_info: () => ({ success: true, data: BUSINESS_DATA.business }),
-    get_services: (args) => {
-      let services = BUSINESS_DATA.services;
-      if (args && args.category) {
-        const cat = args.category.toLowerCase();
-        services = services.filter(s => s.category.toLowerCase() === cat);
-      }
-      return { success: true, data: services, count: services.length };
-    },
-    get_painting_services: () => ({ success: true, data: BUSINESS_DATA.painting_services, count: BUSINESS_DATA.painting_services.length }),
-    get_wash_packages: () => ({ success: true, data: BUSINESS_DATA.wash_packages }),
-    get_premium_paints_info: () => ({ success: true, data: BUSINESS_DATA.paint_brands }),
-    get_service_areas: (args) => {
-      const areas = BUSINESS_DATA.service_areas;
-      if (!args || !args.region || args.region === 'all') return { success: true, data: areas };
-      const region = args.region.toLowerCase();
-      if (areas[region]) return { success: true, data: { [region]: areas[region] } };
-      return { success: false, error: "Invalid region. Use: andhra_pradesh, telangana, karnataka, or all" };
-    },
-    get_customer_reviews: () => ({ success: true, data: BUSINESS_DATA.reviews_summary }),
-    get_faq_answer: (args) => {
-      if (!args || !args.query) return { success: false, error: "Query parameter required" };
-      const query = args.query.toLowerCase();
-      const matches = BUSINESS_DATA.faq.filter(item => item.q.toLowerCase().includes(query) || item.a.toLowerCase().includes(query));
-      if (matches.length === 0) return { success: true, data: [], message: "No exact match found. Contact +91 85199 57776", suggestion: "Try keywords like: 'ceramic', 'paint', 'price', 'warranty', 'hours', 'districts'" };
-      return { success: true, data: matches, count: matches.length };
-    },
-    get_contact_methods: () => ({ success: true, data: { phone: BUSINESS_DATA.business.phone, whatsapp: BUSINESS_DATA.business.whatsapp, instagram: BUSINESS_DATA.business.instagram, youtube: BUSINESS_DATA.business.youtube, google_maps: BUSINESS_DATA.business.google_maps, website: BUSINESS_DATA.business.website } }),
-    initiate_booking: (args) => {
-      const service = (args && args.service) ? args.service : "car care service";
-      const customMsg = (args && args.message) ? args.message : `Hi, I'd like to book ${service} at 2K Car Care Vijayawada.`;
-      const encodedMsg = encodeURIComponent(customMsg);
-      return { success: true, data: { message: `To book ${service}, contact 2K Car Care via:`, phone: BUSINESS_DATA.business.phone, whatsapp_link: `${BUSINESS_DATA.business.whatsapp}?text=${encodedMsg}`, direct_call: `tel:${BUSINESS_DATA.business.phone.replace(/\s/g, '')}`, working_hours: BUSINESS_DATA.business.hours, note: "Booking recommended for ceramic coating, painting, and graphene services" } };
-    },
-    check_business_status: () => {
-      try {
-        const now = new Date();
-        const istOffset = 5.5 * 60 * 60 * 1000;
-        const ist = new Date(now.getTime() + istOffset + now.getTimezoneOffset() * 60000);
-        const day = ist.getDay();
-        const hours = ist.getHours();
-        const minutes = ist.getMinutes();
-        const currentTime = hours + minutes / 60;
-        let isOpen = false;
-        let nextOpen = "";
-        let schedule = "";
-        if (day === 0) {
-          schedule = BUSINESS_DATA.business.hours.sunday;
-          isOpen = currentTime >= 9 && currentTime < 17;
-          if (!isOpen) nextOpen = currentTime < 9 ? "Today at 9:00 AM" : "Tomorrow at 9:00 AM";
-        } else {
-          schedule = BUSINESS_DATA.business.hours.monday_saturday;
-          isOpen = currentTime >= 9 && currentTime < 22;
-          if (!isOpen) nextOpen = currentTime < 9 ? "Today at 9:00 AM" : "Tomorrow at 9:00 AM";
-        }
-        return { success: true, data: { is_open: isOpen, status: isOpen ? "🟢 Open Now" : "🔴 Currently Closed", current_time_ist: ist.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true }), current_day: ist.toLocaleDateString('en-IN', { weekday: 'long' }), today_schedule: schedule, next_open: nextOpen || "Currently open" } };
-      } catch (e) {
-        return { success: false, error: "Unable to determine status", hours: BUSINESS_DATA.business.hours };
-      }
-    }
-  };
-
-  class WebMCPServer {
-    constructor(config) {
-      this.name = config.name;
-      this.version = config.version;
-      this.description = config.description;
-      this.tools = new Map();
-      this.resources = new Map();
-    }
-    registerTool(tool) { this.tools.set(tool.name, tool); console.log(`[WebMCP] Tool registered: ${tool.name}`); }
-    registerResource(resource) { this.resources.set(resource.uri, resource); }
-    async handleRequest(request) {
-      const { method, params } = request;
-      try {
-        switch (method) {
-          case 'initialize': return { protocolVersion: '2024-11-05', capabilities: { tools: {}, resources: {} }, serverInfo: { name: this.name, version: this.version } };
-          case 'tools/list': return { tools: Array.from(this.tools.values()) };
-          case 'tools/call': {
-            const toolName = params.name;
-            const toolArgs = params.arguments || {};
-            const handler = TOOL_HANDLERS[toolName];
-            if (!handler) return { isError: true, content: [{ type: 'text', text: `Tool ${toolName} not found` }] };
-            const result = handler(toolArgs);
-            return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-          }
-          case 'resources/list': return { resources: Array.from(this.resources.values()) };
-          case 'resources/read': {
-            const uri = params.uri;
-            const resource = this.resources.get(uri);
-            if (!resource) return { isError: true, content: [{ type: 'text', text: `Resource ${uri} not found` }] };
-            return { contents: [{ uri, mimeType: resource.mimeType, text: resource.text }] };
-          }
-          default: return { isError: true, content: [{ type: 'text', text: `Unknown method: ${method}` }] };
-        }
-      } catch (err) {
-        return { isError: true, content: [{ type: 'text', text: `Error: ${err.message}` }] };
-      }
-    }
-  }
-
-  const mcpServer = new WebMCPServer({
-    name: "2k-car-care-vijayawada",
-    version: "1.0.0",
-    description: "MCP server for 2K Car Care Vijayawada - Premier car detailing, ceramic coating, and painting specialists since 2015"
-  });
-
-  MCP_TOOLS.forEach(tool => mcpServer.registerTool(tool));
-
-  mcpServer.registerResource({ uri: "business://2k-car-care/overview", name: "Business Overview", description: "Complete overview of 2K Car Care Vijayawada", mimeType: "application/json", text: JSON.stringify(BUSINESS_DATA.business, null, 2) });
-  mcpServer.registerResource({ uri: "services://2k-car-care/all", name: "All Services", description: "Complete list of services offered", mimeType: "application/json", text: JSON.stringify(BUSINESS_DATA.services, null, 2) });
-  mcpServer.registerResource({ uri: "wash-packages://2k-car-care/all", name: "Wash Packages", description: "All car wash maintenance packages", mimeType: "application/json", text: JSON.stringify(BUSINESS_DATA.wash_packages, null, 2) });
-
-  window.mcp = window.mcp || {};
-  window.mcp.servers = window.mcp.servers || {};
-  window.mcp.servers["2k-car-care-vijayawada"] = mcpServer;
-
-  const manifest = {
-    name: "2K Car Care Vijayawada MCP",
-    version: "1.0.0",
-    description: "AI-accessible tools for 2K Car Care Vijayawada - book services, get info, check availability",
-    author: "2K Car Care Vijayawada",
-    capabilities: {
-      tools: MCP_TOOLS.map(t => ({ name: t.name, description: t.description })),
-      resources: [
-        { uri: "business://2k-car-care/overview", name: "Business Overview" },
-        { uri: "services://2k-car-care/all", name: "All Services" },
-        { uri: "wash-packages://2k-car-care/all", name: "Wash Packages" }
-      ]
-    },
-    endpoints: { note: "Tools are accessible via window.mcp.servers['2k-car-care-vijayawada'].handleRequest(request)" }
-  };
-
-  const manifestMeta = document.createElement('script');
-  manifestMeta.type = 'application/x-mcp-manifest+json';
-  manifestMeta.textContent = JSON.stringify(manifest);
-  document.head.appendChild(manifestMeta);
-
-  window.addEventListener('message', async (event) => {
-    if (!event.data || event.data.type !== 'mcp-request') return;
-    const requestId = event.data.requestId;
-    const request = event.data.request;
-    try {
-      const response = await mcpServer.handleRequest(request);
-      event.source.postMessage({ type: 'mcp-response', requestId: requestId, response: response }, event.origin);
-    } catch (err) {
-      event.source.postMessage({ type: 'mcp-response', requestId: requestId, response: { isError: true, content: [{ type: 'text', text: err.message }] } }, event.origin);
-    }
-  });
-
-  console.log('%c🚗 2K Car Care WebMCP Server Active', 'color: #8b5cf6; font-size: 14px; font-weight: bold;');
-  console.log('%cTools available:', 'color: #c084fc; font-weight: bold;', MCP_TOOLS.map(t => t.name).join(', '));
-  console.log('%cTry:', 'color: #4ade80;', `window.mcp.servers['2k-car-care-vijayawada'].handleRequest({method:'tools/list'})`);
 })();
 </script>
 </body>
