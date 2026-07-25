@@ -1,4 +1,5 @@
 User-agent: *
+Allow: /llms.txt
 Allow: /
 
 User-agent: Googlebot
