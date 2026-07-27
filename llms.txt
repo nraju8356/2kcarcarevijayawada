@@ -107,12 +107,6 @@ Anyone looking to contact, book, or get a quote from 2K Car Care Vijayawada can 
 - **[llms.txt](https://nraju8356.github.io/2kcarcarevijayawada/llms.txt)** – Quick overview of business info (this file)
 - **[llms-full.txt](https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt)** – Complete detailed business data, FAQs, and service area breakdowns
 
-### Documentation Pages (Markdown)
-- **[index.md](https://nraju8356.github.io/2kcarcarevijayawada/index.md)** – Homepage summary and navigation hub
-- **[services.md](https://nraju8356.github.io/2kcarcarevijayawada/services.md)** – Complete service menu with detailed descriptions
-- **[contact.md](https://nraju8356.github.io/2kcarcarevijayawada/contact.md)** – Contact info, booking instructions, working hours
-- **[about.md](https://nraju8356.github.io/2kcarcarevijayawada/about.md)** – Business story, credentials, customer testimonials
-
 ### Technical & SEO Files
 - **[robots.txt](https://nraju8356.github.io/2kcarcarevijayawada/robots.txt)** – Search engine crawling instructions
 - **[sitemap.xml](https://nraju8356.github.io/2kcarcarevijayawada/sitemap.xml)** – XML sitemap for search engines
