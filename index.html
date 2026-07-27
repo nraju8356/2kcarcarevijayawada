@@ -27,8 +27,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:description" content="5000+ customers served across all 26 districts of Andhra Pradesh. Certified in Glasurit & 2K paint application. 4.6★ rating on Google (45+ reviews). Custom wash maintenance packages available.">
 <meta property="og:type" content="business.business">
 <meta property="og:locale" content="en_IN">
+
+
+<meta property="og:title" content="2K Car Care Vijayawada | 9+ Years Expertise in Car Detailing & Premium Paints">
+<meta property="og:description" content="Trusted by 5000+ customers across all 26 districts of Andhra Pradesh. Certified experts using Glasurit & 2K premium paints. 4.6★ rated on Google. Custom wash maintenance packages available.">
+<meta property="og:type" content="business.business">
+<meta property="og:locale" content="en_IN">
+
 <link rel="llms" href="/2kcarcarevijayawada/llms.txt" />
 <link rel="author" href="/2kcarcarevijayawada/llms.txt" type="text/plain" />
+
+
+<link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/index.md" title="Homepage Summary" />
+<link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/services.md" title="Services" />
+<link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/contact.md" title="Contact" />
+<link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/about.md" title="About Us" />
+<link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/llms-full.txt" title="Full Business Data" />
+
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
@@ -40,6 +55,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 "https://nraju8356.github.io/2kcarcarevijayawada/llms.txt",
 "https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt"
 ]
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebSite",
+"name": "2K Car Care Vijayawada",
+"url": "https://nraju8356.github.io/2kcarcarevijayawada/",
+"description": "Car Detailing, Ceramic Coating & Glasurit Paint Specialists Since 2015",
+"potentialAction": {
+"@type": "SearchAction",
+"target": {
+"@type": "EntryPoint",
+"urlTemplate": "https://nraju8356.github.io/2kcarcarevijayawada/search?q={search_term_string}"
+},
+"query-input": "required name=search_term_string"
+}
 }
 </script>
 <script type="application/ld+json">
@@ -1016,7 +1048,7 @@ anchor.addEventListener('click', function(e) { e.preventDefault(); var target = 
 });
 var lastTouchEnd = 0;
 document.addEventListener('touchend', function(e) { var now = Date.now(); if (now - lastTouchEnd <= 300) e.preventDefault(); lastTouchEnd = now; }, false);
-// ===== AUDIO PLAYER + FIREWORK EFFECT =====
+
 (function() {
 const audio = document.getElementById('siteAudio');
 const playBtn = document.getElementById('audioPlayBtn');
@@ -1032,7 +1064,7 @@ audio.volume = 0.5;
 let isPlaying = false;
 let fireworkAnimId = null;
 let lastFireworkTime = 0;
-// Firework particle system
+
 const ctx = fireworkCanvas.getContext('2d');
 let fwParticles = [];
 let fwRockets = [];
@@ -1084,12 +1116,12 @@ return;
 }
 ctx.fillStyle = 'rgba(5, 5, 10, 0.15)';
 ctx.fillRect(0, 0, fireworkCanvas.width, fireworkCanvas.height);
-// Launch rockets periodically
+
 if (timestamp - lastFireworkTime > 400 + Math.random() * 400) {
 createRocket();
 lastFireworkTime = timestamp;
 }
-// Update rockets
+
 for (let i = fwRockets.length - 1; i >= 0; i--) {
 const r = fwRockets[i];
 r.trail.push({ x: r.x, y: r.y, life: 1 });
@@ -1112,7 +1144,7 @@ createExplosion(r.x, r.y, r.color);
 fwRockets.splice(i, 1);
 }
 }
-// Update particles
+
 for (let i = fwParticles.length - 1; i >= 0; i--) {
 const p = fwParticles[i];
 p.x += p.vx;
@@ -1240,13 +1272,13 @@ isPlaying = false;
 updatePlayButton();
 stopFireworks();
 });
-// Try autoplay on load (works on some browsers/devices)
+
 window.addEventListener('load', function() {
 setTimeout(() => {
 tryPlayAudio();
 }, 1500);
 });
-// Fallback: start on first user interaction if autoplay blocked
+
 function onFirstInteraction() {
 if (!isPlaying && audio.paused) {
 tryPlayAudio();
