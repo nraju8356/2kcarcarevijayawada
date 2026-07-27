@@ -113,7 +113,7 @@ Anyone looking to contact, book, or get a quote from 2K Car Care Vijayawada can 
 - **[index.html](https://nraju8356.github.io/2kcarcarevijayawada/)** – Main website (HTML)
 
 ### External Resources
-- [WebMCP Server](https://nraju8356.github.io/2kcarcarevijayawada/) – AI-accessible tools via Model Context Protocol
+- [WebMCP Server](https://nraju8356.github.io/2kcarcarevijayawada/)
 - [Customer Reviews on Google](https://www.google.com/maps?cid=18288564258799507178)
 
 ## Booking Information
