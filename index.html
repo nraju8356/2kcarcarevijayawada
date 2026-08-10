@@ -28,26 +28,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:type" content="business.business">
 <meta property="og:locale" content="en_IN">
 <link rel="ai-category-links" href="https://nraju8356.github.io/2kcarcarevijayawada/2kcarcarecategorylinks.txt" type="text/plain">
-
-
 <meta property="og:title" content="2K Car Care Vijayawada | 9+ Years Expertise in Car Detailing & Premium Paints">
 <meta property="og:description" content="Trusted by 5000+ customers across all 26 districts of Andhra Pradesh. Certified experts using Glasurit & 2K premium paints. 4.6★ rated on Google. Custom wash maintenance packages available.">
 <meta property="og:type" content="business.business">
 <meta property="og:locale" content="en_IN">
-
 <link rel="llms" href="/2kcarcarevijayawada/llms.txt" />
 <link rel="author" href="/2kcarcarevijayawada/llms.txt" type="text/plain" />
-
 <link rel="llms" href="/2kcarcarevijayawada/llms-full.txt" />
-
 <link rel="alternate" type="application/rss+xml" href="/2kcarcarevijayawada/sitemap.rss" title="2K Car Care Vijayawada - Site Map RSS" />
-
-
 <link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/services.md" title="Services" />
 <link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/contact.md" title="Contact" />
 <link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/about.md" title="About Us" />
 <link rel="alternate" type="text/markdown" href="/2kcarcarevijayawada/llms-full.txt" title="Full Business Data" />
-
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
@@ -441,6 +433,7 @@ input, select, textarea { font-size: 16px !important; }
 <a href="#reviews" class="nav-link">Reviews</a>
 <a href="#faq" class="nav-link">FAQ</a>
 <a href="#contact" class="nav-link">Contact</a>
+<a href="videos.html" class="nav-link">Videos</a>
 <a href="tel:+918519957776" class="btn-primary text-sm"><i class="fas fa-phone"></i> Call Now</a>
 </div>
 <button class="lg:hidden text-purple-400 text-xl p-2" onclick="toggleMobile()" aria-label="Toggle menu"><i class="fas fa-bars" id="menuIcon"></i></button>
@@ -459,6 +452,7 @@ input, select, textarea { font-size: 16px !important; }
 <a href="#reviews" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Reviews</a>
 <a href="#faq" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">FAQ</a>
 <a href="#contact" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Contact</a>
+<a href="videos.html" class="text-white/80 hover:text-purple-400 text-lg font-semibold transition-colors py-2" onclick="toggleMobile()">Videos</a>
 <a href="tel:+918519957776" class="btn-primary text-center mt-4" onclick="toggleMobile()"><i class="fas fa-phone"></i> Call Now</a>
 </div>
 </div>
@@ -903,7 +897,7 @@ Serving <strong class="text-white">5000+ car owners</strong> across <strong clas
 </span>
 </td>
 <td style="font-family: Verdana; padding-left: 15px; font-size: 11px; color: #94a3b8; line-height: 18px; vertical-align: middle;">
-<b>Today's Visitors :</b>
+<b>Today's Visitor :</b>
 </td>
 <td style="padding-left: 5px;">
 <span class="hit-count-num" style="color: #fff; font-weight: bold;">
@@ -1052,7 +1046,6 @@ anchor.addEventListener('click', function(e) { e.preventDefault(); var target = 
 });
 var lastTouchEnd = 0;
 document.addEventListener('touchend', function(e) { var now = Date.now(); if (now - lastTouchEnd <= 300) e.preventDefault(); lastTouchEnd = now; }, false);
-
 (function() {
 const audio = document.getElementById('siteAudio');
 const playBtn = document.getElementById('audioPlayBtn');
@@ -1068,7 +1061,6 @@ audio.volume = 0.5;
 let isPlaying = false;
 let fireworkAnimId = null;
 let lastFireworkTime = 0;
-
 const ctx = fireworkCanvas.getContext('2d');
 let fwParticles = [];
 let fwRockets = [];
@@ -1120,12 +1112,10 @@ return;
 }
 ctx.fillStyle = 'rgba(5, 5, 10, 0.15)';
 ctx.fillRect(0, 0, fireworkCanvas.width, fireworkCanvas.height);
-
 if (timestamp - lastFireworkTime > 400 + Math.random() * 400) {
 createRocket();
 lastFireworkTime = timestamp;
 }
-
 for (let i = fwRockets.length - 1; i >= 0; i--) {
 const r = fwRockets[i];
 r.trail.push({ x: r.x, y: r.y, life: 1 });
@@ -1148,7 +1138,6 @@ createExplosion(r.x, r.y, r.color);
 fwRockets.splice(i, 1);
 }
 }
-
 for (let i = fwParticles.length - 1; i >= 0; i--) {
 const p = fwParticles[i];
 p.x += p.vx;
@@ -1276,13 +1265,11 @@ isPlaying = false;
 updatePlayButton();
 stopFireworks();
 });
-
 window.addEventListener('load', function() {
 setTimeout(() => {
 tryPlayAudio();
 }, 1500);
 });
-
 function onFirstInteraction() {
 if (!isPlaying && audio.paused) {
 tryPlayAudio();
