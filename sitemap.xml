@@ -1,53 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-	<url>
-		<loc>https://nraju8356.github.io/2kcarcarevijayawada/</loc>
-		<lastmod>2026-08-04</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>1.0</priority>
-	</url>
-
-	<url>
-		<loc>https://nraju8356.github.io/2kcarcarevijayawada/services.md</loc>
-		<lastmod>2026-08-04</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.6</priority>
-	</url>
-
-	<url>
-		<loc>https://nraju8356.github.io/2kcarcarevijayawada/about.md</loc>
-		<lastmod>2026-08-04</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.5</priority>
-	</url>
-
-	<url>
-		<loc>https://nraju8356.github.io/2kcarcarevijayawada/contact.md</loc>
-		<lastmod>2026-08-04</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.5</priority>
-	</url>
-
-	<url>
-		<loc>https://nraju8356.github.io/2kcarcarevijayawada/llms.txt</loc>
-		<lastmod>2026-08-04</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.4</priority>
-	</url>
-
-	<url>
-		<loc>https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt</loc>
-		<lastmod>2026-08-04</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.4</priority>
-	</url>
-
-	<url>
-		<loc>https://nraju8356.github.io/2kcarcarevijayawada/2kcarcarecategorylinks.txt</loc>
-		<lastmod>2026-08-04</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.3</priority>
-	</url>
-
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url>
+<loc>https://nraju8356.github.io/2kcarcarevijayawada/</loc>
+<lastmod>2026-08-04</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://nraju8356.github.io/2kcarcarevijayawada/services.md</loc>
+<lastmod>2026-08-04</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://nraju8356.github.io/2kcarcarevijayawada/about.md</loc>
+<lastmod>2026-08-04</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://nraju8356.github.io/2kcarcarevijayawada/contact.md</loc>
+<lastmod>2026-08-04</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://nraju8356.github.io/2kcarcarevijayawada/llms.txt</loc>
+<lastmod>2026-08-04</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.4</priority>
+</url>
+<url>
+<loc>https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt</loc>
+<lastmod>2026-08-04</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.4</priority>
+</url>
+<url>
+<loc>https://nraju8356.github.io/2kcarcarevijayawada/2kcarcarecategorylinks.txt</loc>
+<lastmod>2026-08-04</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://nraju8356.github.io/2kcarcarevijayawada/videos.html</loc>
+<lastmod>2026-08-10</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/tDLM6tXsdrw/hqdefault.jpg</video:thumbnail_loc>
+<video:title>Hyundai Verna Full Dismantle and Repaint</video:title>
+<video:description>Full dismantle-to-skeleton restoration and repaint of a Hyundai Verna, including bumper, headlight and fog lamp replacement, glossy black grille, and 3-layer interior door damping.</video:description>
+<video:player_loc>https://www.youtube.com/embed/tDLM6tXsdrw</video:player_loc>
+<video:publication_date>2026-08-01T00:00:00+05:30</video:publication_date>
+</video:video>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/-aJo_7tYcto/hqdefault.jpg</video:thumbnail_loc>
+<video:title>Toyota Innova HyCross Dent Repair and Repaint</video:title>
+<video:description>Dent repair and welding on the right side door of a Toyota Innova HyCross, refinished with premium glass paint imported from France.</video:description>
+<video:player_loc>https://www.youtube.com/embed/-aJo_7tYcto</video:player_loc>
+<video:publication_date>2026-08-01T00:00:00+05:30</video:publication_date>
+</video:video>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/9Hzl14KgRpk/hqdefault.jpg</video:thumbnail_loc>
+<video:title>MG Hector Sunroof Rust Restoration</video:title>
+<video:description>Rust removal and panel fabrication around a leaking MG Hector sunroof, using MIG welding and finished with in-house mixed 2K paint. Includes a 2-year paint warranty.</video:description>
+<video:player_loc>https://www.youtube.com/embed/9Hzl14KgRpk</video:player_loc>
+<video:publication_date>2026-08-01T00:00:00+05:30</video:publication_date>
+</video:video>
+</url>
 </urlset>
