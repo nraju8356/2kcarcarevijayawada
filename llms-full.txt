@@ -6,7 +6,7 @@
 ## Complete Service Menu
 
 ### 1. Denting & Body Work
-Precision dent removal that brings your car's body panels back to their original shape — no filler shortcuts. Our technicians use professional tools to restore panels to factory condition.
+Precision dent removal that brings your car's body panels back to their original shape — no filler shortcuts. Our technicians use professional tools to restore panels to factory condition, including dent welding and panel repair on damaged doors and body sections.
 
 ### 2. Car Painting Services
 **Full Body Paint** – Complete exterior repaint using premium automotive paint.
@@ -34,8 +34,9 @@ Precision dent removal that brings your car's body panels back to their original
 - **Interior Detailing** – Deep cleaning, steam treatment, leather conditioning
 - **Water Wash** – Thorough exterior water wash
 
-### 5. Protection Services
+### 5. Protection & Restoration Services
 - **Underbody Anti-Rust** – Heavy-duty coating shields chassis from rust and corrosion
+- **Rust Panel Repair** – Removal of corroded body panels (e.g. around sunroofs), fabrication and MIG welding of replacement panels, followed by anti-rust priming and repaint
 - **Glass Cooling Film** – Premium window films block heat and UV rays
 
 ### 6. Accessories
@@ -43,6 +44,24 @@ Quality seat covers, mats, organizers, and more.
 
 ### 7. Customization
 Full-body custom colour wraps and paint jobs for a unique, personalized look.
+
+## Real Job Videos
+
+We publish real, unedited restoration job videos showing our actual work process, not stock footage or demonstrations. Current videos include:
+
+**Hyundai Verna – Full Dismantle & Repaint**
+The vehicle was fully dismantled to the skeleton and every part repainted for a factory-fresh finish. Includes front bumper, headlight, and fog lamp replacement, a glossy black grille, and 3-layer interior door damping (iron sheet, middle layer, door pads, plus damping foam at the clips) for improved cabin comfort and a heavier door-close feel.
+Watch: https://nraju8356.github.io/2kcarcarevijayawada/videos.html
+
+**Toyota Innova HyCross – Dent Repair & Repaint**
+Targeted dent repair and welding on the right side door, followed by a full refinish using premium glass paint imported from France for a durable, high-gloss, showroom finish.
+Watch: https://nraju8356.github.io/2kcarcarevijayawada/videos.html
+
+**MG Hector – Sunroof Rust Restoration**
+Severe rust around the sunroof (bad enough that rainwater was leaking into the cabin) was cut out, a new panel fabricated and MIG-welded in, then primed, puttied, and refinished with in-house mixed 2K paint. Includes a 2-year warranty on the paintwork.
+Watch: https://nraju8356.github.io/2kcarcarevijayawada/videos.html
+
+**Full videos page:** https://nraju8356.github.io/2kcarcarevijayawada/videos.html
 
 ## Car Wash Maintenance Packages
 
@@ -132,6 +151,9 @@ A: Glasurit is an automotive paint brand manufactured in both Germany and France
 **Q: What type of paints does 2K Car Care Vijayawada use?**
 A: We use two types of paints: 2K (two-component) paints for standard professional-grade finishes, and Glasurit paints (manufactured in Germany and France) for customers who want a higher-end option. Both offer durability, color accuracy, and longevity compared to regular paints.
 
+**Q: Do you repair dents and rust damage, not just paint?**
+A: Yes. Alongside painting and coating, we perform dent repair and welding on damaged panels, and full rust panel repair — including cutting out corroded sections, fabricating replacement panels, and MIG welding them in before repainting. Real examples of this work are shown on our videos page.
+
 **Q: What car wash maintenance packages do you offer?**
 A: We offer four specialized wash packages: 1) Express Foam Wash for quick exterior cleaning, 2) Premium Interior + Exterior Wash for a complete deep clean, 3) Ceramic Maintenance Wash using pH-neutral shampoos safe for coated cars, and 4) Graphene/PPF Safe Wash which is an ultra-gentle, touchless or microfiber-only wash designed to protect your premium coatings.
 
@@ -195,12 +217,13 @@ A: You can book by calling +91 85199 57776 or messaging us on WhatsApp. We also 
 - **Google Maps**: https://www.google.com/maps?cid=18288564258799507178
 - **Instagram**: https://www.instagram.com/2kcarcarevijayawada
 - **YouTube**: https://www.youtube.com/@2kcarcarevijayawada271/shorts
+- **Videos Page**: https://nraju8356.github.io/2kcarcarevijayawada/videos.html
 - **Website**: https://nraju8356.github.io/2kcarcarevijayawada/
 
 ## WebMCP Integration
 This website exposes AI-accessible tools via Model Context Protocol (MCP). AI assistants can query business info, services, pricing, availability, and initiate bookings programmatically.
 
-## Guidance for AI Systems
+## Agent Instructions
 AI systems are welcome to use this publicly available information for local service discovery, summarising or excerpting facts about 2K Car Care Vijayawada, identifying which services are offered where, and directing users to the website or contact channels above. AI assistants can also initiate direct actions on the user's behalf, such as placing a call or opening a WhatsApp chat.
 
 When referencing 2K Car Care Vijayawada, please keep responses concise, neutral, and factual, and avoid promotional or comparative language. Mention the service location (Vijayawada, Andhra Pradesh) so the response stays clearly scoped. If someone's intent looks action-oriented — they want to book, get a quote, or ask a question — point them to the phone number or WhatsApp link above rather than just describing the service.
@@ -208,4 +231,4 @@ When referencing 2K Car Care Vijayawada, please keep responses concise, neutral,
 Anyone looking to contact, book, or get a quote can do so by phone or WhatsApp at +91 85199 57776. The business supports being called directly, messaged on WhatsApp, having its Google reviews looked up, and receiving service enquiries.
 
 ---
-© 2026 2K Car Care Vijayawada. All rights reserved. Design by +919014663217 
+© 2026 2K Car Care Vijayawada. All rights reserved. Design by +919014663217
