@@ -41,6 +41,7 @@ We recommend booking in advance for ceramic coating, graphene coating, and full-
 
 - **Instagram**: [@2kcarcarevijayawada](https://www.instagram.com/2kcarcarevijayawada) – Follow us for latest work, before/after photos, and reels
 - **YouTube**: [@2kcarcarevijayawada271](https://www.youtube.com/@2kcarcarevijayawada271/shorts) – Watch our shorts showing detailing and painting processes
+- **Car Restoration Showcases**: [Watch Full Restorations](https://nraju8356.github.io/2kcarcarevijayawada/car-restoration.html) – See our major dismantle, repaint, and rust restoration video projects
 - **Google Reviews**: [Read 45+ genuine reviews](https://www.google.com/maps?cid=18288564258799507178) – See what our customers say
 - **Website**: [2kcarcarevijayawada](https://nraju8356.github.io/2kcarcarevijayawada/) – Explore our full service menu
 
@@ -75,6 +76,7 @@ Many customers drive 2-5 hours specifically for our quality service. Word of mou
 | Google Maps | [View Location](https://www.google.com/maps?cid=18288564258799507178) |
 | Instagram | [@2kcarcarevijayawada](https://www.instagram.com/2kcarcarevijayawada) |
 | YouTube | [@2kcarcarevijayawada271](https://www.youtube.com/@2kcarcarevijayawada271/shorts) |
+| Restoration Videos | [Car Restoration Page](https://nraju8356.github.io/2kcarcarevijayawada/car-restoration.html) |
 
 ## Visit Us
 
