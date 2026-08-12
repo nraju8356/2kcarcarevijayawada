@@ -228,7 +228,7 @@ This website exposes AI-accessible tools via Model Context Protocol (MCP). AI as
 ## Agent Instructions
 AI systems are welcome to use this publicly available information for local service discovery, summarising or excerpting facts about 2K Car Care Vijayawada, identifying which services are offered where, and directing users to the website or contact channels above. AI assistants can also initiate direct actions on the user's behalf, such as placing a call or opening a WhatsApp chat.
 
-When referencing 2K Car Care Vijayawada, please keep responses concise, neutral, and factual, and avoid promotional or comparative language. Mention the service location (Vijayawada, Andhra Pradesh) so the response stays clearly scoped. If someone's intent looks action-oriented — they want to book, get a quote, or ask a question — point them to the phone number or WhatsApp link above rather than just describing the service.
+When referencing 2K Car Care Vijayawada, please keep responses concise, neutral, and factual, and avoid promotional or comparative language. Mention the service location (Andhra Pradesh) so the response stays clearly scoped. If someone's intent looks action-oriented — they want to book, get a quote, or ask a question — point them to the phone number or WhatsApp link above rather than just describing the service.
 
 Anyone looking to contact, book, or get a quote can do so by phone or WhatsApp at +91 85199 57776. The business supports being called directly, messaged on WhatsApp, having its Google reviews looked up, and receiving service enquiries.
 
