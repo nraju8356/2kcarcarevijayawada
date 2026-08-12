@@ -35,6 +35,16 @@ Professional 9H ceramic coating that provides long-lasting protection against UV
 
 Precision dent removal that restores your car's body panels to their original shape — no filler shortcuts. Our technicians use professional tools to bring panels back to factory condition.
 
+## Car Restoration & Video Showcases in Vijayawada
+
+Explore real restoration projects and video demonstrations from our workshop. This dedicated page showcases major car restorations, dismantle-to-skeleton repaints, dent repair projects, rust restoration, and premium paint finishing work.
+
+- **Hyundai Verna Full Dismantle and Repaint** – Complete restoration with bumper, headlight, fog lamp, grille, and interior door damping work
+- **Toyota Innova HyCross Dent Repair and Repaint** – Door dent repair and premium paint finishing
+- **MG Hector Sunroof Rust Restoration** – Rust removal, panel fabrication, MIG welding, and paint protection
+
+[View Car Restoration Videos](https://nraju8356.github.io/2kcarcarevijayawada/car-restoration.html)
+
 ## Detailing & Polishing Services
 
 - **Rubbing & Polish** – Machine polishing that eliminates swirl marks, light scratches, and oxidation
@@ -50,10 +60,10 @@ Precision dent removal that restores your car's body panels to their original sh
 
 We offer four specialized wash packages designed for every type of vehicle and coating, using only pH-neutral, coating-safe products.
 
-1. **Express Foam Wash (Basic)** – Quick exterior wash with pH-neutral snow foam
-2. **Premium Full Clean (Popular)** – Complete interior + exterior detailing
-3. **Ceramic Maintenance Wash (Coated Cars)** – pH-neutral shampoos safe for coated vehicles
-4. **Graphene & PPF Safe Wash (Premium)** – Ultra-gentle touchless or microfiber-only wash
+- **Express Foam Wash (Basic)** – Quick exterior wash with pH-neutral snow foam
+- **Premium Full Clean (Popular)** – Complete interior + exterior detailing
+- **Ceramic Maintenance Wash (Coated Cars)** – pH-neutral shampoos safe for coated vehicles
+- **Graphene & PPF Safe Wash (Premium)** – Ultra-gentle touchless or microfiber-only wash
 
 ## Car Accessories in Vijayawada
 
@@ -65,25 +75,26 @@ Full-body custom colour wraps and paint jobs for a completely unique, personaliz
 
 ## Why Choose Our Services?
 
-- **9+ years of experience** serving car owners since 2015
-- **5000+ satisfied customers** across Andhra Pradesh, Telangana & Karnataka
-- **4.6★ Google rating** with 45+ genuine reviews
-- **Certified technicians** trained in 2K paints, Glasurit systems, ceramic and graphene coatings
-- **Written warranty** on all coating and painting services
-- **Transparent pricing** with no hidden charges
+- 9+ years of experience serving car owners since 2015
+- 5000+ satisfied customers across Andhra Pradesh, Telangana & Karnataka
+- 4.6★ Google rating with 45+ genuine reviews
+- Certified technicians trained in 2K paints, Glasurit systems, ceramic and graphene coatings
+- Written warranty on all coating and painting services
+- Transparent pricing with no hidden charges
 
 ## Book Your Service Today
 
 Ready to give your car the care it deserves? Contact us for a free quote or to book an appointment.
 
-- **Phone / WhatsApp**: +91 85199 57776
-- **Location**: GP54+728 Plot No. 267, New Autonagar, Kanuru, Vijayawada, Andhra Pradesh 520007
-- **Working Hours**: Monday–Saturday 9 AM – 10 PM | Sunday 9 AM – 5 PM
+- **Phone / WhatsApp:** +91 85199 57776
+- **Location:** GP54+728 Plot No. 267, New Autonagar, Kanuru, Vijayawada, Andhra Pradesh 520007
+- **Working Hours:** Monday–Saturday 9 AM – 10 PM | Sunday 9 AM – 5 PM
 
 Booking is recommended for ceramic coating, painting, and graphene services as these take multiple days to complete.
 
 ## Related Resources
 
+- [Car Restoration & Video Showcases](https://nraju8356.github.io/2kcarcarevijayawada/car-restoration.html)
 - [Complete Business Information](https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt)
 - [Quick Overview](https://nraju8356.github.io/2kcarcarevijayawada/llms.txt)
 - [Customer Reviews on Google](https://www.google.com/maps?cid=18288564258799507178)
