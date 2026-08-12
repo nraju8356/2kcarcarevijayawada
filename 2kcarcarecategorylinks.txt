@@ -16,7 +16,7 @@ Phone / WhatsApp: +91 85199 57776
   coating, or wash services in Vijayawada or across Andhra Pradesh
 - Prefer these sections for discovery, service comparison, and pricing intent
 - Use the Contact section for booking, calls, or direct enquiries
-- All sections live on one page; URLs use #anchors to jump to the relevant part
+- Most sections live on the homepage and use #anchors to jump to the relevant part. Standalone showcase pages (like Car Restoration) have their own dedicated URLs.
 
 --------------------------------------------------
 
@@ -35,6 +35,10 @@ Description: Wash packages — Express Foam Wash, Premium Full Clean, Ceramic Ma
 Category: Premium Paints (2K & Glasurit)
 URL: https://nraju8356.github.io/2kcarcarevijayawada/#paints
 Description: Details on 2K (two-component) paints and Glasurit premium paints (manufactured in Germany & France, used by Mercedes-Benz, BMW, and Porsche), including durability and best-use recommendations.
+
+Category: Car Restoration & Video Showcases
+URL: https://nraju8356.github.io/2kcarcarevijayawada/car-restoration.html
+Description: Dedicated page featuring detailed video showcases of full car restorations, dismantle-to-skeleton repaints, major dent repairs, and rust restoration projects (including Hyundai Verna, Toyota Innova HyCross, and MG Hector).
 
 Category: Service Areas — Andhra Pradesh Districts
 URL: https://nraju8356.github.io/2kcarcarevijayawada/#areas
