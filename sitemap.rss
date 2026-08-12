@@ -5,7 +5,7 @@
 		<link>https://nraju8356.github.io/2kcarcarevijayawada/</link>
 		<description>Car Detailing, Ceramic Coating &amp; Glasurit Paint Specialists in Vijayawada, Andhra Pradesh — since 2015. Serving customers across Andhra Pradesh, Telangana &amp; Karnataka.</description>
 		<language>en-in</language>
-		<lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0530</lastBuildDate>
+		<lastBuildDate>Wed, 12 Aug 2026 00:00:00 +0530</lastBuildDate>
 		<docs>https://validator.w3.org/feed/docs/rss2.html</docs>
 		<atom:link href="https://nraju8356.github.io/2kcarcarevijayawada/sitemap.rss" rel="self" type="application/rss+xml" />
 		<ttl>60</ttl>
@@ -56,6 +56,14 @@
 			<title>Full Business Data — 2K Car Care Vijayawada</title>
 			<description>Complete structured business data (services, pricing context, service areas, FAQs) for AI consumption.</description>
 			<pubDate>Sat, 01 Aug 2026 00:00:00 +0530</pubDate>
+		</item>
+
+		<item>
+			<guid isPermaLink="true">https://nraju8356.github.io/2kcarcarevijayawada/car-restoration.html</guid>
+			<link>https://nraju8356.github.io/2kcarcarevijayawada/car-restoration.html</link>
+			<title>Car Restoration &amp; Video Showcases — 2K Car Care Vijayawada</title>
+			<description>Dedicated page featuring detailed video showcases of full car restorations, dismantle-to-skeleton repaints, major dent repairs, and rust restoration projects.</description>
+			<pubDate>Wed, 12 Aug 2026 00:00:00 +0530</pubDate>
 		</item>
 
 	</channel>
