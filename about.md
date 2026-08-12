@@ -82,6 +82,7 @@ Our 4.6★ Google rating reflects real experiences from real customers:
 - Nano Coating (6-12 months)
 - Teflon Coating
 - Car Denting & Body Work
+- Car Restoration & Video Showcases
 - Rubbing & Polish
 - Interior Detailing
 - Underbody Anti-Rust
@@ -112,6 +113,7 @@ Visit us, call us, or WhatsApp us — we're here to help your car shine like new
 
 ## Additional Resources
 
+- [Car Restoration & Video Showcases](https://nraju8356.github.io/2kcarcarevijayawada/car-restoration.html)
 - [Complete Business Information (llms-full.txt)](https://nraju8356.github.io/2kcarcarevijayawada/llms-full.txt)
 - [Quick Overview (llms.txt)](https://nraju8356.github.io/2kcarcarevijayawada/llms.txt)
 - [Customer Reviews on Google](https://www.google.com/maps?cid=18288564258799507178)
