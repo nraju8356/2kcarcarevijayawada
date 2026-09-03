@@ -885,52 +885,10 @@ Serving <strong class="text-white">5000+ car owners</strong> across <strong clas
 <p class="text-white/40 text-xs sm:text-sm mb-2">Car Detailing, Ceramic Coating & Painting Service in Vijayawada Since 2015</p>
 <p class="text-white/30 text-xs sm:text-sm mb-2">Certified in 2K and Glasurit paint application (Germany & France)</p>
 <p class="text-white/30 text-xs sm:text-sm mb-2">Serving customers across all 26 districts of Andhra Pradesh, Telangana & Karnataka</p>
-<div class="foot-row2" style="text-align: center; vertical-align: middle; margin-top: 20px;">
-<table cellspacing="0" cellpadding="0" align="center">
-<tr>
-<td style="font-family: Verdana; font-size: 11px; color: #94a3b8; line-height: 30px; vertical-align: middle;">
-<b>Total Visitors :</b>
-</td>
-<td style="padding-left: 5px;">
-<span class="hit-count-num" style="color: #fff; font-weight: bold;">
-<span id="lblSiteVisited">Loading...</span>
-</span>
-</td>
-<td style="font-family: Verdana; padding-left: 15px; font-size: 11px; color: #94a3b8; line-height: 18px; vertical-align: middle;">
-<b>Today's Visitor :</b>
-</td>
-<td style="padding-left: 5px;">
-<span class="hit-count-num" style="color: #fff; font-weight: bold;">
-<span id="lblCount">Loading...</span>
-</span>
-</td>
-</tr>
-</table>
-</div>
 <p class="text-white/30 text-xs sm:text-sm mt-4">© 2026 2K Car Care Vijayawada. All rights reserved. | Designed by +91 9014663217</p>
 </div>
 </footer>
 <script>
-async function fetchVisitorCounts() {
-try {
-const totalRes = await fetch('https://api.counterapi.dev/v1/2kcarcarevijayawada/total_visits/up');
-if (totalRes.ok) {
-const totalData = await totalRes.json();
-document.getElementById('lblSiteVisited').textContent = totalData.count.toLocaleString();
-}
-const today = new Date().toISOString().split('T')[0].replace(/-/g, '');
-const todayRes = await fetch(`https://api.counterapi.dev/v1/2kcarcarevijayawada/today_${today}/up`);
-if (todayRes.ok) {
-const todayData = await todayRes.json();
-document.getElementById('lblCount').textContent = todayData.count.toLocaleString();
-}
-} catch (error) {
-console.warn('Visitor counter API error:', error);
-document.getElementById('lblSiteVisited').textContent = '0';
-document.getElementById('lblCount').textContent = '0';
-}
-}
-fetchVisitorCounts();
 (function() {
 const toast = document.getElementById('securityToast');
 const toastMsg = document.getElementById('securityToastMsg');
